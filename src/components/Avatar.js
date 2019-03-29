@@ -13,7 +13,13 @@ const AvatarImageBox = styled.div`
   height: 136px;
   justify-content: center;
   margin: 4em auto 2em;
+  transition: ${th('coreTiming')};
   width: 136px;
+
+  &:hover {
+    border-color: ${th('darkGrey')};
+    transition: ${th('coreTiming')};
+  }
 `;
 
 const AvatarImage = styled.img`
