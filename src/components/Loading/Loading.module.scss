@@ -1,0 +1,36 @@
+@keyframes ripple {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 58px;
+    height: 58px;
+    opacity: 0;
+  }
+}
+
+.loading {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+.loading-circle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border: 4px solid #525252;
+  opacity: 1;
+  border-radius: 50%;
+  animation: ripple 1.2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.loading-circle-next {
+  animation-delay: -0.5s;
+}
