@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Normalize, Grid } from '@smooth-ui/core-sc';
 
 import Avatar from './components/Avatar/Avatar';
 import Navigation from './components/Navigation/Navigation'
-import Home from './pages/Home';
-import Learn from './pages/Learn';
-import Blog from './pages/Blog';
-import Dashboard from './pages/Dashboard';
-import Contact from './pages/Contact';
 import Error404 from './pages/Error404';
+import LoadingWrapper from './components/Loading/LoadingWrapper';
+
+const Home = React.lazy(() => import('./pages/Home'));
+const Learn = React.lazy(() => import('./pages/Learn'));
+const Blog = React.lazy(() => import('./pages/Blog'));
+const Dashboard = React.lazy(() => import('./pages/Dashboard'));
+const Contact = React.lazy(() => import('./pages/Contact'));
 
 function App() {
   const [me, setMe] = useState(null);
@@ -29,6 +31,7 @@ function App() {
         <Avatar me={me} size={400} />
       </Grid>
       <Navigation />
+      <Suspense fallback={<LoadingWrapper/>}>
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/nauka-programowania" exact component={Learn} />
@@ -37,6 +40,7 @@ function App() {
         <Route path="/kontakt" exact component={Contact} />
         <Route component={Error404} />
       </Switch>
+      </Suspense>
     </BrowserRouter>
   );
 }
