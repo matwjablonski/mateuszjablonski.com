@@ -17,12 +17,10 @@ function App() {
   const [me, setMe] = useState(null);
 
   useEffect(() => {
-    if (!me) {
-      fetch('http://localhost:8000/api/me')
-        .then(response => response.json())
-        .then((data) => setMe(data));
-    }
-  });
+    fetch('http://localhost:8000/api/me')
+      .then(response => response.json())
+      .then((data) => setMe(data));
+  }, []);
   
   return (
     <BrowserRouter>
@@ -31,16 +29,18 @@ function App() {
         <Avatar me={me} size={400} />
       </Grid>
       <Navigation />
-      <Suspense fallback={<LoadingWrapper/>}>
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/nauka-programowania" exact component={Learn} />
-        <Route path="/blog" exact component={Blog} />
-        <Route path="/panel" exact component={Dashboard} />
-        <Route path="/kontakt" exact component={Contact} />
-        <Route component={Error404} />
-      </Switch>
-      </Suspense>
+      <Grid>
+        <Suspense fallback={<LoadingWrapper/>}>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/nauka-programowania" exact component={Learn} />
+            <Route path="/blog" exact component={Blog} />
+            <Route path="/panel" exact component={Dashboard} />
+            <Route path="/kontakt" exact component={Contact} />
+            <Route component={Error404} />
+          </Switch>
+        </Suspense>
+      </Grid>
     </BrowserRouter>
   );
 }

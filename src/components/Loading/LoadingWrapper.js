@@ -6,7 +6,7 @@ import { LoadingText } from './Loading.style';
 
 const LoadingWrapper = () => (
   <Grid>
-    <Row justifyContent="center" flexDire>
+    <Row justifyContent="center">
       <Col xs="auto">
         <Loading/>
         <LoadingText>Trwa ładowanie</LoadingText>
