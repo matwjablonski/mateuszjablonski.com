@@ -13,6 +13,7 @@ const Navigation = () => (
           <NavigationNavLink to="/">Home</NavigationNavLink>
           <NavigationNavLink to="/blog">Blog</NavigationNavLink>
           <NavigationNavLink to="/nauka-programowania">Ucz się ze mną</NavigationNavLink>
+          <NavigationNavLink to="/kontakt">Kontakt</NavigationNavLink>
           <NavigationNavLink to="/panel">Twój panel</NavigationNavLink>
         </Col>
       </Row>

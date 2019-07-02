@@ -13,6 +13,7 @@ export const NavigationNameLink = styled(Link)`
   color: ${th('black')};
   font-weight: 700;
   font-size: 20px;
+  font-family: ${th('mainFont')};
   text-decoration: none;
 
   &::after {
@@ -29,6 +30,7 @@ export const NavigationNameLink = styled(Link)`
 export const NavigationNavLink = styled(NavLink)`
   color: ${th('darkGrey')};
   font-size: 12px;
+  font-family: ${th('mainFont')};
   margin: 0 10px;
   text-decoration: none;
   text-transform: uppercase;

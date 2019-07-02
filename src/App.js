@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Normalize, Grid } from '@smooth-ui/core-sc';
 
 import Avatar from './components/Avatar/Avatar';
@@ -8,6 +8,8 @@ import Home from './pages/Home';
 import Learn from './pages/Learn';
 import Blog from './pages/Blog';
 import Dashboard from './pages/Dashboard';
+import Contact from './pages/Contact';
+import Error404 from './pages/Error404';
 
 function App() {
   const [me, setMe] = useState(null);
@@ -27,10 +29,14 @@ function App() {
         <Avatar me={me} size={400} />
       </Grid>
       <Navigation />
-      <Route path="/" exact component={Home} />
-      <Route path="/nauka-programowania" exact component={Learn} />
-      <Route path="/blog" exact component={Blog} />
-      <Route path="/panel" exact component={Dashboard} />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/nauka-programowania" exact component={Learn} />
+        <Route path="/blog" exact component={Blog} />
+        <Route path="/panel" exact component={Dashboard} />
+        <Route path="/kontakt" exact component={Contact} />
+        <Route component={Error404} />
+      </Switch>
     </BrowserRouter>
   );
 }

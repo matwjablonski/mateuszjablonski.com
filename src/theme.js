@@ -9,6 +9,8 @@ const theme = {
 
   rootSize: '16px',
   coreTiming: '.7s',
+
+  mainFont: 'Poppins, sans-serif'
 };
 
 export default theme;
