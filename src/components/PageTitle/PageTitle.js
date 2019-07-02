@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { PageTitleH1 } from './PageTitle.style';
+import { PageTitleHeadline } from './PageTitle.style';
 
 const PageTitle = (props) => (
-  <PageTitleH1>{props.text}</PageTitleH1>
+  <PageTitleHeadline>{props.text}</PageTitleHeadline>
 )
 
 export default PageTitle;

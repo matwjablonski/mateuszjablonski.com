@@ -6,6 +6,7 @@ import Avatar from './components/Avatar/Avatar';
 import Navigation from './components/Navigation/Navigation'
 import Error404 from './pages/Error404';
 import LoadingWrapper from './components/Loading/LoadingWrapper';
+import PageWrapper from './components/ui/PageWrapper';
 
 const Home = React.lazy(() => import('./pages/Home'));
 const Learn = React.lazy(() => import('./pages/Learn'));
@@ -30,16 +31,18 @@ function App() {
       </Grid>
       <Navigation />
       <Grid>
-        <Suspense fallback={<LoadingWrapper/>}>
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/nauka-programowania" exact component={Learn} />
-            <Route path="/blog" exact component={Blog} />
-            <Route path="/panel" exact component={Dashboard} />
-            <Route path="/kontakt" exact component={Contact} />
-            <Route component={Error404} />
-          </Switch>
-        </Suspense>
+        <PageWrapper>
+          <Suspense fallback={<LoadingWrapper/>}>
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/nauka-programowania" exact component={Learn} />
+              <Route path="/blog" exact component={Blog} />
+              <Route path="/panel" exact component={Dashboard} />
+              <Route path="/kontakt" exact component={Contact} />
+              <Route component={Error404} />
+            </Switch>
+          </Suspense>
+          </PageWrapper>
       </Grid>
     </BrowserRouter>
   );
