@@ -7,6 +7,7 @@ import Navigation from './components/Navigation/Navigation'
 import Error404 from './pages/Error404';
 import LoadingWrapper from './components/Loading/LoadingWrapper';
 import PageWrapper from './components/ui/PageWrapper';
+import Footer from './components/Footer/Footer';
 
 const Home = React.lazy(() => import('./pages/Home'));
 const Learn = React.lazy(() => import('./pages/Learn'));
@@ -44,6 +45,7 @@ function App() {
           </Suspense>
           </PageWrapper>
       </Grid>
+      <Footer/>
     </BrowserRouter>
   );
 }
