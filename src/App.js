@@ -8,6 +8,7 @@ import Error404 from './pages/Error404';
 import LoadingWrapper from './components/Loading/LoadingWrapper';
 import PageWrapper from './components/ui/PageWrapper';
 import Footer from './components/Footer/Footer';
+import request from './helpers/request';
 
 const Home = React.lazy(() => import('./pages/Home'));
 const Learn = React.lazy(() => import('./pages/Learn'));
@@ -19,10 +20,9 @@ function App() {
   const [me, setMe] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/me')
-      .then(response => response.json())
-      .then((data) => setMe(data));
+    request.get('me').then((data) => setMe(data));
   }, []);
+
   
   return (
     <BrowserRouter>

@@ -4,9 +4,8 @@ import { MarkdownEditorTextarea } from './MarkdownEditor.style';
 const MarkdownEditor = () => {
   const [content, setContent] = useState('');
   return (
-    <MarkdownEditorTextarea onChange={e => setContent(e.target.value)} placeholder="Type your text...">
-      {content}
-    </MarkdownEditorTextarea>)
+    <MarkdownEditorTextarea value={content} onChange={e => setContent(e.target.value)} placeholder="Type your text..." />
+    )
 }
 
 export default MarkdownEditor;
