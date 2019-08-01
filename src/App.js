@@ -15,6 +15,7 @@ const Learn = React.lazy(() => import("./pages/Learn"));
 const Blog = React.lazy(() => import("./pages/Blog"));
 const Dashboard = React.lazy(() => import("./pages/Dashboard"));
 const Contact = React.lazy(() => import("./pages/Contact"));
+const BlogPost = React.lazy(() => import("./pages/BlogPost"));
 
 function App() {
   const [me, setMe] = useState(null);
@@ -41,6 +42,7 @@ function App() {
               <Route path="/" exact component={Home} />
               <Route path="/nauka-programowania" exact component={Learn} />
               <Route path="/blog" exact component={Blog} />
+              <Route path="/blog/:slug" component={BlogPost} />
               <Route path="/panel" exact component={Dashboard} />
               <Route path="/kontakt" exact component={Contact} />
               <Route component={Error404} />
