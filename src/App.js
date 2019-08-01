@@ -1,29 +1,32 @@
-import React, { useState, useEffect, Suspense } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { Normalize, Grid } from '@smooth-ui/core-sc';
+import React, { useState, useEffect, Suspense } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Normalize, Grid } from "@smooth-ui/core-sc";
 
-import Avatar from './components/Avatar/Avatar';
-import Navigation from './components/Navigation/Navigation'
-import Error404 from './pages/Error404';
-import LoadingWrapper from './components/Loading/LoadingWrapper';
-import PageWrapper from './components/ui/PageWrapper';
-import Footer from './components/Footer/Footer';
-import request from './helpers/request';
+import Avatar from "./components/Avatar/Avatar";
+import Navigation from "./components/Navigation/Navigation";
+import Error404 from "./pages/Error404";
+import LoadingWrapper from "./components/Loading/LoadingWrapper";
+import PageWrapper from "./components/ui/PageWrapper";
+import Footer from "./components/Footer/Footer";
+import request from "./helpers/request";
 
-const Home = React.lazy(() => import('./pages/Home'));
-const Learn = React.lazy(() => import('./pages/Learn'));
-const Blog = React.lazy(() => import('./pages/Blog'));
-const Dashboard = React.lazy(() => import('./pages/Dashboard'));
-const Contact = React.lazy(() => import('./pages/Contact'));
+const Home = React.lazy(() => import("./pages/Home"));
+const Learn = React.lazy(() => import("./pages/Learn"));
+const Blog = React.lazy(() => import("./pages/Blog"));
+const Dashboard = React.lazy(() => import("./pages/Dashboard"));
+const Contact = React.lazy(() => import("./pages/Contact"));
 
 function App() {
   const [me, setMe] = useState(null);
 
   useEffect(() => {
-    request.get('me').then((data) => setMe(data));
+    request.get("me").then(data => setMe(data));
   }, []);
 
-  
+  // const b = window.btoa(unescape(encodeURIComponent("śćźóął")));
+
+  // const a = decodeURIComponent(escape(window.atob(b)));
+
   return (
     <BrowserRouter>
       <Normalize />
@@ -33,7 +36,7 @@ function App() {
       <Navigation />
       <Grid>
         <PageWrapper>
-          <Suspense fallback={<LoadingWrapper/>}>
+          <Suspense fallback={<LoadingWrapper />}>
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/nauka-programowania" exact component={Learn} />
@@ -43,9 +46,9 @@ function App() {
               <Route component={Error404} />
             </Switch>
           </Suspense>
-          </PageWrapper>
+        </PageWrapper>
       </Grid>
-      <Footer/>
+      <Footer />
     </BrowserRouter>
   );
 }

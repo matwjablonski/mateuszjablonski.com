@@ -1,16 +1,17 @@
 const theme = {
-  primary: '#FF374A',
+  primary: "#FF374A",
 
-  lighterGrey: '#eee',
-  lightGrey: '#cacaca',
-  darkGrey: '#525252',
+  lighterGrey: "#eee",
+  lightGrey: "#cacaca",
+  darkGrey: "#525252",
 
-  black: '#111',
+  black: "#111",
 
-  rootSize: '16px',
-  coreTiming: '.7s',
+  rootSize: "16px",
+  coreTiming: ".7s",
+  borderRadius: "7px",
 
-  mainFont: 'Poppins, sans-serif'
+  mainFont: "Poppins, sans-serif"
 };
 
 export default theme;
