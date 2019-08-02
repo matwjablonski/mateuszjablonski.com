@@ -13,7 +13,7 @@ script:
   - npm test
   - npm run build
 after_success:
-  - curl --ftp-create-dirs -T build sftp://s27.mydevil.net/public_html --user ${SFTP_USER}:${SFTP_PASSWORD} \;
+  - curl --ftp-create-dirs -T build ftp://s27.mydevil.net/public_html --user ${SFTP_USER}:${SFTP_PASSWORD} \;
 notifications:
   email:
     recipients:
