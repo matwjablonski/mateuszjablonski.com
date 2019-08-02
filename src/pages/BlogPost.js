@@ -12,7 +12,7 @@ const BlogPost = props => {
 
   useEffect(() => {
     request.get(`post/slug/${params.slug}`).then(data => setPost(data));
-  }, []);
+  }, [params.slug]);
 
   return post ? <Post post={post} /> : null;
 };
