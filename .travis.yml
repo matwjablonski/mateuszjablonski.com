@@ -9,9 +9,9 @@ install:
 before_script:
   - npm test
 script:
-  - npm build
+  - npm run build
 after_success:
-  - find . -type d \( -path "./.*" -o -path "./node_modules" \) -prune -o -name "*" -print -exec curl --ftp-create-dirs -T {} ftp://s27.mydevil.net/public_nodejs --user ${SFTP_USER}:${SFTP_PASSWORD} \;
+  - curl --ftp-create-dirs -T build ftp://s27.mydevil.net/public_html --user ${SFTP_USER}:${SFTP_PASSWORD} \;
 notifications:
   email:
     recipients:
