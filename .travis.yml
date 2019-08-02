@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - 10
+branches:
+  only:
+    - master
+install:
+  - npm install
+before_script:
+  - npm test
+script:
+  - npm build
+after_success:
+  - find . -type d \( -path "./.*" -o -path "./node_modules" \) -prune -o -name "*" -print -exec curl --ftp-create-dirs -T {} ftp://s27.mydevil.net/public_nodejs --user ${SFTP_USER}:${SFTP_PASSWORD} \;
+notifications:
+  email:
+    recipients:
+      - mail@mateuszjablonski.com
+    on_success: change
+    on_failure: always
