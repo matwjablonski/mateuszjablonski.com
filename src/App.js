@@ -24,10 +24,6 @@ function App() {
     request.get("me").then(data => setMe(data));
   }, []);
 
-  // const b = window.btoa(unescape(encodeURIComponent("śćźóął")));
-
-  // const a = decodeURIComponent(escape(window.atob(b)));
-
   return (
     <BrowserRouter>
       <Normalize />
