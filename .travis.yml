@@ -9,7 +9,7 @@ install:
 before_script:
   - npm test
 script:
-  - npm run build
+  - npm install && npm run build
 after_success:
   - curl --ftp-create-dirs -T build ftp://s27.mydevil.net/public_html --user ${SFTP_USER}:${SFTP_PASSWORD} \;
 notifications:
