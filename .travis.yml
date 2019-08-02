@@ -1,15 +1,16 @@
 language: node_js
 node_js:
-  - 10
+  - "stable"
 branches:
   only:
     - master
-install:
-  - npm install
-before_script:
-  - npm test
+cache:
+  directories:
+    - node_modules
 script:
-  - npm install && npm run build
+  - npm install
+  - npm test
+  - npm run build
 after_success:
   - curl --ftp-create-dirs -T build ftp://s27.mydevil.net/public_html --user ${SFTP_USER}:${SFTP_PASSWORD} \;
 notifications:
