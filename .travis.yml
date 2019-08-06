@@ -12,8 +12,13 @@ cache:
 script:
   - npm test
   - npm run build
-after_success:
-  - curl -k sftp://s27.mydevil.net/public_html --user ${SFTP_USER}:${SFTP_PASSWORD} -T build --ftp-create-dirs;
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: public
+  on:
+    branch: master
 notifications:
   email:
     recipients:
