@@ -1,4 +1,5 @@
 const theme = {
+  white: "#fff",
   primary: "#FF374A",
 
   lighterGrey: "#eee",

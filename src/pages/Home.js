@@ -11,7 +11,6 @@ const Home = () => {
   }, []);
   return (
     <Grid>
-      Home
       {posts.length
         ? posts.map(post => <PostSummary key={post.id} post={post} />)
         : "brak postów"}
