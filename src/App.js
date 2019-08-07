@@ -21,7 +21,7 @@ function App() {
   const [me, setMe] = useState(null);
 
   useEffect(() => {
-    request.get("me").then(data => setMe(data));
+    request.get("author/me").then(res => setMe(res.data.data));
   }, []);
 
   return (

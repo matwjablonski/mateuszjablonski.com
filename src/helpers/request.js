@@ -1,6 +1,8 @@
-const requests = {
-  get: (uri) => fetch(`${process.env.REACT_APP_API_URL}api/${uri}`).then(response => response.json()),
-  post: () => {},
-}
+import axios from "axios";
+
+const requests = axios.create({
+  baseURL: `${process.env.REACT_APP_API_URL}api/`,
+  timeout: 1000
+});
 
 export default requests;

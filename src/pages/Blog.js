@@ -6,7 +6,7 @@ import PostSummary from "../components/Post/PostSummary";
 const Blog = () => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    request.get("posts").then(data => setPosts(data));
+    request.get("posts").then(res => setPosts(res.data.data));
   }, []);
 
   return (
