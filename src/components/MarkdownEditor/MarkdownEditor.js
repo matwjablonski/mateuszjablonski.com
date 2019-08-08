@@ -3,7 +3,8 @@ import { MarkdownEditorTextarea } from "./MarkdownEditor.style";
 
 const MarkdownEditor = () => {
   const [content, setContent] = useState("");
-  //  const b64  = window.btoa(unescape(encodeURIComponent('string to encode')));
+  //  const b64  = window.btoa(unescape(encodeURIComponent(content)));
+  console.log(window.btoa(unescape(encodeURIComponent(content))));
   return (
     <MarkdownEditorTextarea
       value={content}

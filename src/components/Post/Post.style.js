@@ -43,4 +43,8 @@ export const PostContent = styled.div`
   line-height: 1.8;
   margin: 0 auto;
   max-width: 800px;
+
+  img {
+    max-width: 100%;
+  }
 `;
