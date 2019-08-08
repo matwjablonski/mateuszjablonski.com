@@ -1,9 +1,9 @@
-import React from "react";
-import { Grid } from "@smooth-ui/core-sc";
+import React from 'react';
+import { Grid } from '@smooth-ui/core-sc';
 
-import { FooterWrapper } from "./Footer.style";
-import P from "../ui/P";
-import RecentStories from "../RecentStories/RecentStories";
+import { FooterWrapper } from './Footer.style';
+import P from '../ui/P';
+import RecentStories from '../RecentStories/RecentStories';
 
 const Footer = () => (
   <>

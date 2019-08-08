@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import request from "../helpers/request";
+import React, { useEffect, useState } from 'react';
+import request from '../helpers/request';
 
-import Post from "../components/Post/Post";
+import Post from '../components/Post/Post';
 
 const BlogPost = props => {
   const {
-    match: { params }
+    match: { params },
   } = props;
 
   const [post, setPost] = useState(null);

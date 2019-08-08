@@ -8,19 +8,13 @@ const Learn = () => (
   <React.Fragment>
     <Row justifyContent="center">
       <Col xs={4}>
-        <PageTitle text="Wybierz swoją ścieżkę"/>
-        <ul>
-          <li>Wordpress<br/>zarządzaj treściami na swojej stronie jak profesjonalista</li>
-          <li>Woocommerce<br/>skuteczny handel w sieci</li>
-          <li>Webdeveloper oraz Webdeveloper +<br/>współpraca z Kodillą</li>
-          <li>Zajęcia indywidualne dla dzieci</li>
-        </ul>
+        <PageTitle text="Wybierz swoją ścieżkę" />
       </Col>
       <Col xs={8}>
         <P>lorem ipsum</P>
       </Col>
     </Row>
   </React.Fragment>
-)
+);
 
 export default Learn;

@@ -1,8 +1,8 @@
 export function getMe() {
   return {
     avatar: {
-      hash: 'abc'
+      hash: 'abc',
     },
-    name: 'Mateusz Jabłoński'
-  }
+    name: 'Mateusz Jabłoński',
+  };
 }

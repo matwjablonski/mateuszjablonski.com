@@ -1,7 +1,10 @@
-import React from "react";
-import { Grid } from "@smooth-ui/core-sc";
+import React from 'react';
+import { Grid } from '@smooth-ui/core-sc';
 
-import { RecentStoriesWrapper, RecentStoriesHeadline } from "./RecentStories.style";
+import {
+  RecentStoriesWrapper,
+  RecentStoriesHeadline,
+} from './RecentStories.style';
 
 const RecentStories = () => {
   return (

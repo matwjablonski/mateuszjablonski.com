@@ -8,11 +8,11 @@ const LoadingWrapper = () => (
   <Grid>
     <Row justifyContent="center">
       <Col xs="auto">
-        <Loading/>
+        <Loading />
         <LoadingText>Trwa ładowanie</LoadingText>
       </Col>
     </Row>
   </Grid>
-)
+);
 
 export default LoadingWrapper;

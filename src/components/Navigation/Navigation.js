@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 import {
   NavigationBar,
   NavigationNameLink,
-  NavigationNavLink
-} from "./Navigation.style";
-import { Grid, Row, Col } from "@smooth-ui/core-sc";
+  NavigationNavLink,
+} from './Navigation.style';
+import { Grid, Row, Col } from '@smooth-ui/core-sc';
 
 const Navigation = () => (
   <NavigationBar>

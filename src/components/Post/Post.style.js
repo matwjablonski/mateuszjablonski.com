@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import { th } from "@smooth-ui/core-sc";
+import styled from 'styled-components';
+import { th } from '@smooth-ui/core-sc';
 
-import { PageTitleHeadline } from "../PageTitle/PageTitle.style";
+import { PageTitleHeadline } from '../PageTitle/PageTitle.style';
 
 export const PostSummaryStyle = styled.article`
   max-width: 900px;
@@ -9,13 +9,13 @@ export const PostSummaryStyle = styled.article`
 `;
 
 export const PostTitle = styled(PageTitleHeadline)`
-  font-family: ${th("mainFont")};
+  font-family: ${th('mainFont')};
   font-weight: 700;
 `;
 
 export const PostCoverImage = styled.img`
-  border: 1px solid ${th("lighterGrey")};
-  border-radius: ${th("borderRadius")};
+  border: 1px solid ${th('lighterGrey')};
+  border-radius: ${th('borderRadius')};
   height: 400px;
   object-fit: cover;
   width: 100%;
@@ -34,11 +34,11 @@ export const PostCoverImageSource = styled.span`
 `;
 
 export const PostExcerpt = styled.div`
-  font-family: ${th("mainFont")};
+  font-family: ${th('mainFont')};
 `;
 
 export const PostContent = styled.div`
-  font-family: ${th("mainFont")};
+  font-family: ${th('mainFont')};
   font-size: 1.3em;
   line-height: 1.8;
   margin: 0 auto;

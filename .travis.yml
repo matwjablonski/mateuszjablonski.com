@@ -2,7 +2,7 @@ language: node_js
 env:
   - REACT_APP_API_URL=https://mateuszjablonski-api.herokuapp.com/
 node_js:
-  - "stable"
+  - 'stable'
 branches:
   only:
     - master

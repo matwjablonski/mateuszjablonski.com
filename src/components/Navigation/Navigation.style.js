@@ -19,7 +19,7 @@ export const NavigationNameLink = styled(Link)`
   &::after {
     background: ${th('primary')};
     border-radius: 50%;
-    content: "";
+    content: '';
     display: inline-block;
     height: 7px;
     margin-left: 7px;
@@ -37,7 +37,7 @@ export const NavigationNavLink = styled(NavLink)`
   transition: color ${th('coreTiming')};
 
   &:last-child {
-    margin-right: 0;  
+    margin-right: 0;
   }
 
   &:hover {

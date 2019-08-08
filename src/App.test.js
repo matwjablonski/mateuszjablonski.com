@@ -5,8 +5,12 @@ import App from './App';
 
 describe('test App', () => {
   it('should render', () => {
-    const wrapper = shallow(<div><App /></div>);
+    const wrapper = shallow(
+      <div>
+        <App />
+      </div>
+    );
 
     expect(wrapper.length).toBe(1);
-  })
-})
+  });
+});

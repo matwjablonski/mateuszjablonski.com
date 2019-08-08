@@ -12,7 +12,7 @@ export const AvatarImageBox = styled.div`
   margin: 4em auto 2em;
   transition: ${th('coreTiming')};
   width: 136px;
-  
+
   &:hover {
     border-color: ${th('darkGrey')};
     transition: ${th('coreTiming')};

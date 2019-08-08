@@ -1,11 +1,11 @@
-import React from "react";
-import { PostCoverImage, PostCoverImageSource } from "./Post.style";
+import React from 'react';
+import { PostCoverImage, PostCoverImageSource } from './Post.style';
 
-import { Figure, Figcaption } from "../ui/Figure";
-import { ExternalLink } from "../ui/ExternalLink";
+import { Figure, Figcaption } from '../ui/Figure';
+import { ExternalLink } from '../ui/ExternalLink';
 
 const PostCover = ({
-  coverImage: { url, name, author, authorUrl, source, sourceUrl }
+  coverImage: { url, name, author, authorUrl, source, sourceUrl },
 }) => {
   return (
     <Figure>
