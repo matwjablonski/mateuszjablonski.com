@@ -9,3 +9,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.sidebarClose {
+  margin-left: 0;
+  transition: margin 0.7s;
+}
+
+.sidebarOpen {
+  margin-left: -120px;
+  transition: margin 0.7s;
+}

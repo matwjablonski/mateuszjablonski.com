@@ -5,7 +5,7 @@ export const RecentStoriesWrapper = styled.section`
   background: ${th('white')};
   border-top: 1px solid ${th('lighterGrey')};
   bottom: 0;
-  box-shadow: 0 5px 15px 0 ${th('darkGrey')};
+  box-shadow: 0 -1px 27px 4px rgba(0, 0, 0, 0.07);
   padding: 1em 0;
   position: fixed;
   width: 100%;

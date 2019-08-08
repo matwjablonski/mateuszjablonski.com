@@ -2,14 +2,14 @@ import React from 'react';
 import { Grid } from '@smooth-ui/core-sc';
 
 import { FooterWrapper } from './Footer.style';
-import P from '../ui/P';
+import { Text } from '../ui/Text';
 import RecentStories from '../RecentStories/RecentStories';
 
 const Footer = () => (
   <>
     <Grid>
       <FooterWrapper>
-        <P>&copy; 2019 Mateusz Jabłoński</P>
+        <Text>&copy; 2019 Mateusz Jabłoński</Text>
       </FooterWrapper>
     </Grid>
     <RecentStories />

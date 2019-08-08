@@ -45,3 +45,88 @@ export const NavigationNavLink = styled(NavLink)`
     transition: color ${th('coreTiming')};
   }
 `;
+
+export const NavigationSidebarToggler = styled.button`
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  height: 16px;
+  margin: 0 8px 0 15px;
+  padding: 0;
+  position: relative;
+  width: 30px;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::before {
+    background: ${th('darkGrey')};
+    border-radius: 1px;
+    content: '';
+    display: block;
+    height: 2px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &::after {
+    background: ${th('darkGrey')};
+    border-radius: 1px;
+    bottom: 0;
+    content: '';
+    display: block;
+    height: 2px;
+    position: absolute;
+    transition: ${th('coreTiming')};
+    width: 100%;
+  }
+
+  &:hover {
+    &::before,
+    &::after {
+      transition: ${th('coreTiming')};
+      width: 70%;
+    }
+  }
+
+  span {
+    background: ${th('darkGrey')};
+    border-radius: 1px;
+    display: block;
+    height: 2px;
+    opacity: 1;
+    transition: ${th('coreTiming')};
+    width: 100%;
+  }
+
+  &.isSidebarOpen {
+    span {
+      opacity: 0;
+      transition: ${th('coreTiming')};
+    }
+
+    &::before {
+      transform: rotate(45deg);
+      transform-origin: top left;
+      width: 80%;
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+      transform-origin: top right;
+      top: 0;
+      right: 14px;
+      width: 80%;
+    }
+
+    &:hover {
+      &::before,
+      &::after {
+        transition: ${th('coreTiming')};
+        width: 80%;
+      }
+    }
+  }
+`;

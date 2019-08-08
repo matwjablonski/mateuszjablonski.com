@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col } from '@smooth-ui/core-sc';
 
 import PageTitle from '../components/PageTitle/PageTitle';
-import P from '../components/ui/P';
+import { Text } from '../components/ui/Text';
 
 const Learn = () => (
   <React.Fragment>
@@ -11,7 +11,7 @@ const Learn = () => (
         <PageTitle text="Wybierz swoją ścieżkę" />
       </Col>
       <Col xs={8}>
-        <P>lorem ipsum</P>
+        <Text>lorem ipsum</Text>
       </Col>
     </Row>
   </React.Fragment>

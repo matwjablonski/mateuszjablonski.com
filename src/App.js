@@ -4,6 +4,7 @@ import { Normalize, Grid } from '@smooth-ui/core-sc';
 
 import Avatar from './components/Avatar/Avatar';
 import Navigation from './components/Navigation/Navigation';
+import Sidebar from './components/Sidebar/Sidebar';
 import Error404 from './pages/Error404';
 import LoadingWrapper from './components/Loading/LoadingWrapper';
 import PageWrapper from './components/ui/PageWrapper';
@@ -19,35 +20,42 @@ const BlogPost = React.lazy(() => import('./pages/BlogPost'));
 
 function App() {
   const [me, setMe] = useState(null);
+  const [isSidebarOpen, toggleSidebar] = useState(false);
 
   useEffect(() => {
     request.get('author/me').then(res => setMe(res.data.data));
   }, []);
 
   return (
-    <BrowserRouter>
-      <Normalize />
-      <Grid>
-        <Avatar me={me} size={400} />
-      </Grid>
-      <Navigation />
-      <Grid>
-        <PageWrapper>
-          <Suspense fallback={<LoadingWrapper />}>
-            <Switch>
-              <Route path="/" exact component={Home} />
-              <Route path="/nauka-programowania" exact component={Learn} />
-              <Route path="/blog" exact component={Blog} />
-              <Route path="/blog/:slug" component={BlogPost} />
-              <Route path="/panel" exact component={Dashboard} />
-              <Route path="/kontakt" exact component={Contact} />
-              <Route component={Error404} />
-            </Switch>
-          </Suspense>
-        </PageWrapper>
-      </Grid>
-      <Footer />
-    </BrowserRouter>
+    <div className={isSidebarOpen ? 'sidebarOpen' : 'sidebarClose'}>
+      <BrowserRouter>
+        <Normalize />
+        <Grid>
+          <Avatar me={me} size={400} />
+        </Grid>
+        <Navigation
+          sidebarToggler={toggleSidebar}
+          isSidebarOpen={isSidebarOpen}
+        />
+        <Sidebar me={me} isOpen={isSidebarOpen} />
+        <Grid>
+          <PageWrapper>
+            <Suspense fallback={<LoadingWrapper />}>
+              <Switch>
+                <Route path="/" exact component={Home} />
+                <Route path="/nauka-programowania" exact component={Learn} />
+                <Route path="/blog" exact component={Blog} />
+                <Route path="/blog/:slug" component={BlogPost} />
+                <Route path="/panel" exact component={Dashboard} />
+                <Route path="/kontakt" exact component={Contact} />
+                <Route component={Error404} />
+              </Switch>
+            </Suspense>
+          </PageWrapper>
+        </Grid>
+        <Footer />
+      </BrowserRouter>
+    </div>
   );
 }
 

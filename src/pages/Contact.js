@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col } from '@smooth-ui/core-sc';
 
 import PageTitle from '../components/PageTitle/PageTitle';
-import P from '../components/ui/P';
+import { Text } from '../components/ui/Text';
 
 const Contact = () => (
   <React.Fragment>
@@ -13,11 +13,11 @@ const Contact = () => (
     </Row>
     <Row justifyContent="center">
       <Col xs={8}>
-        <P>
+        <Text>
           Zapraszam serdecznie do kontaktu. Niezależnie w jakiej kwestii - masz
           pytanie, problem czy chciałbyś / chciałabyś rozpocząć ze mną
           współpracę. Jestem otwarty na nowe wyzwania.
-        </P>
+        </Text>
       </Col>
     </Row>
     <Row justifyContent="center">
@@ -30,11 +30,11 @@ const Contact = () => (
             <PageTitle text="Napisz" />
           </Col>
           <Col xs={6}>
-            <P>+48 794 566 403</P>
-            <P>
+            <Text>+48 794 566 403</Text>
+            <Text>
               * pod telefonem jestem dostępny od poniedziałku do czwartku od
               15:00 do 19:00, natomiast w piątki od 8:00 do 19:00
-            </P>
+            </Text>
           </Col>
         </Row>
       </Col>
