@@ -32,6 +32,7 @@ const RecentStories = () => {
               {recentStories.length > 0
                 ? recentStories.map((story, index) => (
                     <RecentStoryLink
+                      key={story.id}
                       to={`/blog/${story.slug}`}
                       style={{
                         marginRight: `${-20 * index}px`,

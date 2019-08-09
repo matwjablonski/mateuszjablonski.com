@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Normalize, Grid } from '@smooth-ui/core-sc';
 
 import Avatar from './components/Avatar/Avatar';
+import SocialBar from './components/SocialBar/SocialBar';
 import Navigation from './components/Navigation/Navigation';
 import Sidebar from './components/Sidebar/Sidebar';
 import Error404 from './pages/Error404';
@@ -45,6 +46,7 @@ function App() {
         <Grid>
           <Avatar me={me} size={400} />
         </Grid>
+        <SocialBar />
         <Navigation
           sidebarToggler={toggleSidebar}
           isSidebarOpen={isSidebarOpen}
