@@ -15,7 +15,7 @@ export const RecentStoriesWrapper = styled.section`
 export const RecentStoriesHeadline = styled.h3`
   font-family: ${th('mainFont')};
   margin: 0;
-  max-width: 100px;
+  max-width: 120px;
   line-height: 1;
   font-size: 1.4em;
 

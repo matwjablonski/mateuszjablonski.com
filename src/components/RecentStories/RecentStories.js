@@ -25,7 +25,7 @@ const RecentStories = () => {
       <Grid>
         <Row alignItems="center">
           <Col xs="auto" mr="auto">
-            <RecentStoriesHeadline>Recent stories</RecentStoriesHeadline>
+            <RecentStoriesHeadline>Ostatnio na blogu</RecentStoriesHeadline>
           </Col>
           <Col xs="auto">
             <RecentStoriesLine>
