@@ -13,7 +13,7 @@ const PostSummary = ({ post }) => (
     <PostExcerpt>
       <FromMarkdown text={post.excerpt || ''} />
     </PostExcerpt>
-    <SimpleButton to={`blog/${post.slug}`}>Continue reading</SimpleButton>
+    <SimpleButton to={`blog/${post.slug}`}>Czytaj dalej</SimpleButton>
   </PostSummaryStyle>
 );
 

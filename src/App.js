@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, useEffect, useRef, Suspense } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Normalize, Grid } from '@smooth-ui/core-sc';
 
@@ -22,8 +22,20 @@ function App() {
   const [me, setMe] = useState(null);
   const [isSidebarOpen, toggleSidebar] = useState(false);
 
+  const sidebarRef = useRef(null);
+
+  const handleClickOutsideSidebar = e =>
+    sidebarRef.current && !sidebarRef.current.contains(e.target)
+      ? toggleSidebar(false)
+      : null;
+
   useEffect(() => {
     request.get('author/me').then(res => setMe(res.data.data));
+    document.addEventListener('mousedown', handleClickOutsideSidebar);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutsideSidebar);
+    };
   }, []);
 
   return (
@@ -37,7 +49,9 @@ function App() {
           sidebarToggler={toggleSidebar}
           isSidebarOpen={isSidebarOpen}
         />
-        <Sidebar me={me} isOpen={isSidebarOpen} />
+        <div ref={sidebarRef}>
+          <Sidebar me={me} isOpen={isSidebarOpen} />
+        </div>
         <Grid>
           <PageWrapper>
             <Suspense fallback={<LoadingWrapper />}>
