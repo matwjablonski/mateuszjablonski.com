@@ -6,6 +6,10 @@ import {
   faLinkedin,
   faTwitter,
   faInstagram,
+  faLastfm,
+  faStackOverflow,
+  faCodepen,
+  faMedium,
 } from '@fortawesome/free-brands-svg-icons';
 import { Grid } from '@smooth-ui/core-sc';
 
@@ -22,9 +26,22 @@ const SocialBar = () => (
     <SocialBarWrapper>
       <SocialBarIcon link="" icon={faFacebookSquare} />
       <SocialBarIcon link="https://github.com/matwjablonski" icon={faGithub} />
-      <SocialBarIcon link="" icon={faLinkedin} />
+      <SocialBarIcon
+        link="https://www.linkedin.com/in/mateusz-jablonski/"
+        icon={faLinkedin}
+      />
       <SocialBarIcon link="" icon={faTwitter} />
-      <SocialBarIcon link="" icon={faInstagram} />
+      <SocialBarIcon
+        link="https://www.instagram.com/mat.w.jablonski"
+        icon={faInstagram}
+      />
+      <SocialBarIcon link="https://last.fm/user/reeb89" icon={faLastfm} />
+      <SocialBarIcon
+        link="https://stackoverflow.com/users/5757095/mateusz-jabłoński"
+        icon={faStackOverflow}
+      />
+      <SocialBarIcon link="https://codepen.io/matwjablonski" icon={faCodepen} />
+      <SocialBarIcon link="" icon={faMedium} />
     </SocialBarWrapper>
   </Grid>
 );

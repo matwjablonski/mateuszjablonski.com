@@ -48,6 +48,7 @@ export const NavigationNavLink = styled(NavLink)`
 
 export const NavigationSidebarToggler = styled.button`
   appearance: none;
+  background: transparent;
   border: 0;
   cursor: pointer;
   height: 16px;

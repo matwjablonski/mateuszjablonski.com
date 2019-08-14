@@ -21,6 +21,10 @@ export const SidebarWrapper = styled.aside`
 `;
 
 export const SidebarContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
   padding: 2em;
   width: 300px;
 `;
