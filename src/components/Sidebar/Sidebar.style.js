@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { th } from '@smooth-ui/core-sc';
+import { th, ModalFooter } from '@smooth-ui/core-sc';
 
 export const SidebarWrapper = styled.aside`
   background: ${th('white')};
@@ -34,4 +34,8 @@ export const SidebarMyPhoto = styled.img`
   height: calc(300px - 4em);
   object-fit: cover;
   width: 100%;
+`;
+
+export const SidebarModalFooter = styled(ModalFooter)`
+  background: ${th('primary')};
 `;
