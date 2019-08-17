@@ -30,11 +30,10 @@ const Sidebar = ({ me, isOpen }) => {
   const [modalType, switchModalType] = useState('login');
   const { user, setUser } = useContext(UserContext);
 
-  console.log('sidebar', user);
   const handleSidebarButtonAction = () => {
     if (user.name) {
-      requests()
-        .post('users/logout', {})
+      requests(user.token)
+        .post('users/logout')
         .then(() => {
           setUser(unloggedUser);
         });
