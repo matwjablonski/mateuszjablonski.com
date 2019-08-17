@@ -18,7 +18,7 @@ const LoginForm = ({ switchModalType, onClose }) => {
   const user = useContext(UserContext);
 
   const handleLogin = values => {
-    requests
+    requests()
       .post('users/login', values)
       .then(res => {
         user.setUser({ ...res.data.data.user, token: res.data.data.token });

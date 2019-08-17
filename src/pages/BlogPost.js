@@ -11,7 +11,9 @@ const BlogPost = props => {
   const [post, setPost] = useState(null);
 
   useEffect(() => {
-    request.get(`post/slug/${params.slug}`).then(res => setPost(res.data));
+    request()
+      .get(`post/slug/${params.slug}`)
+      .then(res => setPost(res.data));
   }, [params.slug]);
 
   return post ? <Post post={post} /> : null;

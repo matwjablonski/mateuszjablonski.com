@@ -7,7 +7,9 @@ import BigLoader from '../components/BigLoader/BigLoader';
 const Blog = () => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    request.get('posts').then(res => setPosts(res.data.data));
+    request()
+      .get('posts')
+      .then(res => setPosts(res.data.data));
   }, []);
 
   return (

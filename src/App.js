@@ -33,7 +33,9 @@ function App() {
       : null;
 
   useEffect(() => {
-    request.get('author/me').then(res => setMe(res.data.data));
+    request()
+      .get('author/me')
+      .then(res => setMe(res.data.data));
     document.addEventListener('mousedown', handleClickOutsideSidebar);
 
     return () => {

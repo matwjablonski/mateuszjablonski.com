@@ -15,7 +15,7 @@ const RecentStories = () => {
   const [recentStories, getRecentStories] = useState([]);
 
   useEffect(() => {
-    request
+    request()
       .get('posts/recentStories')
       .then(res => getRecentStories(res.data.data));
   }, []);

@@ -33,9 +33,11 @@ const Sidebar = ({ me, isOpen }) => {
   console.log('sidebar', user);
   const handleSidebarButtonAction = () => {
     if (user.name) {
-      requests.post('users/logout').then(() => {
-        setUser(unloggedUser);
-      });
+      requests()
+        .post('users/logout', {})
+        .then(() => {
+          setUser(unloggedUser);
+        });
     } else {
       onToggle(true);
     }
