@@ -11,6 +11,7 @@ import LoadingWrapper from './components/Loading/LoadingWrapper';
 import PageWrapper from './components/ui/PageWrapper';
 import Footer from './components/Footer/Footer';
 import request from './helpers/request';
+import { UserProvider, unloggedUser } from './userContext';
 
 const Home = React.lazy(() => import('./pages/Home'));
 const Learn = React.lazy(() => import('./pages/Learn'));
@@ -22,6 +23,7 @@ const BlogPost = React.lazy(() => import('./pages/BlogPost'));
 function App() {
   const [me, setMe] = useState(null);
   const [isSidebarOpen, toggleSidebar] = useState(false);
+  const [user, setUser] = useState(unloggedUser);
 
   const sidebarRef = useRef(null);
 
@@ -40,38 +42,40 @@ function App() {
   }, []);
 
   return (
-    <div className={isSidebarOpen ? 'sidebarOpen' : 'sidebarClose'}>
-      <BrowserRouter>
-        <Normalize />
-        <Grid>
-          <Avatar me={me} size={400} />
-        </Grid>
-        <SocialBar />
-        <Navigation
-          sidebarToggler={toggleSidebar}
-          isSidebarOpen={isSidebarOpen}
-        />
-        <div ref={sidebarRef}>
-          <Sidebar me={me} isOpen={isSidebarOpen} />
-        </div>
-        <Grid>
-          <PageWrapper>
-            <Suspense fallback={<LoadingWrapper />}>
-              <Switch>
-                <Route path="/" exact component={Home} />
-                <Route path="/nauka-programowania" exact component={Learn} />
-                <Route path="/blog" exact component={Blog} />
-                <Route path="/blog/:slug" component={BlogPost} />
-                <Route path="/panel" exact component={Dashboard} />
-                <Route path="/kontakt" exact component={Contact} />
-                <Route component={Error404} />
-              </Switch>
-            </Suspense>
-          </PageWrapper>
-        </Grid>
-        <Footer />
-      </BrowserRouter>
-    </div>
+    <UserProvider value={{ user, setUser }}>
+      <div className={isSidebarOpen ? 'sidebarOpen' : 'sidebarClose'}>
+        <BrowserRouter>
+          <Normalize />
+          <Grid>
+            <Avatar me={me} size={400} />
+          </Grid>
+          <SocialBar />
+          <Navigation
+            sidebarToggler={toggleSidebar}
+            isSidebarOpen={isSidebarOpen}
+          />
+          <div ref={sidebarRef}>
+            <Sidebar me={me} isOpen={isSidebarOpen} />
+          </div>
+          <Grid>
+            <PageWrapper>
+              <Suspense fallback={<LoadingWrapper />}>
+                <Switch>
+                  <Route path="/" exact component={Home} />
+                  <Route path="/nauka-programowania" exact component={Learn} />
+                  <Route path="/blog" exact component={Blog} />
+                  <Route path="/blog/:slug" component={BlogPost} />
+                  <Route path="/panel" exact component={Dashboard} />
+                  <Route path="/kontakt" exact component={Contact} />
+                  <Route component={Error404} />
+                </Switch>
+              </Suspense>
+            </PageWrapper>
+          </Grid>
+          <Footer />
+        </BrowserRouter>
+      </div>
+    </UserProvider>
   );
 }
 

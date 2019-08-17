@@ -1,11 +1,11 @@
 import React from 'react';
 
-const unloggedUser = {
+export const unloggedUser = {
   name: '',
 };
 
-export const userContext = React.createContext(unloggedUser);
+export const UserContext = React.createContext(unloggedUser);
 
-export const userProvider = userContext.Provider;
+export const UserProvider = UserContext.Provider;
 
-export const userConsumer = userContext.Consumer;
+export const UserConsumer = UserContext.Consumer;
