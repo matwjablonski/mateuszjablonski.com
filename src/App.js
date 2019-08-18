@@ -12,6 +12,7 @@ import PageWrapper from './components/ui/PageWrapper';
 import Footer from './components/Footer/Footer';
 import request from './helpers/request';
 import { UserProvider, unloggedUser } from './userContext';
+import UserBar from './components/UserBar/UserBar';
 
 const Home = React.lazy(() => import('./pages/Home'));
 const Learn = React.lazy(() => import('./pages/Learn'));
@@ -48,6 +49,7 @@ function App() {
       <div className={isSidebarOpen ? 'sidebarOpen' : 'sidebarClose'}>
         <BrowserRouter>
           <Normalize />
+          <UserBar />
           <Grid>
             <Avatar me={me} size={400} />
           </Grid>
@@ -57,7 +59,7 @@ function App() {
             isSidebarOpen={isSidebarOpen}
           />
           <div ref={sidebarRef}>
-            <Sidebar me={me} isOpen={isSidebarOpen} />
+            {me && <Sidebar me={me} isOpen={isSidebarOpen} />}
           </div>
           <Grid>
             <PageWrapper>

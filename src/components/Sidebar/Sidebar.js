@@ -21,6 +21,7 @@ import {
 import LoginForm from '../LoginForm/LoginForm';
 import { UserContext, unloggedUser } from '../../userContext';
 import requests from '../../helpers/request';
+import { removeToken } from '../../helpers/token';
 
 const Sidebar = ({ me, isOpen }) => {
   const img =
@@ -36,6 +37,7 @@ const Sidebar = ({ me, isOpen }) => {
         .post('users/logout')
         .then(() => {
           setUser(unloggedUser);
+          removeToken();
         });
     } else {
       onToggle(true);

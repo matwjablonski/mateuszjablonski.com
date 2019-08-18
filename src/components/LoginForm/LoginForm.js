@@ -13,6 +13,7 @@ import { SmallTitle } from '../ui/Title';
 import { SidebarModalFooter } from '../Sidebar/Sidebar.style';
 import requests from '../../helpers/request';
 import { UserContext } from '../../userContext';
+import { keepToken } from '../../helpers/token';
 
 const LoginForm = ({ switchModalType, onClose }) => {
   const user = useContext(UserContext);
@@ -21,6 +22,7 @@ const LoginForm = ({ switchModalType, onClose }) => {
     requests()
       .post('users/login', values)
       .then(res => {
+        keepToken(res.data.data.token);
         user.setUser({ ...res.data.data.user, token: res.data.data.token });
       })
       .then(() => {
