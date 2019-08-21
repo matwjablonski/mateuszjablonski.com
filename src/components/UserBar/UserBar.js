@@ -8,7 +8,6 @@ const UserBar = () => {
 
   const { user } = context;
 
-  console.log(context.user.name);
   return user.name ? (
     <UserBarWrapper>
       <Grid>Cześć, {user.name}</Grid>

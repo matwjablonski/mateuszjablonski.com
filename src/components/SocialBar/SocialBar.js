@@ -24,13 +24,19 @@ const SocialBarIcon = ({ link, icon }) => (
 const SocialBar = () => (
   <Grid>
     <SocialBarWrapper>
-      <SocialBarIcon link="" icon={faFacebookSquare} />
+      <SocialBarIcon
+        link="https://www.facebook.com/blogmateuszjablonski/"
+        icon={faFacebookSquare}
+      />
       <SocialBarIcon link="https://github.com/matwjablonski" icon={faGithub} />
       <SocialBarIcon
         link="https://www.linkedin.com/in/mateusz-jablonski/"
         icon={faLinkedin}
       />
-      <SocialBarIcon link="" icon={faTwitter} />
+      <SocialBarIcon
+        link="https://twitter.com/mateuszjablons6"
+        icon={faTwitter}
+      />
       <SocialBarIcon
         link="https://www.instagram.com/mat.w.jablonski"
         icon={faInstagram}
