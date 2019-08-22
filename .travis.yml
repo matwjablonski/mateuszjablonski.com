@@ -13,7 +13,7 @@ script:
   - npm test
   - npm run build
 after_success:
-  - find build -type f -exec curl -u $FTP_USER:$FTP_PASS --ftp-create-dirs -T {} ftp://s27.mydevil.net/public_html/{} \;
+  - cd build && find * -type f -exec curl -u $FTP_USER:$FTP_PASS --ftp-create-dirs -T {} ftp://s27.mydevil.net/public_html/{} \;
 deploy:
   provider: pages
   skip_cleanup: true
