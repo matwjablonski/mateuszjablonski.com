@@ -13,7 +13,7 @@ script:
   - npm test
   - npm run build
 after_success:
-  - find . -type d \( -path "./.*" -o -path "./node_modules" \) -prune -o -name "*" -print -exec curl --ftp-create-dirs -T {} ftp://s27.mydevil.net/public_html/ --user ${FTP_USER}:${FTP_PASSWORD} \;
+  - find build -type f -exec curl -u $FTP_USER:$FTP_PASSWORD --ftp-create-dirs -T {} ftp://s27.mydevil.net/public_html/{} \;
 deploy:
   provider: pages
   skip_cleanup: true
