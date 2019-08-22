@@ -46,10 +46,10 @@ function App() {
 
   return (
     <UserProvider value={{ user, setUser }}>
+      <UserBar />
       <div className={isSidebarOpen ? 'sidebarOpen' : 'sidebarClose'}>
         <BrowserRouter>
           <Normalize />
-          <UserBar />
           <Grid>
             <Avatar me={me} size={400} />
           </Grid>
