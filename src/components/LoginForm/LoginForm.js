@@ -21,17 +21,12 @@ const LoginForm = ({ switchModalType, onClose }) => {
   const handleLogin = values => {
     requests()
       .post('users/login', values)
-      .then(res => {
-        keepToken(res.data.data.token);
-        //
-      })
+      .then(res => keepToken(res.data.data.token))
       .then(() => {
         requests()
           .get('users/me')
-          .then(res => user.setUser(res.data.data));
-      })
-      .then(() => {
-        onClose(false);
+          .then(res => user.setUser(res.data.data))
+          .then(() => onClose(false));
       });
   };
 

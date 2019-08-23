@@ -3,10 +3,10 @@ import { th } from '@smooth-ui/core-sc';
 
 export const MarkdownEditorTextarea = styled.textarea`
   border: 1px solid ${th('lighterGrey')};
-  height: 100vh;
+  height: ${props => props.height || '100vh'};
   line-height: 1.6;
   max-width: 100%;
-  min-height: 700px;
+  min-height: ${props => props.height || '700px'};
   min-width: 100%;
   padding: 15px;
   width: 100%;

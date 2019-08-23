@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { Grid } from '@smooth-ui/core-sc';
-import { UserBarWrapper } from './UserBar.style';
+import { Grid, Row, Col } from '@smooth-ui/core-sc';
+import { UserBarWrapper, UserBarLink } from './UserBar.style';
 import { UserContext } from '../../userContext';
 
 const UserBar = () => {
@@ -10,7 +10,16 @@ const UserBar = () => {
 
   return user.name ? (
     <UserBarWrapper>
-      <Grid>Cześć, {user.name}</Grid>
+      <Grid>
+        <Row alignItems="center">
+          <Col xs="auto" mr="auto">
+            Cześć, {user.name}
+          </Col>
+          <Col xs="auto">
+            <UserBarLink to="/admin/nowy-post">Dodaj post</UserBarLink>
+          </Col>
+        </Row>
+      </Grid>
     </UserBarWrapper>
   ) : null;
 };

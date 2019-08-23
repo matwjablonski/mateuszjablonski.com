@@ -20,6 +20,7 @@ const Blog = React.lazy(() => import('./pages/Blog'));
 const Dashboard = React.lazy(() => import('./pages/Dashboard'));
 const Contact = React.lazy(() => import('./pages/Contact'));
 const BlogPost = React.lazy(() => import('./pages/BlogPost'));
+const NewPost = React.lazy(() => import('./pages/NewPost'));
 
 function App() {
   const [me, setMe] = useState(null);
@@ -51,9 +52,9 @@ function App() {
   return (
     <UserProvider value={{ user, setUser }}>
       <div className={isSidebarOpen ? 'sidebarOpen' : 'sidebarClose'}>
-        <UserBar />
         <BrowserRouter>
           <Normalize />
+          <UserBar />
           <Grid>
             <Avatar me={me} size={400} />
           </Grid>
@@ -71,6 +72,7 @@ function App() {
                 <Switch>
                   <Route path="/" exact component={Home} />
                   <Route path="/nauka-programowania" exact component={Learn} />
+                  <Route path="/admin/nowy-post" exact component={NewPost} />
                   <Route path="/blog" exact component={Blog} />
                   <Route path="/blog/:slug" component={BlogPost} />
                   <Route path="/panel" exact component={Dashboard} />
