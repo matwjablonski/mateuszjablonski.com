@@ -23,7 +23,12 @@ const LoginForm = ({ switchModalType, onClose }) => {
       .post('users/login', values)
       .then(res => {
         keepToken(res.data.data.token);
-        user.setUser({ ...res.data.data.user, token: res.data.data.token });
+        //
+      })
+      .then(() => {
+        requests()
+          .get('users/me')
+          .then(res => user.setUser(res.data.data));
       })
       .then(() => {
         onClose(false);

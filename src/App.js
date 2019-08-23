@@ -37,6 +37,10 @@ function App() {
     request()
       .get('author/me')
       .then(res => setMe(res.data.data));
+
+    request()
+      .get('users/me')
+      .then(res => setUser(res.data.data));
     document.addEventListener('mousedown', handleClickOutsideSidebar);
 
     return () => {
@@ -46,8 +50,8 @@ function App() {
 
   return (
     <UserProvider value={{ user, setUser }}>
-      <UserBar />
       <div className={isSidebarOpen ? 'sidebarOpen' : 'sidebarClose'}>
+        <UserBar />
         <BrowserRouter>
           <Normalize />
           <Grid>
