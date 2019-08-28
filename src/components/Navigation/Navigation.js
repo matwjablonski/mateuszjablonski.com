@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   NavigationBar,
   NavigationNameLink,
@@ -8,6 +9,7 @@ import {
 import { Grid, Row, Col } from '@smooth-ui/core-sc';
 
 const Navigation = ({ sidebarToggler, isSidebarOpen }) => {
+  const { t } = useTranslation();
   return (
     <NavigationBar>
       <Grid>
@@ -17,9 +19,15 @@ const Navigation = ({ sidebarToggler, isSidebarOpen }) => {
           </Col>
           <Col xs="auto">
             <Row alignItems="center">
-              <NavigationNavLink to="/">Home</NavigationNavLink>
-              <NavigationNavLink to="/blog">Blog</NavigationNavLink>
-              <NavigationNavLink to="/kontakt">Kontakt</NavigationNavLink>
+              <NavigationNavLink to="/">
+                {t('GENERAL.NAV.HOME')}
+              </NavigationNavLink>
+              <NavigationNavLink to="/blog">
+                {t('GENERAL.NAV.BLOG')}
+              </NavigationNavLink>
+              <NavigationNavLink to="/kontakt">
+                {t('GENERAL.NAV.CONTACT')}
+              </NavigationNavLink>
               <NavigationSidebarToggler
                 onClick={() => sidebarToggler(!isSidebarOpen)}
                 className={isSidebarOpen && 'isSidebarOpen'}

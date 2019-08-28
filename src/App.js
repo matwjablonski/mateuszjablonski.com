@@ -12,7 +12,7 @@ import Footer from './components/Footer/Footer';
 import request from './helpers/request';
 import { UserProvider, unloggedUser } from './userContext';
 import UserBar from './components/UserBar/UserBar';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 
 const Home = React.lazy(() => import('./pages/Home'));
 const Learn = React.lazy(() => import('./pages/Learn'));
@@ -62,7 +62,8 @@ function App() {
           <UserBar />
           <Grid>
             <Avatar me={me} size={400} />
-            {t('title')}
+            <Trans i18nKey="admin.userBar.welcome" values={{ name: 'abc' }} />
+            {t('admin.userBar.welcome')}
           </Grid>
           <SocialBar />
           <Navigation
