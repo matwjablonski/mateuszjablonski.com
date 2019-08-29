@@ -25,6 +25,24 @@
           "LABEL": "Hasło",
           "PLACEHOLDER": "Wprowadź swoje hasło"
         }
+      },
+      "REGISTER_FORM": {
+        "NAME": {
+          "LABEL": "Imię i nazwisko",
+          "PLACEHOLDER": "Podaj swoje imię i nazwisko"
+        },
+        "EMAIL": {
+          "LABEL": "Twój email",
+          "PLACEHOLDER": "Podaj swój adres email"
+        },
+        "PASSWORD": {
+          "LABEL": "Hasło",
+          "PLACEHOLDER": "Wprowadź swoje hasło"
+        },
+        "PASSWORD_REPEAT": {
+          "LABEL": "Powtórzenie hasła",
+          "PLACEHOLDER": "Wprowadź jeszcze raz swoje hasło"
+        }
       }
     },
     "NAV": {
