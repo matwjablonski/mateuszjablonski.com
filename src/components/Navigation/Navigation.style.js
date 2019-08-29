@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link, NavLink } from 'react-router-dom';
-import { th } from '@smooth-ui/core-sc';
+import { th, Select } from '@smooth-ui/core-sc';
 
 export const NavigationBar = styled.div`
   align-items: center;
@@ -130,4 +130,9 @@ export const NavigationSidebarToggler = styled.button`
       }
     }
   }
+`;
+
+export const LanguageSelector = styled(Select)`
+  margin-left: 10px;
+  margin-right: 10px;
 `;

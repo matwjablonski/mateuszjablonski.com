@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Formik } from 'formik';
+import { useTranslation } from 'react-i18next';
 import {
   Button,
   ModalContent,
@@ -17,6 +18,7 @@ import { keepToken } from '../../helpers/token';
 
 const LoginForm = ({ switchModalType, onClose }) => {
   const user = useContext(UserContext);
+  const { t } = useTranslation();
 
   const handleLogin = values => {
     requests()
@@ -43,24 +45,30 @@ const LoginForm = ({ switchModalType, onClose }) => {
             </ModalHeader>
             <ModalBody>
               <FormGroup>
-                <Label htmlFor="form-group-email">Twój email</Label>
+                <Label htmlFor="form-group-email">
+                  {t('GENERAL.AUTH.LOGIN_FORM.EMAIL.LABEL')}
+                </Label>
                 <Input
                   control
                   id="form-group-email"
                   type="email"
                   name="email"
-                  placeholder="Podaj swój adres email"
+                  placeholder={t('GENERAL.AUTH.LOGIN_FORM.EMAIL.PLACEHOLDER')}
                   onChange={handleChange}
                 />
               </FormGroup>
               <FormGroup>
-                <Label htmlFor="form-group-login">Hasło</Label>
+                <Label htmlFor="form-group-login">
+                  {t('GENERAL.AUTH.LOGIN_FORM.PASSWORD.LABEL')}
+                </Label>
                 <Input
                   control
                   id="form-group-login"
                   type="password"
                   name="password"
-                  placeholder="Wprowadź swoje hasło"
+                  placeholder={t(
+                    'GENERAL.AUTH.LOGIN_FORM.PASSWORD.PLACEHOLDER'
+                  )}
                   onChange={handleChange}
                 />
               </FormGroup>
@@ -70,10 +78,10 @@ const LoginForm = ({ switchModalType, onClose }) => {
                 type="button"
                 onClick={() => switchModalType('new-account')}
               >
-                Chcę założyć nowe konto
+                {t('GENERAL.AUTH.WANT_NEW_ACCOUNT')}
               </Button>
               <Button variant="light" type="submit" onClick={handleSubmit}>
-                Zaloguj
+                {t('GENERAL.AUTH.LOGIN')}
               </Button>
             </SidebarModalFooter>
           </form>

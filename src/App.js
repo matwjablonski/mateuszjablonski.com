@@ -12,7 +12,6 @@ import Footer from './components/Footer/Footer';
 import request from './helpers/request';
 import { UserProvider, unloggedUser } from './userContext';
 import UserBar from './components/UserBar/UserBar';
-import { useTranslation, Trans } from 'react-i18next';
 
 const Home = React.lazy(() => import('./pages/Home'));
 const Learn = React.lazy(() => import('./pages/Learn'));
@@ -23,16 +22,11 @@ const BlogPost = React.lazy(() => import('./pages/BlogPost'));
 const NewPost = React.lazy(() => import('./pages/NewPost'));
 
 function App() {
-  const { t } = useTranslation();
   const [me, setMe] = useState(null);
   const [isSidebarOpen, toggleSidebar] = useState(false);
   const [user, setUser] = useState(unloggedUser);
 
   const sidebarRef = useRef(null);
-
-  // const changeLanguage = lng => {
-  //   i18n.changeLanguage(lng);
-  // };
 
   const handleClickOutsideSidebar = e =>
     sidebarRef.current && !sidebarRef.current.contains(e.target)
@@ -62,8 +56,6 @@ function App() {
           <UserBar />
           <Grid>
             <Avatar me={me} size={400} />
-            <Trans i18nKey="admin.userBar.welcome" values={{ name: 'abc' }} />
-            {t('admin.userBar.welcome')}
           </Grid>
           <SocialBar />
           <Navigation

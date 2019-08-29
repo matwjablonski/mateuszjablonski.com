@@ -2,7 +2,7 @@
   "GENERAL": {
     "HEADER": {},
     "FOOTER": {
-      "LAST_ON_BLOG": "Ostatnio na blogu",
+      "LAST_ON_BLOG": "Latest articles",
       "COPY": "© 2019 Mateusz Jabłoński"
     },
     "LANGUAGES": {
@@ -10,52 +10,52 @@
       "EN": "EN"
     },
     "AUTH": {
-      "LOGOUT": "Wyloguj",
-      "LOGIN_OR_CREATE_ACCOUNT": "Zaloguj lub załóż konto",
-      "LOGIN": "Zaloguj się",
-      "CREATE_ACCOUNT": "Założ nowe konto",
+      "LOGOUT": "Logout",
+      "LOGIN_OR_CREATE_ACCOUNT": "Login or create new account",
+      "LOGIN": "Login",
+      "CREATE_ACCOUNT": "Create new account",
       "WANT_NEW_ACCOUNT": "Chcę założyć nowe konto",
       "HAVE_ACCOUNT_LOGIN": "Mam już konto, chcę się zalogować",
       "LOGIN_FORM": {
         "EMAIL": {
-          "LABEL": "Twój email",
-          "PLACEHOLDER": "Podaj swój adres email"
+          "LABEL": "Your email",
+          "PLACEHOLDER": "Type your email"
         },
         "PASSWORD": {
-          "LABEL": "Hasło",
-          "PLACEHOLDER": "Wprowadź swoje hasło"
+          "LABEL": "Password",
+          "PLACEHOLDER": "Type your password"
         }
       }
     },
     "NAV": {
       "HOME": "Home",
       "BLOG": "Blog",
-      "CONTACT": "Kontakt"
+      "CONTACT": "Contact"
     }
   },
   "PAGES": {
     "404": {
-      "TITLE": "Błąd 404"
+      "TITLE": "404 Error"
     },
     "POST": {
       "COVER_THUMBNAL": {
-        "BY_WHOM": "przez"
+        "BY_WHOM": "by"
       }
     },
     "CONTACT": {
-      "TITLE": "Kontakt",
+      "TITLE": "Contact",
       "DESCRIPTION": "Zapraszam serdecznie do kontaktu. Niezależnie w jakiej kwestii - masz pytanie, problem czy chciałbyś / chciałabyś rozpocząć ze mną współpracę. Jestem otwarty na nowe wyzwania.",
-      "CALL": "Zadzwoń",
+      "CALL": "Call",
       "CALL_DESCRIPTION": "* pod telefonem jestem dostępny od poniedziałku do czwartku od 15:00 do 19:00, natomiast w piątki od 8:00 do 19:00",
-      "WRITE": "Napisz",
+      "WRITE": "Write",
       "SOCIAL_MEDIA": "Połącz się",
       "NEWSLETTER": "Bądź na bieżąco"
     }
   },
   "ADMIN": {
     "USER_BAR": {
-      "WELCOME_MSG": "Cześć, {{name}}",
-      "ADD_NEW_POST": "Dodaj post"
+      "WELCOME_MSG": "Hi, {{name}}",
+      "ADD_NEW_POST": "Add new post"
     },
     "NEW_POST": {
       "TITLE": "Dodawanie nowego postu",
