@@ -1,6 +1,4 @@
 import React, { useContext } from 'react';
-import MarkdownIt from 'markdown-it';
-import Parser from 'html-react-parser';
 import { FormGroup } from '@smooth-ui/core-sc';
 import { MarkdownEditorTextarea } from '../components/MarkdownEditor/MarkdownEditor.style';
 import Ups from '../components/Ups/Ups';
@@ -9,10 +7,10 @@ import PageTitle from '../components/PageTitle/PageTitle';
 import { SmallLabel } from '../components/ui/SmallLabel';
 import { TextInput } from '../components/ui/TextInput';
 import { Formik } from 'formik';
-
-const md = new MarkdownIt();
+import { useTranslation } from 'react-i18next';
 
 const NewPost = () => {
+  const { t } = useTranslation();
   const userData = useContext(UserContext);
 
   const { user } = userData;
@@ -23,7 +21,7 @@ const NewPost = () => {
 
   return user.name ? (
     <>
-      <PageTitle text="Dodawanie nowego postu" />
+      <PageTitle text={t('ADMIN.NEW_POST.TITLE')} />
       <Formik
         initialValues={{
           title: '',
@@ -42,41 +40,47 @@ const NewPost = () => {
         {({ values, errors, handleChange, handleSubmit }) => (
           <form onSubmit={handleSubmit}>
             <FormGroup>
-              <SmallLabel htmlFor="form-group-email">Tytuł artykułu</SmallLabel>
+              <SmallLabel htmlFor="form-group-title">
+                {t('ADMIN.NEW_POST.FORM.ARTICLE_TITLE.LABEL')}
+              </SmallLabel>
               <TextInput
                 control
-                id="form-group-email"
+                id="form-group-title"
                 type="text"
-                name="email"
-                placeholder="Podaj tytuł artykułu"
+                name="title"
+                placeholder={t('ADMIN.NEW_POST.FORM.ARTICLE_TITLE.PLACEHOLDER')}
                 value={values.title}
                 onChange={handleChange}
               />
             </FormGroup>
             <FormGroup>
-              <SmallLabel htmlFor="new-post-excerpt">Treść wypisu</SmallLabel>
+              <SmallLabel htmlFor="new-post-excerpt">
+                {t('ADMIN.NEW_POST.FORM.EXCERPT.LABEL')}
+              </SmallLabel>
               <MarkdownEditorTextarea
                 id="new-post-excerpt"
                 height="auto"
                 name="excerpt"
                 value={values.excerpt}
                 onChange={handleChange}
-                placeholder="Wprowadź treść wypisu..."
+                placeholder={t('ADMIN.NEW_POST.FORM.EXCERPT.PLACEHOLDER')}
               />
             </FormGroup>
             <FormGroup>
-              <SmallLabel htmlFor="new-post-content">Treść artykułu</SmallLabel>
+              <SmallLabel htmlFor="new-post-content">
+                {t('ADMIN.NEW_POST.FORM.ARTICLE.LABEL')}
+              </SmallLabel>
               <MarkdownEditorTextarea
                 id="new-post-content"
                 name="content"
                 value={values.content}
                 onChange={handleChange}
-                placeholder="Wprowadź treść artykułu w Markdown..."
+                placeholder={t('ADMIN.NEW_POST.FORM.ARTICLE.PLACEHOLDER')}
               />
             </FormGroup>
             <FormGroup>
               <SmallLabel htmlFor="form-group-coverImageUrl">
-                URL zdjęcia przewodniego
+                {t('ADMIN.NEW_POST.FORM.COVER_THUMBNAIL_URL.LABEL')}
               </SmallLabel>
               <TextInput
                 control
@@ -84,90 +88,104 @@ const NewPost = () => {
                 type="text"
                 name="coverImageUrl"
                 value={values.coverImageUrl}
-                placeholder="Podaj URL zdjęcia przewodniego"
+                placeholder={t(
+                  'ADMIN.NEW_POST.FORM.COVER_THUMBNAIL_URL.PLACEHOLDER'
+                )}
                 onChange={handleChange}
               />
             </FormGroup>
             <FormGroup>
               <SmallLabel htmlFor="form-group-coverImageSource">
-                Źródło zdjęcia przewodniego
+                {t('ADMIN.NEW_POST.FORM.COVER_THUMBNAIL_SOURCE.LABEL')}
               </SmallLabel>
               <TextInput
                 control
                 id="form-group-coverImageSource"
                 type="text"
                 name="coverImageSource"
-                placeholder="Podaj źródło zdjęcia przewodniego"
+                placeholder={t(
+                  'ADMIN.NEW_POST.FORM.COVER_THUMBNAIL_SOURCE.PLACEHOLDER'
+                )}
                 value={values.coverImageSource}
                 onChange={handleChange}
               />
             </FormGroup>
             <FormGroup>
               <SmallLabel htmlFor="form-group-coverImageSourceUrl">
-                URL źródła zdjęcia przewodniego
+                {t('ADMIN.NEW_POST.FORM.COVER_THUMBNAIL_SOURCE_URL.LABEL')}
               </SmallLabel>
               <TextInput
                 control
                 id="form-group-coverImageSourceUrl"
                 type="text"
                 name="coverImageSourceUrl"
-                placeholder="Podaj URL źródła zdjęcia przewodniego"
+                placeholder={t(
+                  'ADMIN.NEW_POST.FORM.COVER_THUMBNAIL_SOURCE_URL.PLACEHOLDER'
+                )}
                 value={values.coverImageSourceUrl}
                 onChange={handleChange}
               />
             </FormGroup>
             <FormGroup>
               <SmallLabel htmlFor="form-group-coverImageAuthor">
-                Autor zdjęcia przewodniego (imię, nazwisko, pseudonim)
+                {t('ADMIN.NEW_POST.FORM.COVER_THUMBNAIL_AUTHOR.LABEL')}
               </SmallLabel>
               <TextInput
                 control
                 id="form-group-coverImageAuthor"
                 type="text"
                 name="coverImageAuthor"
-                placeholder="Podaj autora zdjęcia przewodniego (imię, nazwisko, pseudonim)"
+                placeholder={t(
+                  'ADMIN.NEW_POST.FORM.COVER_THUMBNAIL_AUTHOR.PLACEHOLDER'
+                )}
                 value={values.coverImageAuthor}
                 onChange={handleChange}
               />
             </FormGroup>
             <FormGroup>
               <SmallLabel htmlFor="form-group-coverImageAuthorUrl">
-                URL strony autora zdjęcia przewodniego
+                {t('ADMIN.NEW_POST.FORM.COVER_THUMBNAIL_AUTHOR_URL.LABEL')}
               </SmallLabel>
               <TextInput
                 control
                 id="form-group-coverImageAuthorUrl"
                 type="text"
                 name="coverImageAuthorUrl"
-                placeholder="Podaj URL strony autora zdjęcia przewodniego"
+                placeholder={t(
+                  'ADMIN.NEW_POST.FORM.COVER_THUMBNAIL_AUTHOR_URL.PLACEHOLDER'
+                )}
                 value={values.coverImageAuthorUrl}
                 onChange={handleChange}
               />
             </FormGroup>
             <FormGroup>
               <SmallLabel htmlFor="form-group-coverImageName">
-                Tytuł zdjęcia przewodniego
+                {t('ADMIN.NEW_POST.FORM.COVER_THUMBNAIL_TITLE.LABEL')}
               </SmallLabel>
               <TextInput
                 control
                 id="form-group-coverImageName"
                 type="text"
                 name="coverImageName"
-                placeholder="Podaj tytuł zdjęcia przewodniego"
+                placeholder={t(
+                  'ADMIN.NEW_POST.FORM.COVER_THUMBNAIL_TITLE.PLACEHOLDER'
+                )}
                 value={values.coverImageName}
                 onChange={handleChange}
               />
             </FormGroup>
             <FormGroup>
               <SmallLabel htmlFor="form-group-coverImageSquare">
-                URL miniaturki postu
+                {t('ADMIN.NEW_POST.FORM.COVER_THUMBNAIL_SQUARE_URL.LABEL')}
               </SmallLabel>
               <TextInput
                 control
                 id="form-group-coverImageSquare"
                 type="text"
                 name="coverImageSquare"
-                placeholder="Podaj URL miniaturki postu"
+                placeholder={t(
+                  'ADMIN.NEW_POST.FORM.COVER_THUMBNAIL_SQUARE_URL.LABEL'
+                )}
                 value={values.coverImageSquare}
                 onChange={handleChange}
               />
@@ -175,11 +193,9 @@ const NewPost = () => {
           </form>
         )}
       </Formik>
-
-      {Parser(md.render('# Dashboard \n## test'))}
     </>
   ) : (
-    <Ups text="Nie masz uprawnień, aby przeglądać tę stronę." />
+    <Ups text={t('ERRORS.WITHOUT_PERMISSION')} />
   );
 };
 

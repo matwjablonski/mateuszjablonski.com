@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   SidebarWrapper,
   SidebarMyPhoto,
@@ -27,6 +28,7 @@ const Sidebar = ({ me, isOpen }) => {
   const img =
     me && me.images[Math.floor(Math.random() * Math.floor(me.images.length))];
 
+  const { t } = useTranslation();
   const [toggled, onToggle] = useState(false);
   const [modalType, switchModalType] = useState('login');
   const { user, setUser } = useContext(UserContext);
@@ -53,7 +55,9 @@ const Sidebar = ({ me, isOpen }) => {
           <SmallText>{me.description}</SmallText>
         </div>
         <Button onClick={handleSidebarButtonAction} size="lg">
-          {user.name ? 'Wyloguj' : 'Zaloguj lub załóż konto'}
+          {user.name
+            ? t('GENERAL.AUTH.LOGOUT')
+            : t('GENERAL.AUTH.LOGIN_OR_CREATE_ACCOUNT')}
         </Button>
       </SidebarContent>
       <Modal opened={toggled && !user.name} onClose={() => onToggle(false)}>
@@ -64,7 +68,9 @@ const Sidebar = ({ me, isOpen }) => {
             <ModalContent border="none" overflow="hidden">
               <ModalHeader border="none">
                 <SmallTitle>
-                  {modalType === 'login' ? 'Zaloguj się' : 'Założ nowe konto'}
+                  {modalType === 'login'
+                    ? t('GENERAL.AUTH.LOGIN')
+                    : t('GENERAL.AUTH.CREATE_ACCOUNT')}
                 </SmallTitle>
               </ModalHeader>
               <ModalBody>
@@ -136,20 +142,20 @@ const Sidebar = ({ me, isOpen }) => {
                 {modalType === 'login' && (
                   <>
                     <Button onClick={() => switchModalType('new-account')}>
-                      Chcę założyć nowe konto
+                      {t('GENERAL.AUTH.WANT_NEW_ACCOUNT')}
                     </Button>
                     <Button variant="light" onClick={() => {}}>
-                      Zaloguj
+                      {t('GENERAL.AUTH.LOGIN')}
                     </Button>
                   </>
                 )}
                 {modalType === 'new-account' && (
                   <>
                     <Button onClick={() => switchModalType('login')}>
-                      Mam już konto, chcę się zalogować
+                      {t('GENERAL.AUTH.HAVE_ACCOUNT_LOGIN')}
                     </Button>
                     <Button variant="light" onClick={() => {}}>
-                      Załóż nowe konto
+                      {t('GENERAL.AUTH.CREATE_ACCOUNT')}
                     </Button>
                   </>
                 )}

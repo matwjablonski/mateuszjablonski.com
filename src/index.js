@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { render } from 'react-dom';
 import './index.css';
 import { ThemeProvider } from '@smooth-ui/core-sc';
 import theme from './theme';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import './i18n';
+import LoadingWrapper from './components/Loading/LoadingWrapper';
 
 render(
-  <ThemeProvider theme={theme}>
-    <App />
-  </ThemeProvider>,
+  <Suspense fallback={<LoadingWrapper />}>
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
+  </Suspense>,
   document.getElementById('root')
 );
 
