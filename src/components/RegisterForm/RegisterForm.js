@@ -22,7 +22,7 @@ const RegisterForm = ({ switchModalType, onClose }) => {
 
   const handleRegister = values => {
     requests()
-      .post('users/', values)
+      .post('users', values)
       .then(res => keepToken(res.data.data.token))
       .then(() => {
         requests()
