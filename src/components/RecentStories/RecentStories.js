@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Grid, Row, Col } from '@smooth-ui/core-sc';
 import request from '../../helpers/request';
 
@@ -13,6 +14,7 @@ import {
 
 const RecentStories = () => {
   const [recentStories, getRecentStories] = useState([]);
+  const { t } = useTranslation();
 
   useEffect(() => {
     request()
@@ -25,7 +27,9 @@ const RecentStories = () => {
       <Grid>
         <Row alignItems="center">
           <Col xs="auto" mr="auto">
-            <RecentStoriesHeadline>Ostatnio na blogu</RecentStoriesHeadline>
+            <RecentStoriesHeadline>
+              {t('GENERAL.FOOTER.LAST_ON_BLOG')}
+            </RecentStoriesHeadline>
           </Col>
           <Col xs="auto">
             <RecentStoriesLine>

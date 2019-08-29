@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, Suspense } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Normalize, Grid } from '@smooth-ui/core-sc';
 
@@ -7,7 +7,6 @@ import SocialBar from './components/SocialBar/SocialBar';
 import Navigation from './components/Navigation/Navigation';
 import Sidebar from './components/Sidebar/Sidebar';
 import Error404 from './pages/Error404';
-import LoadingWrapper from './components/Loading/LoadingWrapper';
 import PageWrapper from './components/ui/PageWrapper';
 import Footer from './components/Footer/Footer';
 import request from './helpers/request';
@@ -68,18 +67,16 @@ function App() {
           </div>
           <Grid>
             <PageWrapper>
-              <Suspense fallback={<LoadingWrapper />}>
-                <Switch>
-                  <Route path="/" exact component={Home} />
-                  <Route path="/nauka-programowania" exact component={Learn} />
-                  <Route path="/admin/nowy-post" exact component={NewPost} />
-                  <Route path="/blog" exact component={Blog} />
-                  <Route path="/blog/:slug" component={BlogPost} />
-                  <Route path="/panel" exact component={Dashboard} />
-                  <Route path="/kontakt" exact component={Contact} />
-                  <Route component={Error404} />
-                </Switch>
-              </Suspense>
+              <Switch>
+                <Route path="/" exact component={Home} />
+                <Route path="/nauka-programowania" exact component={Learn} />
+                <Route path="/admin/nowy-post" exact component={NewPost} />
+                <Route path="/blog" exact component={Blog} />
+                <Route path="/blog/:slug" component={BlogPost} />
+                <Route path="/panel" exact component={Dashboard} />
+                <Route path="/kontakt" exact component={Contact} />
+                <Route component={Error404} />
+              </Switch>
             </PageWrapper>
           </Grid>
           <Footer />

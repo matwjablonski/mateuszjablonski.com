@@ -1,0 +1,112 @@
+{
+  "GENERAL": {
+    "HEADER": {},
+    "FOOTER": {
+      "LAST_ON_BLOG": "Latest articles",
+      "COPY": "© 2019 Mateusz Jabłoński"
+    },
+    "LANGUAGES": {
+      "PL": "PL",
+      "EN": "EN"
+    },
+    "AUTH": {
+      "LOGOUT": "Logout",
+      "LOGIN_OR_CREATE_ACCOUNT": "Login or create new account",
+      "LOGIN": "Login",
+      "CREATE_ACCOUNT": "Create new account",
+      "WANT_NEW_ACCOUNT": "Chcę założyć nowe konto",
+      "HAVE_ACCOUNT_LOGIN": "Mam już konto, chcę się zalogować",
+      "LOGIN_FORM": {
+        "EMAIL": {
+          "LABEL": "Your email",
+          "PLACEHOLDER": "Type your email"
+        },
+        "PASSWORD": {
+          "LABEL": "Password",
+          "PLACEHOLDER": "Type your password"
+        }
+      }
+    },
+    "NAV": {
+      "HOME": "Home",
+      "BLOG": "Blog",
+      "CONTACT": "Contact"
+    }
+  },
+  "PAGES": {
+    "404": {
+      "TITLE": "404 Error"
+    },
+    "POST": {
+      "COVER_THUMBNAL": {
+        "BY_WHOM": "by"
+      }
+    },
+    "CONTACT": {
+      "TITLE": "Contact",
+      "DESCRIPTION": "Zapraszam serdecznie do kontaktu. Niezależnie w jakiej kwestii - masz pytanie, problem czy chciałbyś / chciałabyś rozpocząć ze mną współpracę. Jestem otwarty na nowe wyzwania.",
+      "CALL": "Call",
+      "CALL_DESCRIPTION": "* pod telefonem jestem dostępny od poniedziałku do czwartku od 15:00 do 19:00, natomiast w piątki od 8:00 do 19:00",
+      "WRITE": "Write",
+      "SOCIAL_MEDIA": "Połącz się",
+      "NEWSLETTER": "Bądź na bieżąco"
+    }
+  },
+  "ADMIN": {
+    "USER_BAR": {
+      "WELCOME_MSG": "Hi, {{name}}",
+      "ADD_NEW_POST": "Add new post"
+    },
+    "NEW_POST": {
+      "TITLE": "Dodawanie nowego postu",
+      "FORM": {
+        "ARTICLE_TITLE": {
+          "LABEL": "Tytuł artykułu",
+          "PLACEHOLDER": "Podaj tytuł artykułu"
+        },
+        "EXCERPT": {
+          "LABEL": "Treść wypisu",
+          "PLACEHOLDER": "Wprowadź treść wypisu..."
+        },
+        "ARTICLE": {
+          "LABEL": "Treść artykułu",
+          "PLACEHOLDER": "Wprowadź treść artykułu w Markdown..."
+        },
+        "COVER_THUMBNAIL_URL": {
+          "LABEL": "URL zdjęcia przewodniego",
+          "PLACEHOLDER": "Podaj URL zdjęcia przewodniego"
+        },
+        "COVER_THUMBNAIL_TITLE": {
+          "LABEL": "Tytuł zdjęcia przewodniego",
+          "PLACEHOLDER": "Podaj tytuł zdjęcia przewodniego"
+        },
+        "COVER_THUMBNAIL_SQUARE_URL": {
+          "LABEL": "URL miniaturki postu",
+          "PLACEHOLDER": "Podaj URL miniaturki postu"
+        },
+        "COVER_THUMBNAIL_SOURCE": {
+          "LABEL": "Źródło zdjęcia przewodniego",
+          "PLACEHOLDER": "Podaj źródło zdjęcia przewodniego"
+        },
+        "COVER_THUMBNAIL_SOURCE_URL": {
+          "LABEL": "URL źródła zdjęcia przewodniego",
+          "PLACEHOLDER": "Podaj URL źródła zdjęcia przewodniego"
+        },
+        "COVER_THUMBNAIL_AUTHOR": {
+          "LABEL": "Autor zdjęcia przewodniego (imię, nazwisko, pseudonim)",
+          "PLACEHOLDER": "Podaj autora zdjęcia przewodniego (imię, nazwisko, pseudonim)"
+        },
+        "COVER_THUMBNAIL_AUTHOR_URL": {
+          "LABEL": "URL strony autora zdjęcia przewodniego",
+          "PLACEHOLDER": "Podaj URL strony autora zdjęcia przewodniego"
+        }
+      }
+    }
+  },
+  "ERRORS": {
+    "WITHOUT_PERMISSION": "Nie masz uprawnień, aby przeglądać tę stronę."
+  },
+  "NOTIFICATIONS": {
+    "POSTS_LOADING": "Trwa ładowanie postów."
+  }
+}
