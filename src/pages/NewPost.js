@@ -1,6 +1,4 @@
 import React, { useContext } from 'react';
-import MarkdownIt from 'markdown-it';
-import Parser from 'html-react-parser';
 import { FormGroup } from '@smooth-ui/core-sc';
 import { MarkdownEditorTextarea } from '../components/MarkdownEditor/MarkdownEditor.style';
 import Ups from '../components/Ups/Ups';
