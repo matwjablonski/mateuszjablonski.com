@@ -5,6 +5,7 @@ sudo: false
 branches:
   only:
     - master
+    - develop
 cache:
   directories:
     - node_modules
@@ -28,7 +29,7 @@ deploy:
     github_token: '$GITHUB_TOKEN'
     local_dir: build
     on:
-      branch: master
+      branch: develop
   - provider: script
     skip_cleanup: true
     script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/build/* -e ssh -i ./deploy_key woodpecker@s27.mydevil.net:~/domains/mateuszjablonski.com/public_html
