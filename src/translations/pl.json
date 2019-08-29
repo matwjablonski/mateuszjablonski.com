@@ -40,7 +40,8 @@
     "POST": {
       "COVER_THUMBNAL": {
         "BY_WHOM": "przez"
-      }
+      },
+      "READ_MORE": "Czytaj dalej"
     },
     "CONTACT": {
       "TITLE": "Kontakt",
