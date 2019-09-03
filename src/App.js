@@ -20,6 +20,7 @@ const Dashboard = React.lazy(() => import('./pages/Dashboard'));
 const Contact = React.lazy(() => import('./pages/Contact'));
 const BlogPost = React.lazy(() => import('./pages/BlogPost'));
 const NewPost = React.lazy(() => import('./pages/NewPost'));
+const UsersList = React.lazy(() => import('./pages/UsersList'));
 
 function App() {
   const [me, setMe] = useState(null);
@@ -70,7 +71,9 @@ function App() {
               <Switch>
                 <Route path="/" exact component={Home} />
                 <Route path="/nauka-programowania" exact component={Learn} />
-                <Route path="/admin/nowy-post" exact component={NewPost} />
+                <Route path="/admin" exact component={Dashboard} />
+                <Route path="/admin/posts/new" exact component={NewPost} />
+                <Route path="/admin/users" exact component={UsersList} />
                 <Route path="/blog" exact component={Blog} />
                 <Route path="/blog/:slug" component={BlogPost} />
                 <Route path="/panel" exact component={Dashboard} />

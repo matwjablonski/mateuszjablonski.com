@@ -72,9 +72,43 @@
     }
   },
   "ADMIN": {
+    "USER": {
+      "MENTOR": "Mentor",
+      "COURSANT": "Kursant",
+      "READER": "Czytelnik"
+    },
     "USER_BAR": {
       "WELCOME_MSG": "Cześć, {{name}}",
+      "DASHBOARD": "Panel",
       "ADD_NEW_POST": "Dodaj post"
+    },
+    "NAV": {
+      "GENERAL": "Ogólne",
+      "DASHBOARD": "Panel",
+      "POSTS": "Artykuły",
+      "ALL_POSTS": "Wszystkie",
+      "FAVOURITE_POSTS": "Ulubione",
+      "ADD_NEW_POST": "Dodaj nowy",
+      "MY_COURSE": "Mój kurs",
+      "MY_MEETINGS": "Moje spotkania",
+      "COURSES": "Kursy",
+      "COURSANTS": "Kursanci",
+      "COURSANTS_LIST": "Wszyscy kursanci",
+      "ADD_NEW_COURSANT": "Dodaj nowego kursanta",
+      "USERS": "Użytkownicy",
+      "USERS_LIST": "Wszyscy użytkownicy",
+      "SETTINGS": "Ustawienia",
+      "MY_ACCOUNT": "Moje konto"
+    },
+    "DASHBOARD": {
+      "TITLE": "Twój panel"
+    },
+    "USERS_LIST": {
+      "TITLE": "Użytkownicy",
+      "LP": "Lp.",
+      "NAME": "Nazwa użytkownika",
+      "EMAIL": "Adres email",
+      "TYPE": "Typ konta"
     },
     "NEW_POST": {
       "TITLE": "Dodawanie nowego postu",
