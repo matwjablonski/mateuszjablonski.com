@@ -152,7 +152,8 @@
         "COVER_THUMBNAIL_AUTHOR_URL": {
           "LABEL": "URL strony autora zdjęcia przewodniego",
           "PLACEHOLDER": "Podaj URL strony autora zdjęcia przewodniego"
-        }
+        },
+        "SUBMIT": "Opublikuj artykuł"
       }
     }
   },

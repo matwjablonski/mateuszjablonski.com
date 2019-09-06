@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { FormGroup, Grid, Row, Col } from '@smooth-ui/core-sc';
+import { FormGroup, Grid, Row, Col, Button } from '@smooth-ui/core-sc';
 import { MarkdownEditorTextarea } from '../components/MarkdownEditor/MarkdownEditor.style';
 import Ups from '../components/Ups/Ups';
 import { UserContext } from '../userContext';
@@ -18,9 +18,12 @@ const NewPost = () => {
 
   const handleSave = values => {
     console.log(values);
+
+    //  const b64  = window.btoa(unescape(encodeURIComponent(values.content)));
+    console.log(window.btoa(unescape(encodeURIComponent(values.content))));
   };
 
-  return user.name ? (
+  return user.name && user.permissions.indexOf('CAN_CREATE_POST') !== -1 ? (
     <Grid>
       <Row>
         <Col xs="auto">
@@ -198,6 +201,7 @@ const NewPost = () => {
                     onChange={handleChange}
                   />
                 </FormGroup>
+                <Button type="submit">{t('ADMIN.NEW_POST.FORM.SUBMIT')}</Button>
               </form>
             )}
           </Formik>
