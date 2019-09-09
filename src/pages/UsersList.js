@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Redirect } from 'react-router-dom';
 import { Grid, Row, Col } from '@smooth-ui/core-sc';
 import { useTranslation } from 'react-i18next';
 

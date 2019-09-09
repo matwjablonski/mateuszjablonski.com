@@ -39,7 +39,6 @@ const RecentStories = () => {
                       key={story.id}
                       to={`/blog/${story.slug}`}
                       style={{
-                        marginRight: `${-20 * index}px`,
                         zIndex: `${recentStories.length - index}`,
                       }}
                     >
