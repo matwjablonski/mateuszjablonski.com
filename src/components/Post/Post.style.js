@@ -13,6 +13,33 @@ export const PostTitle = styled(PageTitleHeadline)`
   font-weight: 700;
 `;
 
+export const PostMeta = styled.div`
+  align-items: center;
+  display: flex;
+  margin-bottom: 1em;
+`;
+
+export const PostAuthorImage = styled.img`
+  border-radius: 50%;
+  margin-right: 1em;
+`;
+
+export const PostMetaData = styled.div``;
+
+export const PostAuthorName = styled.p`
+  color: ${th('lightGrey')};
+  font-family: ${th('mainFont')};
+  font-size: 0.8em;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+`;
+
+export const PostDate = styled.div`
+  color: ${th('darkGrey')};
+  font-family: ${th('mainFont')};
+  font-size: 0.8em;
+`;
+
 export const PostCoverImage = styled.img`
   border: 1px solid ${th('lighterGrey')};
   border-radius: ${th('borderRadius')};

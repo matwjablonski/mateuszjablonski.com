@@ -13,15 +13,17 @@ import RegisterForm from '../RegisterForm/RegisterForm';
 import { UserContext, unloggedUser } from '../../userContext';
 import requests from '../../helpers/request';
 import { removeToken } from '../../helpers/token';
+import { MeContext } from '../../meContext';
 
-const Sidebar = ({ me, isOpen }) => {
-  const img =
-    me && me.images[Math.floor(Math.random() * Math.floor(me.images.length))];
-
+const Sidebar = ({ isOpen }) => {
   const { t } = useTranslation();
   const [toggled, onToggle] = useState(false);
   const [modalType, switchModalType] = useState('login');
   const { user, setUser } = useContext(UserContext);
+  const me = useContext(MeContext);
+
+  const img =
+    me && me.images[Math.floor(Math.random() * Math.floor(me.images.length))];
 
   const handleSidebarButtonAction = () => {
     if (user.name) {

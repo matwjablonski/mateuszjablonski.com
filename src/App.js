@@ -12,6 +12,7 @@ import Footer from './components/Footer/Footer';
 import request from './helpers/request';
 import { UserProvider, unloggedUser } from './userContext';
 import UserBar from './components/UserBar/UserBar';
+import { MeProvider } from './meContext';
 
 const Home = React.lazy(() => import('./pages/Home'));
 const Learn = React.lazy(() => import('./pages/Learn'));
@@ -53,36 +54,38 @@ function App() {
     <UserProvider value={{ user, setUser }}>
       <div className={isSidebarOpen ? 'sidebarOpen' : 'sidebarClose'}>
         <BrowserRouter>
-          <Normalize />
-          <UserBar />
-          <Grid>
-            <Avatar me={me} size={400} />
-          </Grid>
-          <SocialBar />
-          <Navigation
-            sidebarToggler={toggleSidebar}
-            isSidebarOpen={isSidebarOpen}
-          />
-          <div ref={sidebarRef}>
-            {me && <Sidebar me={me} isOpen={isSidebarOpen} />}
-          </div>
-          <Grid>
-            <PageWrapper>
-              <Switch>
-                <Route path="/" exact component={Home} />
-                <Route path="/nauka-programowania" exact component={Learn} />
-                <Route path="/admin" exact component={Dashboard} />
-                <Route path="/admin/posts/new" exact component={NewPost} />
-                <Route path="/admin/users" exact component={UsersList} />
-                <Route path="/blog" exact component={Blog} />
-                <Route path="/blog/:slug" component={BlogPost} />
-                <Route path="/panel" exact component={Dashboard} />
-                <Route path="/kontakt" exact component={Contact} />
-                <Route component={Error404} />
-              </Switch>
-            </PageWrapper>
-          </Grid>
-          <Footer />
+          <MeProvider value={me}>
+            <Normalize />
+            <UserBar />
+            <Grid>
+              <Avatar size={400} />
+            </Grid>
+            <SocialBar />
+            <Navigation
+              sidebarToggler={toggleSidebar}
+              isSidebarOpen={isSidebarOpen}
+            />
+            <div ref={sidebarRef}>
+              {me && <Sidebar isOpen={isSidebarOpen} />}
+            </div>
+            <Grid>
+              <PageWrapper>
+                <Switch>
+                  <Route path="/" exact component={Home} />
+                  <Route path="/nauka-programowania" exact component={Learn} />
+                  <Route path="/admin" exact component={Dashboard} />
+                  <Route path="/admin/posts/new" exact component={NewPost} />
+                  <Route path="/admin/users" exact component={UsersList} />
+                  <Route path="/blog" exact component={Blog} />
+                  <Route path="/blog/:slug" component={BlogPost} />
+                  <Route path="/panel" exact component={Dashboard} />
+                  <Route path="/kontakt" exact component={Contact} />
+                  <Route component={Error404} />
+                </Switch>
+              </PageWrapper>
+            </Grid>
+            <Footer />
+          </MeProvider>
         </BrowserRouter>
       </div>
     </UserProvider>
