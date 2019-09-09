@@ -2,6 +2,7 @@ import React from 'react';
 
 export const unloggedUser = {
   name: '',
+  permissions: [],
 };
 
 export const UserContext = React.createContext(unloggedUser);
