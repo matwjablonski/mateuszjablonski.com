@@ -17,10 +17,9 @@ const NewPost = () => {
   const { user } = userData;
 
   const handleSave = values => {
-    console.log(values);
-
+    // console.log(values);
     //  const b64  = window.btoa(unescape(encodeURIComponent(values.content)));
-    console.log(window.btoa(unescape(encodeURIComponent(values.content))));
+    // console.log(window.btoa(unescape(encodeURIComponent(values.content))));
   };
 
   return user.name && user.permissions.indexOf('CAN_CREATE_POST') !== -1 ? (

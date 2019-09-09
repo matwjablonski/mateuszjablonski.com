@@ -13,8 +13,6 @@ const UserSidebar = () => {
   const { user } = context;
   const { t } = useTranslation();
 
-  console.log(user.userType);
-
   const navItems = getUserNavItems(user.userType);
 
   return (
