@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
+
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -5,9 +7,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+pre {
+  background: #1e1e1e;
+  border-radius: 4px;
+  padding: 15px;
+}
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  color: #d4d4d4;
+  font-family: 'Inconsolata', monospace;
+  font-size: 0.7em;
 }
 
 .sidebarClose {
