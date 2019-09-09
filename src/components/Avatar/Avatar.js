@@ -11,7 +11,7 @@ const Avatar = ({ size }) => {
   return (
     <Link to="/">
       <AvatarImageBox>
-        {me ? (
+        {me && me.avatar ? (
           <AvatarImage
             src={`https://www.gravatar.com/avatar/${me.avatar.hash}?s=${size}`}
             alt={me.name}

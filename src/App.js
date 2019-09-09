@@ -58,7 +58,7 @@ function App() {
             <Normalize />
             <UserBar />
             <Grid>
-              <Avatar me={me} size={400} />
+              <Avatar size={400} />
             </Grid>
             <SocialBar />
             <Navigation
@@ -66,7 +66,7 @@ function App() {
               isSidebarOpen={isSidebarOpen}
             />
             <div ref={sidebarRef}>
-              {me && <Sidebar me={me} isOpen={isSidebarOpen} />}
+              {me && <Sidebar isOpen={isSidebarOpen} />}
             </div>
             <Grid>
               <PageWrapper>
