@@ -11,7 +11,10 @@ const Blog = () => {
   useEffect(() => {
     request()
       .get('posts')
-      .then(res => setPosts(res.data.data));
+      .then(res =>
+        res.data.data.sort((a, b) => (a.creationDate < b.creationDate ? 0 : 1))
+      )
+      .then(res => setPosts(res));
   }, []);
 
   return (
