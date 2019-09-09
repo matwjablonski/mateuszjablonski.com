@@ -16,13 +16,13 @@ import requests from '../../helpers/request';
 import { UserContext } from '../../userContext';
 import { keepToken } from '../../helpers/token';
 
-const LoginForm = ({ switchModalType, onClose }) => {
+const RegisterForm = ({ switchModalType, onClose }) => {
   const user = useContext(UserContext);
   const { t } = useTranslation();
 
-  const handleLogin = values => {
+  const handleRegister = values => {
     requests()
-      .post('users/login', values)
+      .post('users', values)
       .then(res => keepToken(res.data.data.token))
       .then(() => {
         requests()
@@ -36,52 +36,79 @@ const LoginForm = ({ switchModalType, onClose }) => {
     <ModalContent border="none" overflow="hidden">
       <Formik
         initialValues={{ email: '', password: '' }}
-        onSubmit={handleLogin}
+        onSubmit={handleRegister}
       >
         {({ values, errors, handleChange, handleSubmit }) => (
           <form onSubmit={handleSubmit}>
             <ModalHeader border="none">
-              <SmallTitle>{t('GENERAL.AUTH.LOGIN')}</SmallTitle>
+              <SmallTitle>{t('GENERAL.AUTH.CREATE_ACCOUNT')}</SmallTitle>
             </ModalHeader>
             <ModalBody>
               <FormGroup>
                 <Label htmlFor="form-group-email">
-                  {t('GENERAL.AUTH.LOGIN_FORM.EMAIL.LABEL')}
+                  {t('GENERAL.AUTH.REGISTER_FORM.EMAIL.LABEL')}
                 </Label>
                 <Input
                   control
                   id="form-group-email"
                   type="email"
                   name="email"
-                  placeholder={t('GENERAL.AUTH.LOGIN_FORM.EMAIL.PLACEHOLDER')}
+                  placeholder={t(
+                    'GENERAL.AUTH.REGISTER_FORM.EMAIL.PLACEHOLDER'
+                  )}
                   onChange={handleChange}
                 />
               </FormGroup>
               <FormGroup>
-                <Label htmlFor="form-group-login">
-                  {t('GENERAL.AUTH.LOGIN_FORM.PASSWORD.LABEL')}
+                <Label htmlFor="form-group-name">
+                  {t('GENERAL.AUTH.REGISTER_FORM.NAME.LABEL')}
                 </Label>
                 <Input
                   control
-                  id="form-group-login"
+                  id="form-group-name"
+                  type="text"
+                  name="name"
+                  placeholder={t('GENERAL.AUTH.REGISTER_FORM.NAME.PLACEHOLDER')}
+                  onChange={handleChange}
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label htmlFor="form-group-password">
+                  {t('GENERAL.AUTH.REGISTER_FORM.PASSWORD.LABEL')}
+                </Label>
+                <Input
+                  control
+                  id="form-group-password"
                   type="password"
                   name="password"
                   placeholder={t(
-                    'GENERAL.AUTH.LOGIN_FORM.PASSWORD.PLACEHOLDER'
+                    'GENERAL.AUTH.REGISTER_FORM.PASSWORD.PLACEHOLDER'
+                  )}
+                  onChange={handleChange}
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label htmlFor="form-group-password-repeat">
+                  {t('GENERAL.AUTH.REGISTER_FORM.PASSWORD_REPEAT.LABEL')}
+                </Label>
+                <Input
+                  control
+                  id="form-group-password-repeat"
+                  type="password"
+                  name="password-repeat"
+                  placeholder={t(
+                    'GENERAL.AUTH.REGISTER_FORM.PASSWORD_REPEAT.PLACEHOLDER'
                   )}
                   onChange={handleChange}
                 />
               </FormGroup>
             </ModalBody>
             <SidebarModalFooter>
-              <Button
-                type="button"
-                onClick={() => switchModalType('new-account')}
-              >
-                {t('GENERAL.AUTH.WANT_NEW_ACCOUNT')}
+              <Button type="button" onClick={() => switchModalType('login')}>
+                {t('GENERAL.AUTH.HAVE_ACCOUNT_LOGIN')}
               </Button>
               <Button variant="light" type="submit" onClick={handleSubmit}>
-                {t('GENERAL.AUTH.LOGIN')}
+                {t('GENERAL.AUTH.CREATE_ACCOUNT')}
               </Button>
             </SidebarModalFooter>
           </form>
@@ -91,4 +118,4 @@ const LoginForm = ({ switchModalType, onClose }) => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;

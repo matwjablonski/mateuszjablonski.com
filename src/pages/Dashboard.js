@@ -1,15 +1,24 @@
 import React from 'react';
-import MarkdownIt from 'markdown-it';
-import Parser from 'html-react-parser';
-import MarkdownEditor from '../components/MarkdownEditor/MarkdownEditor';
+import { useTranslation } from 'react-i18next';
+import { Grid, Row, Col } from '@smooth-ui/core-sc';
+import PageTitle from '../components/PageTitle/PageTitle';
+import UserSidebar from '../components/UserSidebar/UserSidebar';
 
-const md = new MarkdownIt();
+const Dashboard = () => {
+  const { t } = useTranslation();
 
-const Dashboard = () => (
-  <>
-    <MarkdownEditor />
-    {Parser(md.render('# Dashboard \n## test'))}
-  </>
-);
+  return (
+    <Grid>
+      <Row>
+        <Col xs="auto">
+          <UserSidebar />
+        </Col>
+        <Col>
+          <PageTitle text={t('ADMIN.DASHBOARD.TITLE')} />
+        </Col>
+      </Row>
+    </Grid>
+  );
+};
 
 export default Dashboard;

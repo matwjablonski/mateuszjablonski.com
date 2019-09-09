@@ -20,8 +20,8 @@ const UserBar = () => {
             />
           </Col>
           <Col xs="auto">
-            <UserBarLink to="/admin/nowy-post">
-              {t('ADMIN.USER_BAR.ADD_NEW_POST')}
+            <UserBarLink to="/admin">
+              {t('ADMIN.USER_BAR.DASHBOARD')}
             </UserBarLink>
           </Col>
         </Row>

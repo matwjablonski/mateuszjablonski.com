@@ -4,34 +4,26 @@ import {
   SidebarWrapper,
   SidebarMyPhoto,
   SidebarContent,
-  SidebarModalFooter,
 } from './Sidebar.style';
 import { SmallTitle } from '../ui/Title';
 import { SmallText } from '../ui/Text';
-import {
-  Button,
-  Modal,
-  ModalDialog,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  FormGroup,
-  Label,
-  Input,
-} from '@smooth-ui/core-sc';
+import { Button, Modal, ModalDialog } from '@smooth-ui/core-sc';
 import LoginForm from '../LoginForm/LoginForm';
+import RegisterForm from '../RegisterForm/RegisterForm';
 import { UserContext, unloggedUser } from '../../userContext';
 import requests from '../../helpers/request';
 import { removeToken } from '../../helpers/token';
+import { MeContext } from '../../meContext';
 
-const Sidebar = ({ me, isOpen }) => {
-  const img =
-    me && me.images[Math.floor(Math.random() * Math.floor(me.images.length))];
-
+const Sidebar = ({ isOpen }) => {
   const { t } = useTranslation();
   const [toggled, onToggle] = useState(false);
   const [modalType, switchModalType] = useState('login');
   const { user, setUser } = useContext(UserContext);
+  const me = useContext(MeContext);
+
+  const img =
+    me && me.images[Math.floor(Math.random() * Math.floor(me.images.length))];
 
   const handleSidebarButtonAction = () => {
     if (user.name) {
@@ -65,102 +57,10 @@ const Sidebar = ({ me, isOpen }) => {
           {modalType === 'login' ? (
             <LoginForm switchModalType={switchModalType} onClose={onToggle} />
           ) : (
-            <ModalContent border="none" overflow="hidden">
-              <ModalHeader border="none">
-                <SmallTitle>
-                  {modalType === 'login'
-                    ? t('GENERAL.AUTH.LOGIN')
-                    : t('GENERAL.AUTH.CREATE_ACCOUNT')}
-                </SmallTitle>
-              </ModalHeader>
-              <ModalBody>
-                {modalType === 'login' ? (
-                  <>
-                    <FormGroup>
-                      <Label htmlFor="form-group-email">Twój email</Label>
-                      <Input
-                        control
-                        id="form-group-email"
-                        type="email"
-                        placeholder="Podaj swój adres email"
-                      />
-                    </FormGroup>
-                    <FormGroup>
-                      <Label htmlFor="form-group-login">Hasło</Label>
-                      <Input
-                        control
-                        id="form-group-login"
-                        type="password"
-                        placeholder="Wprowadź swoje hasło"
-                      />
-                    </FormGroup>
-                  </>
-                ) : (
-                  <>
-                    <FormGroup>
-                      <Label htmlFor="form-group-name">Imię i nazwisko</Label>
-                      <Input
-                        control
-                        id="form-group-name"
-                        type="text"
-                        placeholder="Podaj swoje imię i nazwisko"
-                      />
-                    </FormGroup>
-                    <FormGroup>
-                      <Label htmlFor="form-group-email">Twój email</Label>
-                      <Input
-                        control
-                        id="form-group-email"
-                        type="email"
-                        placeholder="Podaj swój adres email"
-                      />
-                    </FormGroup>
-                    <FormGroup>
-                      <Label htmlFor="form-group-password">Twoje hasło</Label>
-                      <Input
-                        control
-                        id="form-group-password"
-                        type="password"
-                        placeholder="Podaj swoje unikalne hasło"
-                      />
-                    </FormGroup>
-                    <FormGroup>
-                      <Label htmlFor="form-group-repeat-password">
-                        Powtórz hasło
-                      </Label>
-                      <Input
-                        control
-                        id="form-group-repeat-password"
-                        type="password"
-                        placeholder="Podaj ponownie swoje hasło, powinno być takie samo"
-                      />
-                    </FormGroup>
-                  </>
-                )}
-              </ModalBody>
-              <SidebarModalFooter>
-                {modalType === 'login' && (
-                  <>
-                    <Button onClick={() => switchModalType('new-account')}>
-                      {t('GENERAL.AUTH.WANT_NEW_ACCOUNT')}
-                    </Button>
-                    <Button variant="light" onClick={() => {}}>
-                      {t('GENERAL.AUTH.LOGIN')}
-                    </Button>
-                  </>
-                )}
-                {modalType === 'new-account' && (
-                  <>
-                    <Button onClick={() => switchModalType('login')}>
-                      {t('GENERAL.AUTH.HAVE_ACCOUNT_LOGIN')}
-                    </Button>
-                    <Button variant="light" onClick={() => {}}>
-                      {t('GENERAL.AUTH.CREATE_ACCOUNT')}
-                    </Button>
-                  </>
-                )}
-              </SidebarModalFooter>
-            </ModalContent>
+            <RegisterForm
+              switchModalType={switchModalType}
+              onClose={onToggle}
+            />
           )}
         </ModalDialog>
       </Modal>

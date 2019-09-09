@@ -11,7 +11,7 @@
     },
     "AUTH": {
       "LOGOUT": "Logout",
-      "LOGIN_OR_CREATE_ACCOUNT": "Login or create new account",
+      "LOGIN_OR_CREATE_ACCOUNT": "Login or create account",
       "LOGIN": "Login",
       "CREATE_ACCOUNT": "Create new account",
       "WANT_NEW_ACCOUNT": "Chcę założyć nowe konto",
@@ -24,6 +24,24 @@
         "PASSWORD": {
           "LABEL": "Password",
           "PLACEHOLDER": "Type your password"
+        }
+      },
+      "REGISTER_FORM": {
+        "NAME": {
+          "LABEL": "Your name",
+          "PLACEHOLDER": "Type your name"
+        },
+        "EMAIL": {
+          "LABEL": "Your email",
+          "PLACEHOLDER": "Type your email"
+        },
+        "PASSWORD": {
+          "LABEL": "Password",
+          "PLACEHOLDER": "Type your password"
+        },
+        "PASSWORD_REPEAT": {
+          "LABEL": "Password repeat",
+          "PLACEHOLDER": "Type your password again"
         }
       }
     },
@@ -56,6 +74,7 @@
   "ADMIN": {
     "USER_BAR": {
       "WELCOME_MSG": "Hi, {{name}}",
+      "DASHBOARD": "Dashboard",
       "ADD_NEW_POST": "Add new post"
     },
     "NEW_POST": {
