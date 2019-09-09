@@ -74,6 +74,7 @@
   "ADMIN": {
     "USER_BAR": {
       "WELCOME_MSG": "Hi, {{name}}",
+      "DASHBOARD": "Dashboard",
       "ADD_NEW_POST": "Add new post"
     },
     "NEW_POST": {

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { th } from '@smooth-ui/core-sc';
 
 export const UserBarWrapper = styled.div`
@@ -12,10 +12,10 @@ export const UserBarWrapper = styled.div`
   z-index: 3;
 `;
 
-export const UserBarLink = styled(Link)`
+export const UserBarLink = styled(NavLink)`
   background: ${th('darkGrey')};
   color: ${th('white')};
-  display: block;
+  display: inline-block;
   padding: 0.5em 1em;
   text-decoration: none;
   transition: ${th('coreTiming')};

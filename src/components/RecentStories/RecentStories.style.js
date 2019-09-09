@@ -37,8 +37,13 @@ export const RecentStoriesLine = styled.div`
 
 export const RecentStoryLink = styled(Link)`
   display: inline-block;
+  margin-right: -20px;
   position: relative;
   transition: ${th('coreTiming')};
+
+  &:first-child {
+    margin-right: 0;
+  }
 
   &:hover {
     margin-right: 0 !important;
