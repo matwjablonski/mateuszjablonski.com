@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import PostSummary from '../components/Post/PostSummary';
 import BigLoader from '../components/BigLoader/BigLoader';
+import { Head } from '../components/Head/Head';
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
@@ -11,11 +12,15 @@ const Blog = () => {
   useEffect(() => {
     request()
       .get('posts')
-      .then(res => setPosts(res.data.data));
+      .then(res =>
+        res.data.data.sort((a, b) => (a.creationDate < b.creationDate ? 0 : 1))
+      )
+      .then(res => setPosts(res));
   }, []);
 
   return (
     <>
+      <Head />
       {posts.length ? (
         posts.map(post => <PostSummary key={post.id} post={post} />)
       ) : (

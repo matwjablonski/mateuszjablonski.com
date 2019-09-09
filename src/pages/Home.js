@@ -5,6 +5,7 @@ import PostSummary from '../components/Post/PostSummary';
 import request from '../helpers/request';
 import BigLoader from '../components/BigLoader/BigLoader';
 import { useTranslation } from 'react-i18next';
+import { Head } from '../components/Head/Head';
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -12,10 +13,14 @@ const Home = () => {
   useEffect(() => {
     request()
       .get('posts')
-      .then(res => setPosts(res.data.data));
+      .then(res =>
+        res.data.data.sort((a, b) => (a.creationDate < b.creationDate ? 0 : 1))
+      )
+      .then(res => setPosts(res));
   }, []);
   return (
     <Grid>
+      <Head />
       {posts.length ? (
         posts.map(post => <PostSummary key={post.id} post={post} />)
       ) : (
