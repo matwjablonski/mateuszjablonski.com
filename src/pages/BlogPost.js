@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import request from '../helpers/request';
 
 import Post from '../components/Post/Post';
+import { Head } from '../components/Head/Head';
 
 const BlogPost = props => {
   const {
@@ -16,7 +17,12 @@ const BlogPost = props => {
       .then(res => setPost(res.data));
   }, [params.slug]);
 
-  return post ? <Post post={post} /> : null;
+  return post ? (
+    <>
+      <Head type="post" title={post.title} />
+      <Post post={post} />
+    </>
+  ) : null;
 };
 
 export default BlogPost;

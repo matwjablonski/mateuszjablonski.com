@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import PostSummary from '../components/Post/PostSummary';
 import BigLoader from '../components/BigLoader/BigLoader';
+import { Head } from '../components/Head/Head';
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
@@ -19,6 +20,7 @@ const Blog = () => {
 
   return (
     <>
+      <Head />
       {posts.length ? (
         posts.map(post => <PostSummary key={post.id} post={post} />)
       ) : (

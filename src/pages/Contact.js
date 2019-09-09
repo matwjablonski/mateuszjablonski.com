@@ -4,12 +4,14 @@ import { Row, Col } from '@smooth-ui/core-sc';
 import PageTitle from '../components/PageTitle/PageTitle';
 import { Text } from '../components/ui/Text';
 import { useTranslation } from 'react-i18next';
+import { Head } from '../components/Head/Head';
 
 const Contact = () => {
   const { t } = useTranslation();
 
   return (
     <React.Fragment>
+      <Head type="page" title={t('PAGES.CONTACT.TITLE')} />
       <Row justifyContent="center">
         <Col xs={8}>
           <PageTitle text={t('PAGES.CONTACT.TITLE')} />
