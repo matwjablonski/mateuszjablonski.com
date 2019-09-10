@@ -14,7 +14,15 @@ const Home = () => {
     request()
       .get('posts')
       .then(res =>
-        res.data.data.sort((a, b) => (a.creationDate < b.creationDate ? 0 : 1))
+        res.data.data.sort((a, b) => {
+          if (a.creationDate > b.creationDate) {
+            return -1;
+          }
+          if (a.creationDate < b.creationDate) {
+            return 1;
+          }
+          return 0;
+        })
       )
       .then(res => setPosts(res));
   }, []);
