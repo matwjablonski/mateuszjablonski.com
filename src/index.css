@@ -15,6 +15,11 @@ pre {
 }
 
 code {
+  color: #888;
+  font-family: 'Inconsolata', monospace;
+}
+
+pre code {
   color: #d4d4d4;
   font-family: 'Inconsolata', monospace;
   font-size: 0.7em !important;
