@@ -10,6 +10,7 @@ import {
   PostAuthorImage,
   PostAuthorName,
   PostDate,
+  PostLink,
 } from './Post.style';
 import PostCover from './PostCover';
 import FromMarkdown from '../FromMarkdown/FromMarkdown';
@@ -23,7 +24,9 @@ const PostSummary = ({ post }) => {
 
   return (
     <PostSummaryStyle>
-      <PostTitle>{post.title}</PostTitle>
+      <PostLink to={`blog/${post.slug}`}>
+        <PostTitle>{post.title}</PostTitle>
+      </PostLink>
       <PostCover coverImage={post.coverImage} />
       <PostMeta>
         <PostAuthorImage

@@ -11,12 +11,13 @@ pre {
   background: #1e1e1e;
   border-radius: 4px;
   padding: 15px;
+  overflow: scroll;
 }
 
 code {
   color: #d4d4d4;
   font-family: 'Inconsolata', monospace;
-  font-size: 0.7em;
+  font-size: 0.7em !important;
 }
 
 .sidebarClose {
