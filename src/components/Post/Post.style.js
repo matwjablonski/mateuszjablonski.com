@@ -1,11 +1,17 @@
 import styled from 'styled-components';
 import { th } from '@smooth-ui/core-sc';
+import { Link } from 'react-router-dom';
 
 import { PageTitleHeadline } from '../PageTitle/PageTitle.style';
 
 export const PostSummaryStyle = styled.article`
   max-width: 900px;
   margin: 0 auto;
+`;
+
+export const PostLink = styled(Link)`
+  color: inherit;
+  text-decoration: none;
 `;
 
 export const PostTitle = styled(PageTitleHeadline)`
