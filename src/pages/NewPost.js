@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FormGroup, Grid, Row, Col, Button } from '@smooth-ui/core-sc';
 import { MarkdownEditorTextarea } from '../components/MarkdownEditor/MarkdownEditor.style';
 import Ups from '../components/Ups/Ups';
@@ -9,17 +9,33 @@ import { TextInput } from '../components/ui/TextInput';
 import UserSidebar from '../components/UserSidebar/UserSidebar';
 import { Formik } from 'formik';
 import { useTranslation } from 'react-i18next';
+import request from '../helpers/request';
 
 const NewPost = () => {
   const { t } = useTranslation();
+  const [file, setFile] = useState(null);
   const userData = useContext(UserContext);
 
   const { user } = userData;
 
   const handleSave = values => {
-    // console.log(values);
+    console.log(values);
     //  const b64  = window.btoa(unescape(encodeURIComponent(values.content)));
     // console.log(window.btoa(unescape(encodeURIComponent(values.content))));
+  };
+
+  const handleFileChange = e => {
+    if (!e.target.files) {
+      return;
+    }
+    setFile(e.target.files[0]);
+    console.log(file);
+    request()
+      .post('uploads', e.target.files[0])
+      .then(() => {
+        console.log('send');
+      });
+    // this.setState({ file: file });
   };
 
   return user.name && user.permissions.indexOf('CAN_CREATE_POST') !== -1 ? (
@@ -47,6 +63,15 @@ const NewPost = () => {
           >
             {({ values, errors, handleChange, handleSubmit }) => (
               <form onSubmit={handleSubmit}>
+                <FormGroup>
+                  <TextInput
+                    control
+                    id="file"
+                    name="file"
+                    type="file"
+                    onChange={handleFileChange}
+                  />
+                </FormGroup>
                 <FormGroup>
                   <SmallLabel htmlFor="form-group-title">
                     {t('ADMIN.NEW_POST.FORM.ARTICLE_TITLE.LABEL')}
