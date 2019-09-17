@@ -52,6 +52,15 @@ export const getUserNavItems = userType => {
       type: ['mentor'],
     },
     {
+      name: 'ADMIN.NAV.GLOSSARY',
+      type: ['mentor'],
+    },
+    {
+      name: 'ADMIN.NAV.NEW_GLOSSARY',
+      link: '/admin/glossary/new',
+      type: ['mentor'],
+    },
+    {
       name: 'ADMIN.NAV.USERS_LIST',
       link: '/admin/users',
       type: ['mentor'],

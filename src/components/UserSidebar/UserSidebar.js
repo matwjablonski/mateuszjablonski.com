@@ -17,9 +17,10 @@ const UserSidebar = () => {
 
   return (
     <UserSidebarWrapper>
-      {navItems.map(navItem =>
+      {navItems.map((navItem, index) =>
         navItem.link ? (
           <UserSidebarLink
+            key={`userSidebarLink${index}`}
             to={navItem.link}
             activeStyle={{
               opacity: 0.5,
@@ -29,7 +30,9 @@ const UserSidebar = () => {
             {t(navItem.name)}
           </UserSidebarLink>
         ) : (
-          <UserSidebarSeparator>{t(navItem.name)}</UserSidebarSeparator>
+          <UserSidebarSeparator key={`userSidebarSeparator${index}`}>
+            {t(navItem.name)}
+          </UserSidebarSeparator>
         )
       )}
     </UserSidebarWrapper>

@@ -22,6 +22,8 @@ const Contact = React.lazy(() => import('./pages/Contact'));
 const BlogPost = React.lazy(() => import('./pages/BlogPost'));
 const NewPost = React.lazy(() => import('./pages/NewPost'));
 const UsersList = React.lazy(() => import('./pages/UsersList'));
+const NewGlossary = React.lazy(() => import('./pages/NewGlossary'));
+const Glossary = React.lazy(() => import('./pages/Glossary'));
 
 function App() {
   const [me, setMe] = useState(null);
@@ -75,11 +77,17 @@ function App() {
                   <Route path="/nauka-programowania" exact component={Learn} />
                   <Route path="/admin" exact component={Dashboard} />
                   <Route path="/admin/posts/new" exact component={NewPost} />
+                  <Route
+                    path="/admin/glossary/new"
+                    exact
+                    component={NewGlossary}
+                  />
                   <Route path="/admin/users" exact component={UsersList} />
                   <Route path="/blog" exact component={Blog} />
                   <Route path="/blog/:slug" component={BlogPost} />
                   <Route path="/panel" exact component={Dashboard} />
                   <Route path="/kontakt" exact component={Contact} />
+                  <Route path="/slownik" exact component={Glossary} />
                   <Route component={Error404} />
                 </Switch>
               </PageWrapper>
