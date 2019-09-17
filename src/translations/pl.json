@@ -1,9 +1,13 @@
 {
+  "ABC": "slownik",
   "GENERAL": {
     "HEADER": {},
     "FOOTER": {
       "LAST_ON_BLOG": "Ostatnio na blogu",
-      "COPY": "© 2019 Mateusz Jabłoński"
+      "COPY": "© 2019 Mateusz Jabłoński",
+      "NAV": {
+        "GLOSSARY": "Słownik"
+      }
     },
     "LANGUAGES": {
       "PL": "PL",
@@ -54,6 +58,9 @@
   "PAGES": {
     "404": {
       "TITLE": "Błąd 404"
+    },
+    "GLOSSARY": {
+      "TITLE": "Słownik"
     },
     "POST": {
       "COVER_THUMBNAL": {
@@ -154,6 +161,24 @@
           "PLACEHOLDER": "Podaj URL strony autora zdjęcia przewodniego"
         },
         "SUBMIT": "Opublikuj artykuł"
+      }
+    },
+    "NEW_GLOSSARY": {
+      "TITLE": "Dodaj nową definicję do słownika",
+      "FORM": {
+        "ENTRY": {
+          "LABEL": "Nazwa definicji",
+          "PLACEHOLDER": "Wprowadź nazwę definicji"
+        },
+        "FULL_NAME": {
+          "LABEL": "Pełna nazwa definicji (opcjonalna)",
+          "PLACEHOLDER": "Wprowadź pełną nazwę definicji"
+        },
+        "DESCRIPTION": {
+          "LABEL": "Definicja",
+          "PLACEHOLDER": "Wprowadź definicję"
+        },
+        "SUBMIT": "Opublikuj definicję"
       }
     }
   },
