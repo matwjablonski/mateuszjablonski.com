@@ -22,6 +22,7 @@ const Contact = React.lazy(() => import('./pages/Contact'));
 const BlogPost = React.lazy(() => import('./pages/BlogPost'));
 const NewPost = React.lazy(() => import('./pages/NewPost'));
 const UsersList = React.lazy(() => import('./pages/UsersList'));
+const User = React.lazy(() => import('./pages/User'));
 const NewGlossary = React.lazy(() => import('./pages/NewGlossary'));
 const Glossary = React.lazy(() => import('./pages/Glossary'));
 
@@ -83,6 +84,11 @@ function App() {
                     component={NewGlossary}
                   />
                   <Route path="/admin/users" exact component={UsersList} />
+                  <Route
+                    path="/admin/users/:id/:action"
+                    exact
+                    component={User}
+                  />
                   <Route path="/blog" exact component={Blog} />
                   <Route path="/blog/:slug" component={BlogPost} />
                   <Route path="/panel" exact component={Dashboard} />

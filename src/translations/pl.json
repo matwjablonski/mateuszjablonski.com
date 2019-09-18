@@ -104,11 +104,16 @@
       "ADD_NEW_COURSANT": "Dodaj nowego kursanta",
       "USERS": "Użytkownicy",
       "USERS_LIST": "Wszyscy użytkownicy",
+      "GLOSSARY": "Słownik",
+      "NEW_GLOSSARY": "Dodaj nowy wpis",
       "SETTINGS": "Ustawienia",
       "MY_ACCOUNT": "Moje konto"
     },
     "DASHBOARD": {
       "TITLE": "Twój panel"
+    },
+    "USER_VIEW": {
+      "TITLE": "Użytkownik:"
     },
     "USERS_LIST": {
       "TITLE": "Użytkownicy",
