@@ -113,7 +113,14 @@
       "TITLE": "Twój panel"
     },
     "USER_VIEW": {
-      "TITLE": "Użytkownik:"
+      "TITLE": "Użytkownik:",
+      "GENERAL": "Ogólne",
+      "USER_TYPE": "Typ konta",
+      "DATE_OF_BIRTH": "Data urodzenia",
+      "EMAIL": "Adres email",
+      "PHONE": "Telefon kontaktowy",
+      "YOUR_PROGRESS": "Postęp",
+      "PERMISSIONS": "Uprawnienia"
     },
     "USERS_LIST": {
       "TITLE": "Użytkownicy",

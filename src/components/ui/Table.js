@@ -47,18 +47,25 @@ export const Table = ({ items, headers, actions, edit, showDetails }) => {
     <Grid>
       <TableRow>
         {headers.map(col => (
-          <HeaderCol xs={col.xs}>{col.name}</HeaderCol>
+          <HeaderCol key={col.name} xs={col.xs}>
+            {col.name}
+          </HeaderCol>
         ))}
         {actions && <HeaderCol xs={2} ml="auto" />}
       </TableRow>
-      {items.map(item => {
+      {items.map((item, rowIndex) => {
         const keys = Object.keys(item.cols).filter(key => key !== 'id');
-        const cols = keys.map(key => (
-          <TableCol xs={item.cols[key].xs}>{item.cols[key].value}</TableCol>
+        const cols = keys.map((key, index) => (
+          <TableCol
+            key={`table-col-${item.cols[key].name}-${index}`}
+            xs={item.cols[key].xs}
+          >
+            {item.cols[key].value}
+          </TableCol>
         ));
         actions &&
           cols.push(
-            <TableCol xs="auto" ml="auto">
+            <TableCol xs="auto" ml="auto" key="table-col-actions">
               {edit && (
                 <ActionButton onClick={() => edit(item.id)}>
                   <FontAwesomeIcon icon={faEdit} size="xs" />
@@ -69,7 +76,9 @@ export const Table = ({ items, headers, actions, edit, showDetails }) => {
               </ActionButton>
             </TableCol>
           );
-        return <DataTableRow key={item.id}>{cols}</DataTableRow>;
+        return (
+          <DataTableRow key={`${item.id}-${rowIndex}`}>{cols}</DataTableRow>
+        );
       })}
     </Grid>
   ) : null;
