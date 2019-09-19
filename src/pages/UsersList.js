@@ -63,7 +63,11 @@ const UsersList = props => {
   }));
 
   const handleEdit = id => {
-    this.props.history.push(`/admin/users/${id}/edit`);
+    props.history.push(`/admin/users/${id}/edit`);
+  };
+
+  const handleShowDetails = id => {
+    props.history.push(`/admin/users/${id}/details`);
   };
 
   return (
@@ -79,6 +83,7 @@ const UsersList = props => {
             headers={headers}
             actions
             edit={id => handleEdit(id)}
+            showDetails={id => handleShowDetails(id)}
           />
         </Col>
       </Row>

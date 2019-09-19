@@ -1,12 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { Grid, Row, Col, th, Button } from '@smooth-ui/core-sc';
-
-export const TableRowAsLink = styled(Link)`
-  color: inherit;
-  text-decoration: none;
-`;
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faUser } from '@fortawesome/free-solid-svg-icons';
 
 export const TableRow = styled(Row)`
   border-bottom: 1px solid ${th('lightGrey')};
@@ -15,6 +11,10 @@ export const TableRow = styled(Row)`
   &:hover {
     background: ${th('lighterGrey')};
   }
+`;
+
+export const DataTableRow = styled(TableRow)`
+  align-items: center;
 `;
 
 export const TableCol = styled(Col)`
@@ -27,30 +27,57 @@ export const HeaderCol = styled(Col)`
   padding: 0.7em 0.5em;
 `;
 
-export const Table = ({ items, headers, actions, edit }) => {
+export const ActionButton = styled(Button)`
+  align-items: center;
+  display: inline-flex;
+  height: 25px;
+  justify-content: center;
+  margin-right: 5px;
+  opacity: 0.8;
+  padding: 0;
+  width: 25px;
+
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+export const Table = ({ items, headers, actions, edit, showDetails }) => {
   return items.length ? (
     <Grid>
       <TableRow>
         {headers.map(col => (
-          <HeaderCol xs={col.xs}>{col.name}</HeaderCol>
+          <HeaderCol key={col.name} xs={col.xs}>
+            {col.name}
+          </HeaderCol>
         ))}
         {actions && <HeaderCol xs={2} ml="auto" />}
       </TableRow>
-      {items.map(item => {
+      {items.map((item, rowIndex) => {
         const keys = Object.keys(item.cols).filter(key => key !== 'id');
-        const cols = keys.map(key => (
-          <TableCol xs={item.cols[key].xs}>{item.cols[key].value}</TableCol>
+        const cols = keys.map((key, index) => (
+          <TableCol
+            key={`table-col-${item.cols[key].name}-${index}`}
+            xs={item.cols[key].xs}
+          >
+            {item.cols[key].value}
+          </TableCol>
         ));
         actions &&
           cols.push(
-            <TableCol xs={2} ml="auto">
-              {edit && <Button onClick={() => edit(item.id)}>Edit</Button>}
+            <TableCol xs="auto" ml="auto" key="table-col-actions">
+              {edit && (
+                <ActionButton onClick={() => edit(item.id)}>
+                  <FontAwesomeIcon icon={faEdit} size="xs" />
+                </ActionButton>
+              )}
+              <ActionButton onClick={() => showDetails(item.id)}>
+                <FontAwesomeIcon icon={faUser} size="xs" />
+              </ActionButton>
             </TableCol>
           );
         return (
-          <TableRowAsLink to={`/admin/users/${item.id}`}>
-            <TableRow key={item.id}>{cols}</TableRow>
-          </TableRowAsLink>
+          <DataTableRow key={`${item.id}-${rowIndex}`}>{cols}</DataTableRow>
         );
       })}
     </Grid>
