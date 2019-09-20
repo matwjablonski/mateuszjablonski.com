@@ -45,6 +45,7 @@ export const getUserNavItems = userType => {
     },
     {
       name: 'ADMIN.NAV.MY_MEETINGS',
+      link: '/panel/moje-spotkania',
       type: ['coursant'],
     },
     {

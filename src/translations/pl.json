@@ -110,7 +110,23 @@
       "MY_ACCOUNT": "Moje konto"
     },
     "DASHBOARD": {
-      "TITLE": "Twój panel"
+      "TITLE": "Twój panel",
+      "DESCRIPTION": "Panel to miejsce, w którym znajdziesz podsumowanie swojej pracy i którego celem jest ułatwienie nawigowania po aplikacji.",
+      "YOUR_COURSE": "Twój kurs",
+      "ACTIVE_COURSE": "Aktywny kurs",
+      "MEETINGS_IN": "Spotkania",
+      "ACTIVE_MODULE": "Aktywny moduł",
+      "HOMEWORK": "Zadanie domowe",
+      "LAST_GLOSSARY": "Nowe słowa z ostatniego spotkania"
+    },
+    "MY_MEETINGS": {
+      "TITLE": "Moje spotkania",
+      "NEXT_MEETING": "Następne spotkanie",
+      "PREV_MEETINGS": "Poprzednie spotkania",
+      "MEETING": {
+        "DATE": "Data spotkania",
+        "DESCRIPTION": "Opis"
+      }
     },
     "USER_VIEW": {
       "TITLE": "Użytkownik:",

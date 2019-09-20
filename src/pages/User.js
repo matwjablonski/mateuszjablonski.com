@@ -7,7 +7,7 @@ import UserSidebar from '../components/UserSidebar/UserSidebar';
 import request from '../helpers/request';
 import axios from 'axios';
 import moment from 'moment';
-import { BadgeWrapper, Badge } from '../components/ui/Bagde';
+import { BadgeWrapper, Badge } from '../components/ui/Badge';
 import { MediumTitle } from '../components/ui/Title';
 
 const User = props => {
