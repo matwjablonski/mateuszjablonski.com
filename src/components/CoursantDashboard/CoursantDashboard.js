@@ -8,15 +8,15 @@ import requests from '../../helpers/request';
 import { Badge, BadgeWrapper } from '../ui/Badge';
 import { MediumTitle } from '../ui/Title';
 
-export const CoursantDashboard = ({ courses }) => {
+export const CoursantDashboard = ({ course }) => {
   const { t } = useTranslation();
   const [activeCourse, setActiveCourse] = useState(null);
 
   useEffect(() => {
     requests()
-      .get(`course/id/${courses[0]}`)
+      .get(`course/id/${course}`)
       .then(res => setActiveCourse(res.data));
-  }, [courses]);
+  }, [course]);
 
   console.log(activeCourse);
 

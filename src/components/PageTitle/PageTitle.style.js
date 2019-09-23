@@ -8,6 +8,7 @@ export const PageTitleHeadline = styled.h2`
   margin-top: 45px;
   padding-bottom: 15px;
   position: relative;
+  white-space: nowrap;
 
   &::before {
     background: ${th('darkGrey')};
@@ -29,4 +30,8 @@ export const PageTitleHeadline = styled.h2`
     position: absolute;
     width: 100%;
   }
+`;
+
+export const PageTitleWithAvatar = styled.div`
+  display: flex;
 `;

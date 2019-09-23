@@ -130,13 +130,26 @@
     },
     "USER_VIEW": {
       "TITLE": "Użytkownik:",
+      "NEW_MEETING": "Nowe spotkanie",
+      "EDIT": "Edytuj",
       "GENERAL": "Ogólne",
       "USER_TYPE": "Typ konta",
       "DATE_OF_BIRTH": "Data urodzenia",
+      "NO_BIRTH_DATE": "Nie podano daty urodzenia",
       "EMAIL": "Adres email",
       "PHONE": "Telefon kontaktowy",
       "YOUR_PROGRESS": "Postęp",
-      "PERMISSIONS": "Uprawnienia"
+      "PERMISSIONS": "Uprawnienia",
+      "NEW_MEETING_FORM": {
+        "TITLE": "Ustaw następne spotkanie",
+        "DATE": {
+          "LABEL": "Data spotkania"
+        },
+        "TIME": {
+          "LABEL": "Godzina spotkania"
+        },
+        "SAVE": "Zapisz"
+      }
     },
     "USERS_LIST": {
       "TITLE": "Użytkownicy",

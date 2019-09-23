@@ -31,7 +31,7 @@ export const getUserNavItems = userType => {
     },
     {
       name: 'ADMIN.NAV.COURSANTS_LIST',
-      link: '/admin/coursants',
+      link: '/admin/users/coursants',
       type: ['mentor'],
     },
     {

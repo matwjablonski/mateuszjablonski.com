@@ -18,7 +18,7 @@ const Dashboard = () => {
       case 'mentor':
         return 'mentor';
       case 'coursant':
-        return <CoursantDashboard courses={user.courses} />;
+        return <CoursantDashboard course={user.course} />;
       case 'reader':
       default:
         return null;

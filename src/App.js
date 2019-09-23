@@ -88,6 +88,11 @@ function App() {
                   />
                   <Route path="/admin/users" exact component={UsersList} />
                   <Route
+                    path="/admin/users/:type"
+                    exact
+                    component={UsersList}
+                  />
+                  <Route
                     path="/admin/users/:id/:action"
                     exact
                     component={User}
