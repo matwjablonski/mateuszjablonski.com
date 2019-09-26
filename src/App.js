@@ -17,14 +17,17 @@ import { MeProvider } from './meContext';
 const Home = React.lazy(() => import('./pages/Home'));
 const Learn = React.lazy(() => import('./pages/Learn'));
 const Blog = React.lazy(() => import('./pages/Blog'));
-const Dashboard = React.lazy(() => import('./pages/Dashboard'));
 const Contact = React.lazy(() => import('./pages/Contact'));
 const BlogPost = React.lazy(() => import('./pages/BlogPost'));
+const Glossary = React.lazy(() => import('./pages/Glossary'));
+
+const Dashboard = React.lazy(() => import('./pages/Dashboard'));
+const MyMeetings = React.lazy(() => import('./pages/MyMeetings'));
+
 const NewPost = React.lazy(() => import('./pages/NewPost'));
 const UsersList = React.lazy(() => import('./pages/UsersList'));
 const User = React.lazy(() => import('./pages/User'));
 const NewGlossary = React.lazy(() => import('./pages/NewGlossary'));
-const Glossary = React.lazy(() => import('./pages/Glossary'));
 
 function App() {
   const [me, setMe] = useState(null);
@@ -85,6 +88,11 @@ function App() {
                   />
                   <Route path="/admin/users" exact component={UsersList} />
                   <Route
+                    path="/admin/users/:type"
+                    exact
+                    component={UsersList}
+                  />
+                  <Route
                     path="/admin/users/:id/:action"
                     exact
                     component={User}
@@ -92,6 +100,11 @@ function App() {
                   <Route path="/blog" exact component={Blog} />
                   <Route path="/blog/:slug" component={BlogPost} />
                   <Route path="/panel" exact component={Dashboard} />
+                  <Route
+                    path="/panel/moje-spotkania"
+                    exact
+                    component={MyMeetings}
+                  />
                   <Route path="/kontakt" exact component={Contact} />
                   <Route path="/slownik" exact component={Glossary} />
                   <Route component={Error404} />

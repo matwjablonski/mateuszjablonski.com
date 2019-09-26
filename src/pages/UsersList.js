@@ -12,11 +12,13 @@ const UsersList = props => {
   const { t } = useTranslation();
   const [users, setUsers] = useState([]);
 
+  console.log(props.match.params.type);
+
   useEffect(() => {
     request()
-      .get('users')
+      .get(`users/${props.match.params.type ? props.match.params.type : ''}`)
       .then(res => setUsers(res.data.data));
-  }, []);
+  }, [props.match.params.type]);
 
   const headers = [
     {

@@ -110,17 +110,48 @@
       "MY_ACCOUNT": "Moje konto"
     },
     "DASHBOARD": {
-      "TITLE": "Twój panel"
+      "TITLE": "Twój panel",
+      "DESCRIPTION": "Panel to miejsce, w którym znajdziesz podsumowanie swojej pracy i którego celem jest ułatwienie nawigowania po aplikacji.",
+      "YOUR_COURSE": "Twój kurs",
+      "ACTIVE_COURSE": "Aktywny kurs",
+      "MEETINGS_IN": "Spotkania",
+      "ACTIVE_MODULE": "Aktywny moduł",
+      "HOMEWORK": "Zadanie domowe",
+      "LAST_GLOSSARY": "Nowe słowa z ostatniego spotkania"
+    },
+    "MY_MEETINGS": {
+      "TITLE": "Moje spotkania",
+      "NEXT_MEETING": "Następne spotkanie",
+      "PREV_MEETINGS": "Poprzednie spotkania",
+      "MEETING": {
+        "DATE": "Data spotkania",
+        "DESCRIPTION": "Opis",
+        "HOURS_AGO": "{{ hours }} godzin temu",
+        "IN_HOURS": "za {{ hours }} godzin / y"
+      }
     },
     "USER_VIEW": {
       "TITLE": "Użytkownik:",
+      "NEW_MEETING": "Nowe spotkanie",
+      "EDIT": "Edytuj",
       "GENERAL": "Ogólne",
       "USER_TYPE": "Typ konta",
       "DATE_OF_BIRTH": "Data urodzenia",
+      "NO_BIRTH_DATE": "Nie podano daty urodzenia",
       "EMAIL": "Adres email",
       "PHONE": "Telefon kontaktowy",
       "YOUR_PROGRESS": "Postęp",
-      "PERMISSIONS": "Uprawnienia"
+      "PERMISSIONS": "Uprawnienia",
+      "NEW_MEETING_FORM": {
+        "TITLE": "Ustaw następne spotkanie",
+        "DATE": {
+          "LABEL": "Data spotkania"
+        },
+        "TIME": {
+          "LABEL": "Godzina spotkania"
+        },
+        "SAVE": "Zapisz"
+      }
     },
     "USERS_LIST": {
       "TITLE": "Użytkownicy",

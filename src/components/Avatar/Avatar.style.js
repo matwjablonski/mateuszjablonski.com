@@ -24,3 +24,10 @@ export const AvatarImage = styled.img`
   height: 130px;
   border: 1px solid transparent;
 `;
+
+export const MiniAvatarImage = styled(AvatarImage)`
+  height: 50px;
+  margin-top: 50px;
+  margin-right: 10px;
+  width: 50px;
+`;
