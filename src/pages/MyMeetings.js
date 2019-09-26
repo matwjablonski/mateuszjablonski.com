@@ -8,6 +8,14 @@ import { useTranslation } from 'react-i18next';
 import { MediumTitle } from '../components/ui/Title';
 import requests from '../helpers/request';
 import moment from 'moment';
+import { convertTimeToTransalateString, isDateInPast } from '../helpers/date';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faClock,
+  faStopwatch,
+  faHistory,
+} from '@fortawesome/free-solid-svg-icons';
+import { BadgeWrapper, Badge } from '../components/ui/Badge';
 
 const MyMeetings = () => {
   const { t } = useTranslation();
@@ -21,7 +29,6 @@ const MyMeetings = () => {
       requests()
         .get(`course/id/${user.course}`)
         .then(res => {
-          console.log('course', res.data);
           setMeetings(res.data.meetings);
         });
   }, [user]);
@@ -43,9 +50,28 @@ const MyMeetings = () => {
           </Row>
           <Row>
             <Col>
-              {meetings &&
-                moment(meetings.nextMeeting).format('DD.MM.YYYY HH:mm')}
-              {meetings && moment(meetings.nextMeeting).fromNow(true)}
+              {meetings && (
+                <>
+                  <BadgeWrapper>
+                    <Badge>
+                      <FontAwesomeIcon icon={faClock} size="2x" />
+                    </Badge>
+                    {moment(meetings.nextMeeting).format('DD.MM.YYYY HH:mm')}
+                  </BadgeWrapper>
+                  <BadgeWrapper>
+                    <Badge>
+                      {isDateInPast(meetings.nextMeeting) ? (
+                        <FontAwesomeIcon icon={faHistory} size="2x" />
+                      ) : (
+                        <FontAwesomeIcon icon={faStopwatch} size="2x" />
+                      )}
+                    </Badge>
+                    {convertTimeToTransalateString(
+                      moment(meetings.nextMeeting).fromNow()
+                    )}
+                  </BadgeWrapper>
+                </>
+              )}
             </Col>
           </Row>
           <Row>

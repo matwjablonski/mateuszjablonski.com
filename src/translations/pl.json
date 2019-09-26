@@ -125,7 +125,9 @@
       "PREV_MEETINGS": "Poprzednie spotkania",
       "MEETING": {
         "DATE": "Data spotkania",
-        "DESCRIPTION": "Opis"
+        "DESCRIPTION": "Opis",
+        "HOURS_AGO": "{{ hours }} godzin temu",
+        "IN_HOURS": "za {{ hours }} godzin / y"
       }
     },
     "USER_VIEW": {
