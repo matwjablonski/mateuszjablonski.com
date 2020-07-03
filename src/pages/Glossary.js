@@ -7,6 +7,7 @@ import { Head } from '../components/Head/Head';
 import BigLoader from '../components/BigLoader/BigLoader';
 import PageTitle from '../components/PageTitle/PageTitle';
 import { Definition } from '../components/Definition/Definition';
+import { requestCollection } from '../helpers/request';
 
 const Glossary = () => {
   const [definitions, setDefinitions] = useState([]);
@@ -14,30 +15,29 @@ const Glossary = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    // request()
-    //   .get('glossary')
-    //   .then(res =>
-    //     res.data.data.sort((a, b) => {
-    //       if (a.entry > b.entry) {
-    //         return 1;
-    //       }
-    //       if (a.entry < b.entry) {
-    //         return -1;
-    //       }
-    //       return 0;
-    //     })
-    //   )
-    //   .then(res => setDefinitions(res));
+    requestCollection('glossary')
+      .then(res =>
+        res.sort((a, b) => {
+          if (a.entry > b.entry) {
+            return 1;
+          }
+          if (a.entry < b.entry) {
+            return -1;
+          }
+          return 0;
+        }),
+      )
+      .then(res => setDefinitions(res));
   }, []);
 
   return (
     <Grid>
-      <Head />
-      <PageTitle text={t('PAGES.GLOSSARY.TITLE')} />
+      <Head/>
+      <PageTitle text={t('PAGES.GLOSSARY.TITLE')}/>
       {definitions.length ? (
-        definitions.map(def => <Definition key={def.id} def={def} />)
+        definitions.map(def => <Definition key={def.id} def={def}/>)
       ) : (
-        <BigLoader text={t('NOTIFICATIONS.POSTS_LOADING')} />
+        <BigLoader text={t('NOTIFICATIONS.POSTS_LOADING')}/>
       )}
     </Grid>
   );

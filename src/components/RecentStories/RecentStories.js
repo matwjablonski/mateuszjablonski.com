@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Grid, Row, Col } from '@smooth-ui/core-sc';
-import request from '../../helpers/request';
+import { requestCollectionBy } from '../../helpers/request';
 
 import {
   RecentStoriesWrapper,
@@ -17,9 +17,8 @@ const RecentStories = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    // request()
-    //   .get('posts/recentStories')
-    //   .then(res => getRecentStories(res.data.data));
+    requestCollectionBy('posts')
+      .then(res => getRecentStories(res));
   }, []);
 
   return (
@@ -43,7 +42,7 @@ const RecentStories = () => {
                       }}
                     >
                       <RecentStoryBox>
-                        <RecentStory src={story.image} />
+                        <RecentStory src={story.coverImage.squareUrl} />
                       </RecentStoryBox>
                     </RecentStoryLink>
                   ))

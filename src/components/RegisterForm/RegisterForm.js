@@ -12,9 +12,7 @@ import {
 } from '@smooth-ui/core-sc';
 import { SmallTitle } from '../ui/Title';
 import { SidebarModalFooter } from '../Sidebar/Sidebar.style';
-// import requests from '../../helpers/request';
 import { UserContext } from '../../userContext';
-import { keepToken } from '../../helpers/token';
 
 const RegisterForm = ({ switchModalType, onClose }) => {
   const user = useContext(UserContext);

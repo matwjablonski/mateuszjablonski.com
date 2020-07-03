@@ -25,7 +25,7 @@ const MyMeetings = () => {
   const { user } = userData;
 
   useEffect(() => {
-    // u>ser.course &&
+    // user.course &&
       // requests()
       //   .get(`course/id/${user.course}`)
       //   .then(res => {

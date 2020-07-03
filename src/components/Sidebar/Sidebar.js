@@ -14,6 +14,7 @@ import { UserContext, unloggedUser } from '../../userContext';
 // import requests from '../../helpers/request';
 // import { removeToken } from '../../helpers/token';
 import { MeContext } from '../../meContext';
+import { auth } from '../../firebase';
 
 const Sidebar = ({ isOpen }) => {
   const { t } = useTranslation();
@@ -27,12 +28,9 @@ const Sidebar = ({ isOpen }) => {
 
   const handleSidebarButtonAction = () => {
     if (user.name) {
-      // requests(user.token)
-      //   .post('users/logout')
-      //   .then(() => {
-      //     setUser(unloggedUser);
-      //     removeToken();
-      //   });
+      auth
+        .signOut()
+        .then(setUser(unloggedUser));
     } else {
       onToggle(true);
     }

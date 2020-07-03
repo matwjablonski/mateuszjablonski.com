@@ -9,10 +9,11 @@ import Sidebar from './components/Sidebar/Sidebar';
 import Error404 from './pages/Error404';
 import PageWrapper from './components/ui/PageWrapper';
 import Footer from './components/Footer/Footer';
-import { requestDoc } from './helpers/request';
+import { requestDoc, requestDocBy } from './helpers/request';
 import { UserProvider, unloggedUser } from './userContext';
 import UserBar from './components/UserBar/UserBar';
 import { MeProvider } from './meContext';
+import { auth } from './firebase';
 
 const Home = React.lazy(() => import('./pages/Home'));
 const Learn = React.lazy(() => import('./pages/Learn'));
@@ -31,7 +32,7 @@ const NewGlossary = React.lazy(() => import('./pages/NewGlossary'));
 
 function App() {
   const [me, setMe] = useState(null);
-  const [isSidebarOpen, toggleSidebar] = useState(true);
+  const [isSidebarOpen, toggleSidebar] = useState(false);
   const [user, setUser] = useState(unloggedUser);
 
   const sidebarRef = useRef(null);
@@ -45,9 +46,13 @@ function App() {
     requestDoc('author', 'me')
       .then(res => setMe(res));
 
-    // request()
-    //   .get('users/me')
-    //   .then(res => setUser(res.data.data));
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        requestDocBy('users', 'email', user.email)
+          .then(res => setUser(res));
+      }
+    });
+
     document.addEventListener('mousedown', handleClickOutsideSidebar);
 
     return () => {
