@@ -17,9 +17,9 @@ const RecentStories = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    request()
-      .get('posts/recentStories')
-      .then(res => getRecentStories(res.data.data));
+    // request()
+    //   .get('posts/recentStories')
+    //   .then(res => getRecentStories(res.data.data));
   }, []);
 
   return (

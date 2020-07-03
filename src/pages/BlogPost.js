@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import request from '../helpers/request';
+// import request from '../helpers/request';
 
 import Post from '../components/Post/Post';
 import { Head } from '../components/Head/Head';
@@ -12,9 +12,9 @@ const BlogPost = props => {
   const [post, setPost] = useState(null);
 
   useEffect(() => {
-    request()
-      .get(`post/slug/${params.slug}`)
-      .then(res => setPost(res.data));
+    // request()
+    //   .get(`post/slug/${params.slug}`)
+    //   .then(res => setPost(res.data));
   }, [params.slug]);
 
   return post ? (

@@ -12,7 +12,7 @@ import {
 } from '@smooth-ui/core-sc';
 import { SmallTitle } from '../ui/Title';
 import { SidebarModalFooter } from '../Sidebar/Sidebar.style';
-import requests from '../../helpers/request';
+// import requests from '../../helpers/request';
 import { UserContext } from '../../userContext';
 import { keepToken } from '../../helpers/token';
 
@@ -21,15 +21,15 @@ const RegisterForm = ({ switchModalType, onClose }) => {
   const { t } = useTranslation();
 
   const handleRegister = values => {
-    requests()
-      .post('users', values)
-      .then(res => keepToken(res.data.data.token))
-      .then(() => {
-        requests()
-          .get('users/me')
-          .then(res => user.setUser(res.data.data))
-          .then(() => onClose(false));
-      });
+    // requests()
+    //   .post('users', values)
+    //   .then(res => keepToken(res.data.data.token))
+    //   .then(() => {
+    //     requests()
+    //       .get('users/me')
+    //       .then(res => user.setUser(res.data.data))
+    //       .then(() => onClose(false));
+    //   });
   };
 
   return (

@@ -11,8 +11,8 @@ import { Button, Modal, ModalDialog } from '@smooth-ui/core-sc';
 import LoginForm from '../LoginForm/LoginForm';
 import RegisterForm from '../RegisterForm/RegisterForm';
 import { UserContext, unloggedUser } from '../../userContext';
-import requests from '../../helpers/request';
-import { removeToken } from '../../helpers/token';
+// import requests from '../../helpers/request';
+// import { removeToken } from '../../helpers/token';
 import { MeContext } from '../../meContext';
 
 const Sidebar = ({ isOpen }) => {
@@ -27,12 +27,12 @@ const Sidebar = ({ isOpen }) => {
 
   const handleSidebarButtonAction = () => {
     if (user.name) {
-      requests(user.token)
-        .post('users/logout')
-        .then(() => {
-          setUser(unloggedUser);
-          removeToken();
-        });
+      // requests(user.token)
+      //   .post('users/logout')
+      //   .then(() => {
+      //     setUser(unloggedUser);
+      //     removeToken();
+      //   });
     } else {
       onToggle(true);
     }

@@ -21,13 +21,12 @@ import PageTitle from '../components/PageTitle/PageTitle';
 import { PageTitleWithAvatar } from '../components/PageTitle/PageTitle.style';
 import { MiniAvatarImage } from '../components/Avatar/Avatar.style';
 import UserSidebar from '../components/UserSidebar/UserSidebar';
-import request from '../helpers/request';
+// import request from '../helpers/request';
 import axios from 'axios';
 import moment from 'moment';
 import { ButtonWithMargin } from '../components/ui/Button';
 import { BadgeWrapper, Badge } from '../components/ui/Badge';
 import { MediumTitle, SmallTitle } from '../components/ui/Title';
-import requests from '../helpers/request';
 
 const User = props => {
   const { t } = useTranslation();
@@ -39,13 +38,13 @@ const User = props => {
   useEffect(() => {
     let source = axios.CancelToken.source();
     try {
-      request()
-        .get(`users/userId/${id}`, {
-          cancelToken: source.token,
-        })
-        .then(res => {
-          setUser(res.data);
-        });
+      // request()
+      //   .get(`users/userId/${id}`, {
+      //     cancelToken: source.token,
+      //   })
+      //   .then(res => {
+      //     setUser(res.data);
+      //   });
     } catch (err) {
       if (axios.isCancel(err)) {
         throw err;
@@ -58,11 +57,11 @@ const User = props => {
   }, [id]);
 
   const handleAddNewMeeting = values => {
-    requests()
-      .put(`course/newMeeting/${user.course}`, values)
-      .then(() => {
-        onToggle(false);
-      });
+    // requests()
+    //   .put(`course/newMeeting/${user.course}`, values)
+    //   .then(() => {
+    //     onToggle(false);
+    //   });
   };
 
   console.log(action, user);

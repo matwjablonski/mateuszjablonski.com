@@ -9,7 +9,7 @@ import { TextInput } from '../components/ui/TextInput';
 import UserSidebar from '../components/UserSidebar/UserSidebar';
 import { Formik } from 'formik';
 import { useTranslation } from 'react-i18next';
-import request from '../helpers/request';
+// import request from '../helpers/request';
 import { encodeText } from '../helpers/text';
 
 const NewGlossary = () => {
@@ -19,15 +19,15 @@ const NewGlossary = () => {
   const { user } = userData;
 
   const handleSave = (values, { resetForm }) => {
-    request()
-      .post('glossary', {
-        entry: values.entry,
-        fullName: values.fullName,
-        description: encodeText(values.description),
-      })
-      .then(() => {
-        resetForm();
-      });
+    // request()
+    //   .post('glossary', {
+    //     entry: values.entry,
+    //     fullName: values.fullName,
+    //     description: encodeText(values.description),
+    //   })
+    //   .then(() => {
+    //     resetForm();
+    //   });
   };
 
   return user.name && user.permissions.indexOf('CAN_CREATE_GLOSSARY') !== -1 ? (

@@ -12,6 +12,7 @@
     "classnames": "^2.2.6",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
+    "firebase": "^7.15.5",
     "formik": "^1.5.8",
     "html-react-parser": "^0.9.1",
     "i18next": "^17.0.12",

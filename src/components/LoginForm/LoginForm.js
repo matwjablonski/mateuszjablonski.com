@@ -15,21 +15,24 @@ import { SidebarModalFooter } from '../Sidebar/Sidebar.style';
 import requests from '../../helpers/request';
 import { UserContext } from '../../userContext';
 import { keepToken } from '../../helpers/token';
+import { auth } from '../../firebase';
 
 const LoginForm = ({ switchModalType, onClose }) => {
   const user = useContext(UserContext);
   const { t } = useTranslation();
 
   const handleLogin = values => {
-    requests()
-      .post('users/login', values)
-      .then(res => keepToken(res.data.data.token))
-      .then(() => {
-        requests()
-          .get('users/me')
-          .then(res => user.setUser(res.data.data))
-          .then(() => onClose(false));
-      });
+    console.log(values);
+    auth.signInWithEmailAndPassword();
+    // requests()
+    //   .post('users/login', values)
+    //   .then(res => keepToken(res.data.data.token))
+    //   .then(() => {
+    //     requests()
+    //       .get('users/me')
+    //       .then(res => user.setUser(res.data.data))
+    //       .then(() => onClose(false));
+    //   });
   };
 
   return (

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import request from '../helpers/request';
+import { requestCollection} from '../helpers/request';
 import { useTranslation } from 'react-i18next';
 
 import PostSummary from '../components/Post/PostSummary';
@@ -10,20 +10,20 @@ const Blog = () => {
   const [posts, setPosts] = useState([]);
   const { t } = useTranslation();
   useEffect(() => {
-    request()
-      .get('posts')
+    requestCollection('posts')
       .then(res =>
-        res.data.data.sort((a, b) => {
-          if (a.creationDate > b.creationDate) {
-            return -1;
-          }
-          if (a.creationDate < b.creationDate) {
-            return 1;
-          }
-          return 0;
-        })
+        console.log(res)
+        // res.data.data.sort((a, b) => {
+        //   if (a.creationDate > b.creationDate) {
+        //     return -1;
+        //   }
+        //   if (a.creationDate < b.creationDate) {
+        //     return 1;
+        //   }
+        //   return 0;
+        // })
       )
-      .then(res => setPosts(res));
+      // .then(res => setPosts(res));
   }, []);
 
   return (

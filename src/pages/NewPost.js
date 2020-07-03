@@ -9,7 +9,7 @@ import { TextInput } from '../components/ui/TextInput';
 import UserSidebar from '../components/UserSidebar/UserSidebar';
 import { Formik } from 'formik';
 import { useTranslation } from 'react-i18next';
-import request from '../helpers/request';
+// import request from '../helpers/request';
 
 const NewPost = () => {
   const { t } = useTranslation();
@@ -30,11 +30,11 @@ const NewPost = () => {
     }
     setFile(e.target.files[0]);
     console.log(file);
-    request()
-      .post('uploads', e.target.files[0])
-      .then(() => {
-        console.log('send');
-      });
+    // request()
+    //   .post('uploads', e.target.files[0])
+    //   .then(() => {
+    //     console.log('send');
+    //   });
     // this.setState({ file: file });
   };
 
