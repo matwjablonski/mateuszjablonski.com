@@ -13,21 +13,24 @@ import {
 import { SmallTitle } from '../ui/Title';
 import { SidebarModalFooter } from '../Sidebar/Sidebar.style';
 import { UserContext } from '../../userContext';
+import { auth } from '../../firebase';
+import { requestDocAddNew } from '../../helpers/request';
 
 const RegisterForm = ({ switchModalType, onClose }) => {
   const user = useContext(UserContext);
   const { t } = useTranslation();
 
-  const handleRegister = values => {
-    // requests()
-    //   .post('users', values)
-    //   .then(res => keepToken(res.data.data.token))
-    //   .then(() => {
-    //     requests()
-    //       .get('users/me')
-    //       .then(res => user.setUser(res.data.data))
-    //       .then(() => onClose(false));
-    //   });
+  const handleRegister = ({ email, password, name }) => {
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then(res => {
+        user.setUser(res.user);
+        requestDocAddNew('users', {
+          name,
+          email
+        })
+          .then(() => onClose(false));
+      })
   };
 
   return (
@@ -81,21 +84,6 @@ const RegisterForm = ({ switchModalType, onClose }) => {
                   name="password"
                   placeholder={t(
                     'GENERAL.AUTH.REGISTER_FORM.PASSWORD.PLACEHOLDER'
-                  )}
-                  onChange={handleChange}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label htmlFor="form-group-password-repeat">
-                  {t('GENERAL.AUTH.REGISTER_FORM.PASSWORD_REPEAT.LABEL')}
-                </Label>
-                <Input
-                  control
-                  id="form-group-password-repeat"
-                  type="password"
-                  name="password-repeat"
-                  placeholder={t(
-                    'GENERAL.AUTH.REGISTER_FORM.PASSWORD_REPEAT.PLACEHOLDER'
                   )}
                   onChange={handleChange}
                 />

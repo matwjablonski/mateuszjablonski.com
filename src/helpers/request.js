@@ -1,5 +1,18 @@
 import { database } from '../firebase';
 
+export const requestDocAddNew = (collection, data) => {
+  return new Promise((resolve, reject) => {
+    database
+      .collection(collection)
+      .doc()
+      .set(data)
+      .then(res => {
+        resolve(res)
+      })
+      .catch(err => reject(err))
+  });
+};
+
 export const requestDoc = (collection, docPath) => {
   return new Promise((resolve, reject) => {
     if (docPath) {

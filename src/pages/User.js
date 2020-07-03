@@ -38,6 +38,7 @@ const User = props => {
   useEffect(() => {
     let source = axios.CancelToken.source();
     try {
+      setUser(null);
       // request()
       //   .get(`users/userId/${id}`, {
       //     cancelToken: source.token,

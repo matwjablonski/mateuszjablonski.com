@@ -13,6 +13,7 @@ export const CoursantDashboard = ({ course }) => {
   const [activeCourse, setActiveCourse] = useState(null);
 
   useEffect(() => {
+    setActiveCourse(null);
     // requests()
     //   .get(`course/id/${course}`)
     //   .then(res => setActiveCourse(res.data));

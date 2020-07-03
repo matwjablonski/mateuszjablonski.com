@@ -15,6 +15,7 @@ const UsersList = props => {
   console.log(props.match.params.type);
 
   useEffect(() => {
+    setUsers([]);
     // request()
     //   .get(`users/${props.match.params.type ? props.match.params.type : ''}`)
     //   .then(res => setUsers(res.data.data));

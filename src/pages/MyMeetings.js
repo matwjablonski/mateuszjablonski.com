@@ -25,6 +25,7 @@ const MyMeetings = () => {
   const { user } = userData;
 
   useEffect(() => {
+    setMeetings(null);
     // user.course &&
       // requests()
       //   .get(`course/id/${user.course}`)
