@@ -10,9 +10,7 @@ import UserSidebar from '../components/UserSidebar/UserSidebar';
 import { Formik } from 'formik';
 import { useTranslation } from 'react-i18next';
 import { requestDocAddNew } from '../helpers/request';
-import moment from 'moment';
 import { createPostSlug } from '../helpers/slug';
-// import request from '../helpers/request';
 
 const NewPost = () => {
   const { t } = useTranslation();
