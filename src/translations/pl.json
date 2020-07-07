@@ -15,7 +15,6 @@
     },
     "AUTH": {
       "LOGOUT": "Wyloguj",
-      "LOGIN_OR_CREATE_ACCOUNT": "Zaloguj lub załóż konto",
       "LOGIN": "Zaloguj się",
       "CREATE_ACCOUNT": "Założ nowe konto",
       "WANT_NEW_ACCOUNT": "Chcę założyć nowe konto",

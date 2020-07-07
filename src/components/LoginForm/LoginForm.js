@@ -16,7 +16,7 @@ import { requestDocBy } from '../../helpers/request';
 import { UserContext } from '../../userContext';
 import { auth } from '../../firebase';
 
-const LoginForm = ({ switchModalType, onClose }) => {
+const LoginForm = ({ onClose }) => {
   const user = useContext(UserContext);
   const { t } = useTranslation();
 
@@ -71,12 +71,6 @@ const LoginForm = ({ switchModalType, onClose }) => {
               </FormGroup>
             </ModalBody>
             <SidebarModalFooter>
-              <Button
-                type="button"
-                onClick={() => switchModalType('new-account')}
-              >
-                {t('GENERAL.AUTH.WANT_NEW_ACCOUNT')}
-              </Button>
               <Button variant="light" type="submit" onClick={handleSubmit}>
                 {t('GENERAL.AUTH.LOGIN')}
               </Button>

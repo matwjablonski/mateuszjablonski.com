@@ -9,17 +9,13 @@ import { SmallTitle } from '../ui/Title';
 import { SmallText } from '../ui/Text';
 import { Button, Modal, ModalDialog } from '@smooth-ui/core-sc';
 import LoginForm from '../LoginForm/LoginForm';
-import RegisterForm from '../RegisterForm/RegisterForm';
 import { UserContext, unloggedUser } from '../../userContext';
-// import requests from '../../helpers/request';
-// import { removeToken } from '../../helpers/token';
 import { MeContext } from '../../meContext';
 import { auth } from '../../firebase';
 
 const Sidebar = ({ isOpen }) => {
   const { t } = useTranslation();
   const [toggled, onToggle] = useState(false);
-  const [modalType, switchModalType] = useState('login');
   const { user, setUser } = useContext(UserContext);
   const me = useContext(MeContext);
 
@@ -47,19 +43,12 @@ const Sidebar = ({ isOpen }) => {
         <Button onClick={handleSidebarButtonAction} size="lg">
           {user.name
             ? t('GENERAL.AUTH.LOGOUT')
-            : t('GENERAL.AUTH.LOGIN_OR_CREATE_ACCOUNT')}
+            : t('GENERAL.AUTH.LOGIN')}
         </Button>
       </SidebarContent>
       <Modal opened={toggled && !user.name} onClose={() => onToggle(false)}>
         <ModalDialog>
-          {modalType === 'login' ? (
-            <LoginForm switchModalType={switchModalType} onClose={onToggle} />
-          ) : (
-            <RegisterForm
-              switchModalType={switchModalType}
-              onClose={onToggle}
-            />
-          )}
+          <LoginForm onClose={onToggle} />
         </ModalDialog>
       </Modal>
     </SidebarWrapper>

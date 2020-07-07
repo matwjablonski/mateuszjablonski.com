@@ -9,6 +9,9 @@ import { TextInput } from '../components/ui/TextInput';
 import UserSidebar from '../components/UserSidebar/UserSidebar';
 import { Formik } from 'formik';
 import { useTranslation } from 'react-i18next';
+import { requestDocAddNew } from '../helpers/request';
+import moment from 'moment';
+import { createPostSlug } from '../helpers/slug';
 // import request from '../helpers/request';
 
 const NewPost = () => {
@@ -19,9 +22,37 @@ const NewPost = () => {
   const { user } = userData;
 
   const handleSave = values => {
-    console.log(values);
-    //  const b64  = window.btoa(unescape(encodeURIComponent(values.content)));
-    // console.log(window.btoa(unescape(encodeURIComponent(values.content))));
+    const {
+      title,
+      content,
+      excerpt,
+      coverImageAuthor,
+      coverImageAuthorUrl,
+      coverImageName,
+      coverImageSource,
+      coverImageSourceUrl,
+      coverImageSquare,
+      coverImageUrl,
+    } = values;
+    const data = {
+      title,
+      content: window.btoa(unescape(encodeURIComponent(content))),
+      excerpt: window.btoa(unescape(encodeURIComponent(excerpt))),
+      creationDate: new Date().toISOString(),
+      slug: createPostSlug(title),
+      coverImage: {
+        author: coverImageAuthor,
+        authorUrl: coverImageAuthorUrl,
+        name: coverImageName,
+        source: coverImageSource,
+        sourceUrl: coverImageSourceUrl,
+        squareUrl: coverImageSquare,
+        url: coverImageUrl,
+      }
+    };
+
+    requestDocAddNew('posts', data)
+      .then(res => console.log(res));
   };
 
   const handleFileChange = e => {

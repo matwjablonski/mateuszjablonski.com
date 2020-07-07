@@ -81,3 +81,12 @@ export const PostContent = styled.div`
     max-width: 100%;
   }
 `;
+
+export const PostFooter = styled.div`
+  border-top: 1px solid ${th('lighterGrey')};
+  display: flex;
+  flex-direction: column;
+  margin: 1em auto 0;
+  max-width: 800px;
+  padding-top: 1em;
+`;
