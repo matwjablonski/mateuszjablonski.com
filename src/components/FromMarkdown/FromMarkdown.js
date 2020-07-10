@@ -14,11 +14,16 @@ const FromMarkdown = ({ text }) => {
       replace: domNode => {
         if (domNode.name === 'code' && domNode.attribs.class) {
           const lang = domNode.attribs.class.split('-');
-          return (<SyntaxHighlighter language={lang[1]} style={darcula}>
-            {domNode.children[0].data}
-          </SyntaxHighlighter>)
+          return (
+            <SyntaxHighlighter
+              children={domNode.children[0].data}
+              language={lang[1]}
+              style={darcula}
+              showLineNumbers={true}
+            />
+          );
         }
-      }
+      },
     })}</>
   ) : null;
 };
