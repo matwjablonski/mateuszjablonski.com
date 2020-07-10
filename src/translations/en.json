@@ -58,7 +58,10 @@
       "COVER_THUMBNAL": {
         "BY_WHOM": "by"
       },
-      "READ_MORE": "Read more"
+      "READ_MORE": "Read more",
+      "ADDITIONAL_MATERIALS": "Materiały dodatkowe",
+      "REPO_URL": "Sprawdź kod w repozytorium",
+      "DEMO_URL": "Zobacz działające demo"
     },
     "CONTACT": {
       "TITLE": "Contact",

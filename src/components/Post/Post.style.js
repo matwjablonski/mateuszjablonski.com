@@ -19,6 +19,10 @@ export const PostTitle = styled(PageTitleHeadline)`
   font-weight: 700;
 `;
 
+export const PostFooterTitle = styled(PostTitle)`
+  margin-top: 1em;
+`;
+
 export const PostMeta = styled.div`
   align-items: center;
   display: flex;
@@ -83,10 +87,10 @@ export const PostContent = styled.div`
 `;
 
 export const PostFooter = styled.div`
-  border-top: 1px solid ${th('lighterGrey')};
+  background: ${th('lighterGrey')};
   display: flex;
   flex-direction: column;
-  margin: 1em auto 0;
+  margin: 2em auto 0;
   max-width: 800px;
-  padding-top: 1em;
+  padding: 1em 2em 2em;
 `;
