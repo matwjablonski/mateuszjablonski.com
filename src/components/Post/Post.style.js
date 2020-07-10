@@ -72,7 +72,7 @@ export const PostExcerpt = styled.div`
 
 export const PostContent = styled.div`
   font-family: ${th('mainFont')};
-  font-size: 1.3em;
+  font-size: 1.1em;
   line-height: 1.8;
   margin: 0 auto;
   max-width: 800px;
