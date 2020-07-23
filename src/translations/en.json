@@ -9,7 +9,15 @@
       "PL": "PL",
       "EN": "EN"
     },
+    "NEWSLETTER": {
+      "SUBSCRIBE": "Subscribe",
+      "DESCRIPTION": "Stay up to date, gain access to additional materials.",
+      "PLACEHOLDER": "Your email",
+      "SUBMIT": "Subscribe"
+    },
     "AUTH": {
+      "TITLE": "Your account",
+      "DESCRIPTION": "More possibilities for you",
       "LOGOUT": "Logout",
       "LOGIN": "Login",
       "CREATE_ACCOUNT": "Create new account",

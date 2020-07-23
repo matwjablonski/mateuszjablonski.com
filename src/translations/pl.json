@@ -13,7 +13,15 @@
       "PL": "PL",
       "EN": "EN"
     },
+    "NEWSLETTER": {
+      "SUBSCRIBE": "Dołącz do newslettera",
+      "DESCRIPTION": "Bądź na bieżąco, zyskaj dostęp do dodatkowych materiałów.",
+      "PLACEHOLDER": "Twój adres email",
+      "SUBMIT": "Dołącz"
+    },
     "AUTH": {
+      "TITLE": "Twoje konto",
+      "DESCRIPTION": "Więcej możliwości dla Ciebie",
       "LOGOUT": "Wyloguj",
       "LOGIN": "Zaloguj się",
       "CREATE_ACCOUNT": "Założ nowe konto",

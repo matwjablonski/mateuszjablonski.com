@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { database } from '../firebase';
 
 export const requestDocAddNew = (collection, data) => {
@@ -103,4 +104,13 @@ export const requestCollectionBy = (collection, by = { limit: 5 }) => {
         reject(err);
       })
   });
+};
+
+export const request = (url, data, authKey) => {
+  const headers = new Headers({
+    'Content-Type': 'application/json',
+    'Authorization': `apikey ${authKey}`,
+  });
+
+  return axios.post(url, data, { headers })
 };

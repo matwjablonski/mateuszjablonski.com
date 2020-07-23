@@ -49,7 +49,9 @@ const NewPost = () => {
       }
     };
 
-    requestDocAddNew('posts', data)
+    console.log(data.content);
+
+    requestDocAddNew('posts-bad', data)
       .then(res => console.log(res));
   };
 

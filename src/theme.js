@@ -9,6 +9,9 @@ const theme = {
   black: '#111',
 
   rootSize: '16px',
+  gutter: '16px',
+  mediumGutter: '32px',
+  bigGutter: '48px',
   coreTiming: '.7s',
   borderRadius: '7px',
 

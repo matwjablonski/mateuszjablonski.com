@@ -12,6 +12,7 @@ import LoginForm from '../LoginForm/LoginForm';
 import { UserContext, unloggedUser } from '../../userContext';
 import { MeContext } from '../../meContext';
 import { auth } from '../../firebase';
+import Newsletter from '../Newsletter/Newsletter';
 
 const Sidebar = ({ isOpen }) => {
   const { t } = useTranslation();
@@ -40,6 +41,13 @@ const Sidebar = ({ isOpen }) => {
           <SmallTitle>{me.name}</SmallTitle>
           <SmallText>{me.description}</SmallText>
         </div>
+        <div>
+          <SmallTitle>{t('GENERAL.NEWSLETTER.SUBSCRIBE')}</SmallTitle>
+          <SmallText>{t('GENERAL.NEWSLETTER.DESCRIPTION')}</SmallText>
+          <Newsletter/>
+        </div>
+        <SmallTitle>{t('GENERAL.AUTH.TITLE')}</SmallTitle>
+        <SmallText>{t('GENERAL.AUTH.DESCRIPTION')}</SmallText>
         <Button onClick={handleSidebarButtonAction} size="lg">
           {user.name
             ? t('GENERAL.AUTH.LOGOUT')
