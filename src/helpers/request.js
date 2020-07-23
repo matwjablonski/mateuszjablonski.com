@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { database } from '../firebase';
 
+const cors = 'https://cors-anywhere.herokuapp.com/';
+
 export const requestDocAddNew = (collection, data) => {
   return new Promise((resolve, reject) => {
     database
@@ -113,5 +115,5 @@ export const request = (url, data, authKey) => {
     'Authorization': `apikey ${authKey}`,
   });
 
-  return axios.post(url, data, { headers })
+  return axios.post(cors + url, data, { headers })
 };
