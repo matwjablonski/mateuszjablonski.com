@@ -94,3 +94,9 @@ export const PostFooter = styled.div`
   max-width: 800px;
   padding: 1em 2em 2em;
 `;
+
+export const PostNewsletterBox = styled.div`
+  margin: 2em auto 0;
+  max-width: 800px;
+  padding: 1em;
+`;

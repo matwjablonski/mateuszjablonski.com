@@ -1,10 +1,13 @@
 import React from 'react';
 
-import { PostTitle, PostContent, PostFooter, PostFooterTitle } from './Post.style';
+import { PostTitle, PostContent, PostFooter, PostFooterTitle, PostNewsletterBox } from './Post.style';
 import PostCover from './PostCover';
 import FromMarkdown from '../FromMarkdown/FromMarkdown';
 import { ExternalLink } from '../ui/ExternalLink';
 import { useTranslation } from 'react-i18next';
+import { MediumTitle } from '../ui/Title';
+import { SmallText } from '../ui/Text';
+import Newsletter from '../Newsletter/Newsletter';
 
 const Post = ({ post }) => {
   const { t } = useTranslation();
@@ -21,6 +24,11 @@ const Post = ({ post }) => {
         {post.repositoryUrl && <ExternalLink href={post.repositoryUrl}>{t('PAGES.POST.REPO_URL')}</ExternalLink>}
         {post.demoUrl && <ExternalLink href={post.demoUrl}>{t('PAGES.POST.DEMO_URL')}</ExternalLink>}
       </PostFooter>
+      <PostNewsletterBox>
+        <MediumTitle>{t('GENERAL.NEWSLETTER.SUBSCRIBE')}</MediumTitle>
+        <SmallText>{t('GENERAL.NEWSLETTER.DESCRIPTION')}</SmallText>
+        <Newsletter/>
+      </PostNewsletterBox>
     </article>
   );
 };

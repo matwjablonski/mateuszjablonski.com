@@ -20,5 +20,6 @@ export const NewsletterBox = styled.div`
   button {
     margin-top: ${th('gutter')};
     width: 100%;
+    z-index: 0;
   }
 `;
