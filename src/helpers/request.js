@@ -108,6 +108,7 @@ export const requestCollectionBy = (collection, by = { limit: 5 }) => {
 
 export const request = (url, data, authKey) => {
   const headers = new Headers({
+    'Access-Control-Allow-Origin': '*',
     'Content-Type': 'application/json',
     'Authorization': `apikey ${authKey}`,
   });
