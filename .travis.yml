@@ -12,6 +12,7 @@ cache:
 script:
   - npm test
   - npm run build
+  - cd server npm install
 addons:
   ssh_known_hosts:
     - s27.mydevil.net
@@ -24,15 +25,22 @@ before_install:
   - ssh-add ./deploy_key
   - ssh -i ./deploy_key woodpecker@s27.mydevil.net pwd
 deploy:
-  - provider: pages
+  - provider: script
     skip_cleanup: true
-    github_token: '$GITHUB_TOKEN'
-    local_dir: build
+    script:
+      rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/build/* -e ssh -i ./deploy_key
+      woodpecker@s27.mydevil.net:~/domains/dev.mateuszjablonski.com/public_nodejs/build &&
+      rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/* -e ssh -i ./deploy_key
+      woodpecker@s27.mydevil.net:~/domains/dev.mateuszjablonski.com/public_nodejs
     on:
       branch: develop
   - provider: script
     skip_cleanup: true
-    script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/build/* -e ssh -i ./deploy_key woodpecker@s27.mydevil.net:~/domains/mateuszjablonski.com/public_html
+    script:
+      rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/build/* -e ssh -i ./deploy_key
+      woodpecker@s27.mydevil.net:~/domains/mateuszjablonski.com/public_nodejs/build &&
+      rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/* -e ssh -i ./deploy_key
+      woodpecker@s27.mydevil.net:~/domains/mateuszjablonski.com/public_nodejs
     on:
       branch: master
 notifications:
