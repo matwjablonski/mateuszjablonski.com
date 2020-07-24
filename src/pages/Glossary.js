@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Grid } from '@smooth-ui/core-sc';
+import { Col, Row } from '@smooth-ui/core-sc';
 import { useTranslation } from 'react-i18next';
 
 // import request from '../helpers/request';
@@ -31,15 +31,21 @@ const Glossary = () => {
   }, []);
 
   return (
-    <Grid>
+    <React.Fragment>
       <Head/>
-      <PageTitle text={t('PAGES.GLOSSARY.TITLE')}/>
-      {definitions.length ? (
-        definitions.map(def => <Definition key={def.id} def={def}/>)
-      ) : (
-        <BigLoader text={t('NOTIFICATIONS.POSTS_LOADING')}/>
-      )}
-    </Grid>
+      <Row justifyContent="center">
+        <Col xs={8}>
+          <PageTitle text={t('PAGES.GLOSSARY.TITLE')}/>
+        </Col>
+        <Col xs={8}>
+          {definitions.length ? (
+            definitions.map(def => <Definition key={def.id} def={def}/>)
+          ) : (
+            <BigLoader text={t('NOTIFICATIONS.POSTS_LOADING')}/>
+          )}
+        </Col>
+      </Row>
+    </React.Fragment>
   );
 };
 

@@ -3,6 +3,8 @@ import { requestDoc } from '../helpers/request';
 import { Head } from '../components/Head/Head';
 import { Col, Row } from '@smooth-ui/core-sc';
 import PageTitle from '../components/PageTitle/PageTitle';
+import FromMarkdown from '../components/FromMarkdown/FromMarkdown';
+import { PostContent } from '../components/Post/Post.style';
 
 const Page = props => {
   const {
@@ -22,6 +24,11 @@ const Page = props => {
       <Row justifyContent="center">
         <Col xs={8}>
           <PageTitle text={content.title}/>
+        </Col>
+        <Col xs={8}>
+          <PostContent>
+            <FromMarkdown text={content.content || ''}/>
+          </PostContent>
         </Col>
       </Row>
     </React.Fragment>
