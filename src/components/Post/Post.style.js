@@ -19,6 +19,10 @@ export const PostTitle = styled(PageTitleHeadline)`
   font-weight: 700;
 `;
 
+export const PostFooterTitle = styled(PostTitle)`
+  margin-top: 1em;
+`;
+
 export const PostMeta = styled.div`
   align-items: center;
   display: flex;
@@ -72,7 +76,7 @@ export const PostExcerpt = styled.div`
 
 export const PostContent = styled.div`
   font-family: ${th('mainFont')};
-  font-size: 1.3em;
+  font-size: 1.1em;
   line-height: 1.8;
   margin: 0 auto;
   max-width: 800px;
@@ -80,4 +84,19 @@ export const PostContent = styled.div`
   img {
     max-width: 100%;
   }
+`;
+
+export const PostFooter = styled.div`
+  background: ${th('lighterGrey')};
+  display: flex;
+  flex-direction: column;
+  margin: 2em auto 0;
+  max-width: 800px;
+  padding: 1em 2em 2em;
+`;
+
+export const PostNewsletterBox = styled.div`
+  margin: 2em auto 0;
+  max-width: 800px;
+  padding: 1em;
 `;

@@ -6,16 +6,24 @@
       "LAST_ON_BLOG": "Ostatnio na blogu",
       "COPY": "© 2019 Mateusz Jabłoński",
       "NAV": {
-        "GLOSSARY": "Słownik"
+        "GLOSSARY": "Słownik",
+        "PRIVACY_POLICY": "Polityka prywatności"
       }
     },
     "LANGUAGES": {
       "PL": "PL",
       "EN": "EN"
     },
+    "NEWSLETTER": {
+      "SUBSCRIBE": "Dołącz do newslettera",
+      "DESCRIPTION": "Bądź na bieżąco, zyskaj dostęp do dodatkowych materiałów.",
+      "PLACEHOLDER": "Twój adres email",
+      "SUBMIT": "Dołącz"
+    },
     "AUTH": {
+      "TITLE": "Twoje konto",
+      "DESCRIPTION": "Więcej możliwości dla Ciebie",
       "LOGOUT": "Wyloguj",
-      "LOGIN_OR_CREATE_ACCOUNT": "Zaloguj lub załóż konto",
       "LOGIN": "Zaloguj się",
       "CREATE_ACCOUNT": "Założ nowe konto",
       "WANT_NEW_ACCOUNT": "Chcę założyć nowe konto",
@@ -56,6 +64,9 @@
     }
   },
   "PAGES": {
+    "HOME": {
+      "NEXT_POST": "Następny wpis za"
+    },
     "404": {
       "TITLE": "Błąd 404"
     },
@@ -66,13 +77,16 @@
       "COVER_THUMBNAL": {
         "BY_WHOM": "przez"
       },
-      "READ_MORE": "Czytaj dalej"
+      "READ_MORE": "Czytaj dalej",
+      "ADDITIONAL_MATERIALS": "Materiały dodatkowe",
+      "REPO_URL": "Sprawdź kod w repozytorium",
+      "DEMO_URL": "Zobacz działające demo"
     },
     "CONTACT": {
       "TITLE": "Kontakt",
       "DESCRIPTION": "Zapraszam serdecznie do kontaktu. Niezależnie w jakiej kwestii - masz pytanie, problem czy chciałbyś / chciałabyś rozpocząć ze mną współpracę. Jestem otwarty na nowe wyzwania.",
       "CALL": "Zadzwoń",
-      "CALL_DESCRIPTION": "* pod telefonem jestem dostępny od poniedziałku do czwartku od 15:00 do 19:00, natomiast w piątki od 8:00 do 19:00",
+      "CALL_DESCRIPTION": "* pod telefonem jestem dostępny od poniedziałku do piątku od 9:00 do 16:00",
       "WRITE": "Napisz",
       "SOCIAL_MEDIA": "Połącz się",
       "NEWSLETTER": "Bądź na bieżąco"

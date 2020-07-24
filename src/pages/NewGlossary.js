@@ -9,8 +9,8 @@ import { TextInput } from '../components/ui/TextInput';
 import UserSidebar from '../components/UserSidebar/UserSidebar';
 import { Formik } from 'formik';
 import { useTranslation } from 'react-i18next';
-import request from '../helpers/request';
 import { encodeText } from '../helpers/text';
+import { requestDocAddNew } from '../helpers/request';
 
 const NewGlossary = () => {
   const { t } = useTranslation();
@@ -19,12 +19,11 @@ const NewGlossary = () => {
   const { user } = userData;
 
   const handleSave = (values, { resetForm }) => {
-    request()
-      .post('glossary', {
-        entry: values.entry,
-        fullName: values.fullName,
-        description: encodeText(values.description),
-      })
+    requestDocAddNew('glossary', {
+      entry: values.entry,
+      fullName: values.fullName,
+      description: encodeText(values.description),
+    })
       .then(() => {
         resetForm();
       });
@@ -34,10 +33,10 @@ const NewGlossary = () => {
     <Grid>
       <Row>
         <Col xs="auto">
-          <UserSidebar />
+          <UserSidebar/>
         </Col>
         <Col>
-          <PageTitle text={t('ADMIN.NEW_GLOSSARY.TITLE')} />
+          <PageTitle text={t('ADMIN.NEW_GLOSSARY.TITLE')}/>
           <Formik
             initialValues={{
               entry: '',
@@ -72,7 +71,7 @@ const NewGlossary = () => {
                     type="text"
                     name="fullName"
                     placeholder={t(
-                      'ADMIN.NEW_GLOSSARY.FORM.FULL_NAME.PLACEHOLDER'
+                      'ADMIN.NEW_GLOSSARY.FORM.FULL_NAME.PLACEHOLDER',
                     )}
                     value={values.fullName}
                     onChange={handleChange}
@@ -89,7 +88,7 @@ const NewGlossary = () => {
                     value={values.description}
                     onChange={handleChange}
                     placeholder={t(
-                      'ADMIN.NEW_GLOSSARY.FORM.DESCRIPTION.PLACEHOLDER'
+                      'ADMIN.NEW_GLOSSARY.FORM.DESCRIPTION.PLACEHOLDER',
                     )}
                   />
                 </FormGroup>
@@ -103,7 +102,7 @@ const NewGlossary = () => {
       </Row>
     </Grid>
   ) : (
-    <Ups text={t('ERRORS.WITHOUT_PERMISSION')} />
+    <Ups text={t('ERRORS.WITHOUT_PERMISSION')}/>
   );
 };
 

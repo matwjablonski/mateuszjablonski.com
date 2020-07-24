@@ -9,7 +9,8 @@ import { TextInput } from '../components/ui/TextInput';
 import UserSidebar from '../components/UserSidebar/UserSidebar';
 import { Formik } from 'formik';
 import { useTranslation } from 'react-i18next';
-import request from '../helpers/request';
+import { requestDocAddNew } from '../helpers/request';
+import { createPostSlug } from '../helpers/slug';
 
 const NewPost = () => {
   const { t } = useTranslation();
@@ -19,9 +20,39 @@ const NewPost = () => {
   const { user } = userData;
 
   const handleSave = values => {
-    console.log(values);
-    //  const b64  = window.btoa(unescape(encodeURIComponent(values.content)));
-    // console.log(window.btoa(unescape(encodeURIComponent(values.content))));
+    const {
+      title,
+      content,
+      excerpt,
+      coverImageAuthor,
+      coverImageAuthorUrl,
+      coverImageName,
+      coverImageSource,
+      coverImageSourceUrl,
+      coverImageSquare,
+      coverImageUrl,
+    } = values;
+    const data = {
+      title,
+      content: window.btoa(unescape(encodeURIComponent(content))),
+      excerpt: window.btoa(unescape(encodeURIComponent(excerpt))),
+      creationDate: new Date().toISOString(),
+      slug: createPostSlug(title),
+      coverImage: {
+        author: coverImageAuthor,
+        authorUrl: coverImageAuthorUrl,
+        name: coverImageName,
+        source: coverImageSource,
+        sourceUrl: coverImageSourceUrl,
+        squareUrl: coverImageSquare,
+        url: coverImageUrl,
+      }
+    };
+
+    console.log(data.content);
+
+    requestDocAddNew('posts-bad', data)
+      .then(res => console.log(res));
   };
 
   const handleFileChange = e => {
@@ -30,11 +61,11 @@ const NewPost = () => {
     }
     setFile(e.target.files[0]);
     console.log(file);
-    request()
-      .post('uploads', e.target.files[0])
-      .then(() => {
-        console.log('send');
-      });
+    // request()
+    //   .post('uploads', e.target.files[0])
+    //   .then(() => {
+    //     console.log('send');
+    //   });
     // this.setState({ file: file });
   };
 

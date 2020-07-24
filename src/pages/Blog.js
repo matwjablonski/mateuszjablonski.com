@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import request from '../helpers/request';
+import { requestCollection } from '../helpers/request';
 import { useTranslation } from 'react-i18next';
 
 import PostSummary from '../components/Post/PostSummary';
@@ -8,12 +8,12 @@ import { Head } from '../components/Head/Head';
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
+
   const { t } = useTranslation();
   useEffect(() => {
-    request()
-      .get('posts')
+    requestCollection('posts')
       .then(res =>
-        res.data.data.sort((a, b) => {
+        res.sort((a, b) => {
           if (a.creationDate > b.creationDate) {
             return -1;
           }
@@ -21,18 +21,18 @@ const Blog = () => {
             return 1;
           }
           return 0;
-        })
+        }),
       )
       .then(res => setPosts(res));
   }, []);
 
   return (
     <>
-      <Head />
+      <Head/>
       {posts.length ? (
-        posts.map(post => <PostSummary key={post.id} post={post} />)
+        posts.map(post => <PostSummary key={post.id} post={post}/>)
       ) : (
-        <BigLoader text={t('NOTIFICATIONS.POSTS_LOADING')} />
+        <BigLoader text={t('NOTIFICATIONS.POSTS_LOADING')}/>
       )}
     </>
   );

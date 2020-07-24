@@ -8,7 +8,6 @@ export const PageTitleHeadline = styled.h2`
   margin-top: 45px;
   padding-bottom: 15px;
   position: relative;
-  white-space: nowrap;
 
   &::before {
     background: ${th('darkGrey')};

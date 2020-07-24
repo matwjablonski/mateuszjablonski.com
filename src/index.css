@@ -8,21 +8,12 @@ body {
 }
 
 pre {
-  background: #1e1e1e;
-  border-radius: 4px;
-  padding: 15px;
   overflow: scroll;
 }
 
 code {
   color: #888;
   font-family: 'Inconsolata', monospace;
-}
-
-pre code {
-  color: #d4d4d4;
-  font-family: 'Inconsolata', monospace;
-  font-size: 0.7em !important;
 }
 
 .sidebarClose {

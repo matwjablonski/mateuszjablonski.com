@@ -3,15 +3,26 @@
     "HEADER": {},
     "FOOTER": {
       "LAST_ON_BLOG": "Latest articles",
-      "COPY": "© 2019 Mateusz Jabłoński"
+      "COPY": "© 2019 Mateusz Jabłoński",
+      "NAV": {
+        "GLOSSARY": "Glossary",
+        "PRIVACY_POLICY": "Privacy policy"
+      }
     },
     "LANGUAGES": {
       "PL": "PL",
       "EN": "EN"
     },
+    "NEWSLETTER": {
+      "SUBSCRIBE": "Subscribe",
+      "DESCRIPTION": "Stay up to date, gain access to additional materials.",
+      "PLACEHOLDER": "Your email",
+      "SUBMIT": "Subscribe"
+    },
     "AUTH": {
+      "TITLE": "Your account",
+      "DESCRIPTION": "More possibilities for you",
       "LOGOUT": "Logout",
-      "LOGIN_OR_CREATE_ACCOUNT": "Login or create account",
       "LOGIN": "Login",
       "CREATE_ACCOUNT": "Create new account",
       "WANT_NEW_ACCOUNT": "Chcę założyć nowe konto",
@@ -52,6 +63,9 @@
     }
   },
   "PAGES": {
+    "HOME": {
+      "NEXT_POST": "Next post in"
+    },
     "404": {
       "TITLE": "404 Error"
     },
@@ -59,13 +73,16 @@
       "COVER_THUMBNAL": {
         "BY_WHOM": "by"
       },
-      "READ_MORE": "Read more"
+      "READ_MORE": "Read more",
+      "ADDITIONAL_MATERIALS": "Materiały dodatkowe",
+      "REPO_URL": "Sprawdź kod w repozytorium",
+      "DEMO_URL": "Zobacz działające demo"
     },
     "CONTACT": {
       "TITLE": "Contact",
       "DESCRIPTION": "Zapraszam serdecznie do kontaktu. Niezależnie w jakiej kwestii - masz pytanie, problem czy chciałbyś / chciałabyś rozpocząć ze mną współpracę. Jestem otwarty na nowe wyzwania.",
       "CALL": "Call",
-      "CALL_DESCRIPTION": "* pod telefonem jestem dostępny od poniedziałku do czwartku od 15:00 do 19:00, natomiast w piątki od 8:00 do 19:00",
+      "CALL_DESCRIPTION": "* pod telefonem jestem dostępny od poniedziałku do piątku od 9:00 do 16:00",
       "WRITE": "Write",
       "SOCIAL_MEDIA": "Połącz się",
       "NEWSLETTER": "Bądź na bieżąco"

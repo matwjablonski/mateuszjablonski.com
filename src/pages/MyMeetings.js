@@ -6,7 +6,7 @@ import PageTitle from '../components/PageTitle/PageTitle';
 import UserSidebar from '../components/UserSidebar/UserSidebar';
 import { useTranslation } from 'react-i18next';
 import { MediumTitle } from '../components/ui/Title';
-import requests from '../helpers/request';
+// import requests from '../helpers/request';
 import moment from 'moment';
 import { convertTimeToTransalateString, isDateInPast } from '../helpers/date';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -25,12 +25,13 @@ const MyMeetings = () => {
   const { user } = userData;
 
   useEffect(() => {
-    user.course &&
-      requests()
-        .get(`course/id/${user.course}`)
-        .then(res => {
-          setMeetings(res.data.meetings);
-        });
+    setMeetings(null);
+    // user.course &&
+      // requests()
+      //   .get(`course/id/${user.course}`)
+      //   .then(res => {
+      //     setMeetings(res.data.meetings);
+      //   });
   }, [user]);
 
   moment.relativeTimeThreshold('h', 24 * 26);

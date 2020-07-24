@@ -9,14 +9,16 @@ import Sidebar from './components/Sidebar/Sidebar';
 import Error404 from './pages/Error404';
 import PageWrapper from './components/ui/PageWrapper';
 import Footer from './components/Footer/Footer';
-import request from './helpers/request';
+import { requestDoc, requestDocBy } from './helpers/request';
 import { UserProvider, unloggedUser } from './userContext';
 import UserBar from './components/UserBar/UserBar';
 import { MeProvider } from './meContext';
+import { auth } from './firebase';
 
 const Home = React.lazy(() => import('./pages/Home'));
 const Learn = React.lazy(() => import('./pages/Learn'));
 const Blog = React.lazy(() => import('./pages/Blog'));
+const Page = React.lazy(() => import('./pages/Page'));
 const Contact = React.lazy(() => import('./pages/Contact'));
 const BlogPost = React.lazy(() => import('./pages/BlogPost'));
 const Glossary = React.lazy(() => import('./pages/Glossary'));
@@ -42,13 +44,16 @@ function App() {
       : null;
 
   useEffect(() => {
-    request()
-      .get('author/me')
-      .then(res => setMe(res.data.data));
+    requestDoc('author', 'me')
+      .then(res => setMe(res));
 
-    request()
-      .get('users/me')
-      .then(res => setUser(res.data.data));
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        requestDocBy('users', 'email', user.email)
+          .then(res => setUser(res));
+      }
+    });
+
     document.addEventListener('mousedown', handleClickOutsideSidebar);
 
     return () => {
@@ -106,6 +111,7 @@ function App() {
                     component={MyMeetings}
                   />
                   <Route path="/kontakt" exact component={Contact} />
+                  <Route path="/p/:slug" exact component={Page} />
                   <Route path="/slownik" exact component={Glossary} />
                   <Route component={Error404} />
                 </Switch>

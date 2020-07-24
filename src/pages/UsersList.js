@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Grid, Row, Col } from '@smooth-ui/core-sc';
 import { useTranslation } from 'react-i18next';
 
-import request from '../helpers/request';
+// import request from '../helpers/request';
 
 import PageTitle from '../components/PageTitle/PageTitle';
 import UserSidebar from '../components/UserSidebar/UserSidebar';
@@ -15,9 +15,10 @@ const UsersList = props => {
   console.log(props.match.params.type);
 
   useEffect(() => {
-    request()
-      .get(`users/${props.match.params.type ? props.match.params.type : ''}`)
-      .then(res => setUsers(res.data.data));
+    setUsers([]);
+    // request()
+    //   .get(`users/${props.match.params.type ? props.match.params.type : ''}`)
+    //   .then(res => setUsers(res.data.data));
   }, [props.match.params.type]);
 
   const headers = [

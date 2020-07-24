@@ -4,7 +4,7 @@ import 'react-circular-progressbar/dist/styles.css';
 
 import { Row, Col } from '@smooth-ui/core-sc';
 import { useTranslation } from 'react-i18next';
-import requests from '../../helpers/request';
+// import requests from '../../helpers/request';
 import { Badge, BadgeWrapper } from '../ui/Badge';
 import { MediumTitle } from '../ui/Title';
 
@@ -13,9 +13,10 @@ export const CoursantDashboard = ({ course }) => {
   const [activeCourse, setActiveCourse] = useState(null);
 
   useEffect(() => {
-    requests()
-      .get(`course/id/${course}`)
-      .then(res => setActiveCourse(res.data));
+    setActiveCourse(null);
+    // requests()
+    //   .get(`course/id/${course}`)
+    //   .then(res => setActiveCourse(res.data));
   }, [course]);
 
   console.log(activeCourse);

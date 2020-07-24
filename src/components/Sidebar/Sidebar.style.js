@@ -27,6 +27,7 @@ export const SidebarContent = styled.div`
   justify-content: space-between;
   padding: 2em;
   width: 300px;
+  overflow: auto;
 `;
 
 export const SidebarMyPhoto = styled.img`

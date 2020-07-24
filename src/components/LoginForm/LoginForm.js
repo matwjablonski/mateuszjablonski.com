@@ -12,23 +12,20 @@ import {
 } from '@smooth-ui/core-sc';
 import { SmallTitle } from '../ui/Title';
 import { SidebarModalFooter } from '../Sidebar/Sidebar.style';
-import requests from '../../helpers/request';
+import { requestDocBy } from '../../helpers/request';
 import { UserContext } from '../../userContext';
-import { keepToken } from '../../helpers/token';
+import { auth } from '../../firebase';
 
-const LoginForm = ({ switchModalType, onClose }) => {
+const LoginForm = ({ onClose }) => {
   const user = useContext(UserContext);
   const { t } = useTranslation();
 
-  const handleLogin = values => {
-    requests()
-      .post('users/login', values)
-      .then(res => keepToken(res.data.data.token))
+  const handleLogin = ({ email, password }) => {
+    auth.signInWithEmailAndPassword(email, password)
       .then(() => {
-        requests()
-          .get('users/me')
-          .then(res => user.setUser(res.data.data))
-          .then(() => onClose(false));
+        requestDocBy('users', 'email', email)
+          .then(res => user.setUser(res))
+          .then(() => onClose(false))
       });
   };
 
@@ -74,12 +71,6 @@ const LoginForm = ({ switchModalType, onClose }) => {
               </FormGroup>
             </ModalBody>
             <SidebarModalFooter>
-              <Button
-                type="button"
-                onClick={() => switchModalType('new-account')}
-              >
-                {t('GENERAL.AUTH.WANT_NEW_ACCOUNT')}
-              </Button>
               <Button variant="light" type="submit" onClick={handleSubmit}>
                 {t('GENERAL.AUTH.LOGIN')}
               </Button>
