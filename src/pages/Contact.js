@@ -5,6 +5,7 @@ import PageTitle from '../components/PageTitle/PageTitle';
 import { Text } from '../components/ui/Text';
 import { useTranslation } from 'react-i18next';
 import { Head } from '../components/Head/Head';
+import Newsletter from '../components/Newsletter/Newsletter';
 
 const Contact = () => {
   const { t } = useTranslation();
@@ -46,6 +47,7 @@ const Contact = () => {
       <Row justifyContent="center">
         <Col xs={8}>
           <PageTitle text={t('PAGES.CONTACT.NEWSLETTER')} />
+          <Newsletter/>
         </Col>
       </Row>
     </React.Fragment>

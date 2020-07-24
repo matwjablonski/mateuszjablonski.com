@@ -6,7 +6,8 @@
       "LAST_ON_BLOG": "Ostatnio na blogu",
       "COPY": "© 2019 Mateusz Jabłoński",
       "NAV": {
-        "GLOSSARY": "Słownik"
+        "GLOSSARY": "Słownik",
+        "PRIVACY_POLICY": "Polityka prywatności"
       }
     },
     "LANGUAGES": {
@@ -82,7 +83,7 @@
       "TITLE": "Kontakt",
       "DESCRIPTION": "Zapraszam serdecznie do kontaktu. Niezależnie w jakiej kwestii - masz pytanie, problem czy chciałbyś / chciałabyś rozpocząć ze mną współpracę. Jestem otwarty na nowe wyzwania.",
       "CALL": "Zadzwoń",
-      "CALL_DESCRIPTION": "* pod telefonem jestem dostępny od poniedziałku do czwartku od 15:00 do 19:00, natomiast w piątki od 8:00 do 19:00",
+      "CALL_DESCRIPTION": "* pod telefonem jestem dostępny od poniedziałku do piątku od 9:00 do 16:00",
       "WRITE": "Napisz",
       "SOCIAL_MEDIA": "Połącz się",
       "NEWSLETTER": "Bądź na bieżąco"

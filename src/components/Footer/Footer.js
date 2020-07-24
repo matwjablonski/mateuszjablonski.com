@@ -18,6 +18,9 @@ const Footer = () => {
             <FooterLink to="/slownik">
               {t('GENERAL.FOOTER.NAV.GLOSSARY')}
             </FooterLink>
+            <FooterLink to="/p/polityka-prywatnosci">
+              {t('GENERAL.FOOTER.NAV.PRIVACY_POLICY')}
+            </FooterLink>
           </div>
         </FooterWrapper>
       </Grid>

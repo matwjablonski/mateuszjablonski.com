@@ -18,6 +18,7 @@ import { auth } from './firebase';
 const Home = React.lazy(() => import('./pages/Home'));
 const Learn = React.lazy(() => import('./pages/Learn'));
 const Blog = React.lazy(() => import('./pages/Blog'));
+const Page = React.lazy(() => import('./pages/Page'));
 const Contact = React.lazy(() => import('./pages/Contact'));
 const BlogPost = React.lazy(() => import('./pages/BlogPost'));
 const Glossary = React.lazy(() => import('./pages/Glossary'));
@@ -110,6 +111,7 @@ function App() {
                     component={MyMeetings}
                   />
                   <Route path="/kontakt" exact component={Contact} />
+                  <Route path="/p/:slug" exact component={Page} />
                   <Route path="/slownik" exact component={Glossary} />
                   <Route component={Error404} />
                 </Switch>
