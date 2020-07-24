@@ -3,19 +3,20 @@ import { NextPostTimerBox, NextPostTimerTitle } from './NextPostTimer.style';
 import { useTranslation } from 'react-i18next';
 import moment from 'moment';
 
-const NextPostTimer = props => {
+const NextPostTimer = () => {
   const { t } = useTranslation();
 
   const dayINeed = 4;
   const today = moment().isoWeekday();
-  const dayDiff = Math.abs(dayINeed - today);
-  const dayToPublish = 7 - dayDiff;
-
-  console.log(dayToPublish);
+  const dayDiff = dayINeed - today;
+  const dayDiffFinal = Math.abs(dayDiff);
+  const dayToPublish = dayDiff < 0 ? 7 - dayDiffFinal : dayDiff;
 
   return (
     <NextPostTimerBox>
-      <NextPostTimerTitle>{t('PAGES.HOME.NEXT_POST')} <span>{dayToPublish}</span> dni </NextPostTimerTitle>
+      <NextPostTimerTitle>
+        {t('PAGES.HOME.NEXT_POST')} <span>{dayToPublish === 0 ? 'dzisiaj' : `${dayToPublish} dni`}</span>
+      </NextPostTimerTitle>
     </NextPostTimerBox>
   );
 };
