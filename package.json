@@ -10,6 +10,7 @@
     "@smooth-ui/core-sc": "^10.1.0",
     "axios": "^0.19.0",
     "classnames": "^2.2.6",
+    "dotenv": "^8.2.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "formik": "^1.5.8",
@@ -32,6 +33,7 @@
     "styled-components": "^4.3.2"
   },
   "scripts": {
+    "prestart": "yarn && cd server && yarn",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
