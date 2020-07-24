@@ -63,6 +63,9 @@
     }
   },
   "PAGES": {
+    "HOME": {
+      "NEXT_POST": "Next post in"
+    },
     "404": {
       "TITLE": "404 Error"
     },

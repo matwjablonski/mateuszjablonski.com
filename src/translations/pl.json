@@ -64,6 +64,9 @@
     }
   },
   "PAGES": {
+    "HOME": {
+      "NEXT_POST": "Następny wpis za"
+    },
     "404": {
       "TITLE": "Błąd 404"
     },
