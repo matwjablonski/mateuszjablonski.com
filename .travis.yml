@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - stable
+  - 10
 sudo: false
 branches:
   only:
@@ -10,6 +10,7 @@ cache:
   directories:
     - node_modules
 script:
+  - npm test
   - npm run build
   - cd server npm install
 addons:
@@ -29,20 +30,22 @@ deploy:
     skip_cleanup: true
     script:
       rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/build/* -e ssh -i ../deploy_key
-      woodpecker@s27.mydevil.net:~/domains/dev.mateuszjablonski.com/public_nodejs/build &&
+      woodpecker@s27.mydevil.net:~/domains/$SERVER_ENV_DIR/public_nodejs/build &&
       rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/server/* -e ssh -i ../deploy_key
-      woodpecker@s27.mydevil.net:~/domains/dev.mateuszjablonski.com/public_nodejs
+      woodpecker@s27.mydevil.net:~/domains/$SERVER_ENV_DIR/public_nodejs
     on:
-      branch: develop
-  - provider: script
-    skip_cleanup: true
-    script:
-      rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/build/* -e ssh -i ../deploy_key
-      woodpecker@s27.mydevil.net:~/domains/mateuszjablonski.com/public_nodejs/build &&
-      rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/server/* -e ssh -i ../deploy_key
-      woodpecker@s27.mydevil.net:~/domains/mateuszjablonski.com/public_nodejs
-    on:
-      branch: master
+      all_branches: true
+after_deploy:
+  ssh -i $TRAVIS_BUILD_DIR/deploy_key woodpecker@s27.mydevil.net "
+  cd domains/$SERVER_ENV_DIR/public_nodejs &&
+  rm -rf node_modules &&
+  mkdir -p ~/bin &&
+  ln -fs /usr/local/bin/node10 ~/bin/node &&
+  ln -fs /usr/local/bin/npm10 ~/bin/npm &&
+  source /home/woodpecker/.bash_profile &&
+  yarn &&
+  devil www restart $SERVER_ENV_DIR
+  "
 notifications:
   email:
     recipients:
