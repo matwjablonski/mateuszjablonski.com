@@ -6,6 +6,10 @@ export const Figure = styled.figure`
   position: relative;
 `;
 
+export const OverflowFigure = styled(Figure)`
+  overflow: hidden;
+`;
+
 export const Figcaption = styled.figcaption`
   color: ${th('lightGrey')};
   font-family: ${th('mainFont')};

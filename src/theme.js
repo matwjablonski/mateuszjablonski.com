@@ -9,6 +9,7 @@ const theme = {
   black: '#111',
 
   rootSize: '16px',
+  smallGutter: '8px',
   gutter: '16px',
   mediumGutter: '32px',
   bigGutter: '48px',

@@ -7,6 +7,9 @@ import { PageTitleHeadline } from '../PageTitle/PageTitle.style';
 export const PostSummaryStyle = styled.article`
   max-width: 900px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 `;
 
 export const PostLink = styled(Link)`
@@ -56,6 +59,20 @@ export const PostCoverImage = styled.img`
   height: 400px;
   object-fit: cover;
   width: 100%;
+`;
+
+export const NewPostLabel = styled.div`
+  position: absolute;
+  top: 0;
+  left: -30px;
+  text-transform: uppercase;
+  width: 300px;
+  background: ${th('primary')};
+  color: ${th('white')};
+  text-align: center;
+  padding: ${th('smallGutter')} ${th('gutter')};
+  transform: rotate(-45deg) translate(-25%, -25%);
+  font-weight: 700;
 `;
 
 export const PostCoverImageSource = styled.span`

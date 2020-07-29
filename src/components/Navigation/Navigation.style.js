@@ -51,8 +51,11 @@ export const NavigationSidebarToggler = styled.button`
   background: transparent;
   border: 0;
   cursor: pointer;
-  height: 16px;
+  height: 30px;
   margin: 0 8px 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0;
   position: relative;
   width: 30px;
@@ -61,74 +64,13 @@ export const NavigationSidebarToggler = styled.button`
     outline: none;
   }
 
-  &::before {
-    background: ${th('darkGrey')};
-    border-radius: 1px;
-    content: '';
-    display: block;
-    height: 2px;
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
-
-  &::after {
-    background: ${th('darkGrey')};
-    border-radius: 1px;
-    bottom: 0;
-    content: '';
-    display: block;
-    height: 2px;
-    position: absolute;
-    transition: ${th('coreTiming')};
-    width: 100%;
-  }
-
   &:hover {
-    &::before,
-    &::after {
-      transition: ${th('coreTiming')};
-      width: 70%;
-    }
-  }
-
-  span {
-    background: ${th('darkGrey')};
-    border-radius: 1px;
-    display: block;
-    height: 2px;
-    opacity: 1;
-    transition: ${th('coreTiming')};
-    width: 100%;
+    color: ${th('primary')};
+    transition: all linear ${th('coreTiming')}
   }
 
   &.isSidebarOpen {
-    span {
-      opacity: 0;
-      transition: ${th('coreTiming')};
-    }
-
-    &::before {
-      transform: rotate(45deg);
-      transform-origin: top left;
-      width: 80%;
-    }
-
-    &::after {
-      transform: rotate(-45deg);
-      transform-origin: top right;
-      top: 0;
-      right: 14px;
-      width: 80%;
-    }
-
-    &:hover {
-      &::before,
-      &::after {
-        transition: ${th('coreTiming')};
-        width: 80%;
-      }
-    }
+    color: ${th('primary')};
   }
 `;
 

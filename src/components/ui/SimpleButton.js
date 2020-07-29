@@ -15,3 +15,11 @@ export const SimpleButton = styled(Link)`
     transition: ${th('coreTiming')};
   }
 `;
+
+export const PrimarySimpleButton = styled(SimpleButton)`
+  background: ${th('primary')};
+  color: ${th('white')};
+  padding: ${th('smallGutter')} ${th('gutter')};
+  border-radius: ${th('borderRadius')};
+  align-self: flex-end;
+`;

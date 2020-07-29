@@ -15,19 +15,21 @@ import {
 import PostCover from './PostCover';
 import FromMarkdown from '../FromMarkdown/FromMarkdown';
 
-import { SimpleButton } from '../ui/SimpleButton';
+import { PrimarySimpleButton } from '../ui/SimpleButton';
 import { MeContext } from '../../meContext';
 
 const PostSummary = ({ post }) => {
   const { t } = useTranslation();
   const me = useContext(MeContext);
 
+  const daysFromToday = moment().diff(post.creationDate, 'days');
+
   return (
     <PostSummaryStyle>
       <PostLink to={`blog/${post.slug}`}>
         <PostTitle>{post.title}</PostTitle>
       </PostLink>
-      <PostCover coverImage={post.coverImage} />
+      <PostCover daysFromToday={daysFromToday} coverImage={post.coverImage} />
       <PostMeta>
         <PostAuthorImage
           src={`https://www.gravatar.com/avatar/${me.avatar.hash}?s=40`}
@@ -44,9 +46,9 @@ const PostSummary = ({ post }) => {
       <PostExcerpt>
         <FromMarkdown text={post.excerpt || ''} />
       </PostExcerpt>
-      <SimpleButton to={`blog/${post.slug}`}>
+      <PrimarySimpleButton to={`blog/${post.slug}`}>
         {t('PAGES.POST.READ_MORE')}
-      </SimpleButton>
+      </PrimarySimpleButton>
     </PostSummaryStyle>
   );
 };

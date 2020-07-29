@@ -1,27 +1,29 @@
 import React from 'react';
-import { PostCoverImage, PostCoverImageSource } from './Post.style';
+import { NewPostLabel, PostCoverImage, PostCoverImageSource } from './Post.style';
 
-import { Figure, Figcaption } from '../ui/Figure';
+import { Figcaption, OverflowFigure } from '../ui/Figure';
 import { ExternalLink } from '../ui/ExternalLink';
 import { useTranslation } from 'react-i18next';
 
 const PostCover = ({
   coverImage: { url, name, author, authorUrl, source, sourceUrl },
+                     daysFromToday
 }) => {
   const { t } = useTranslation();
   return (
-    <Figure>
+    <OverflowFigure>
       <PostCoverImage
         src={url}
-        alt={`${name} ${t('PAGES.POST.COVER_THUMBNAL.BY_WHOM')} ${author}`}
+        alt={`${name} ${t('PAGES.POST.COVER_THUMBNAIL.BY_WHOM')} ${author}`}
       />
+      {daysFromToday < 3 && <NewPostLabel>{t('PAGES.POST.COVER_THUMBNAIL.NEW')}</NewPostLabel> }
       <PostCoverImageSource>from {source}</PostCoverImageSource>
       <Figcaption>
         <ExternalLink href={sourceUrl}>{name}</ExternalLink>
-        &nbsp;{t('PAGES.POST.COVER_THUMBNAL.BY_WHOM')}&nbsp;
+        &nbsp;{t('PAGES.POST.COVER_THUMBNAIL.BY_WHOM')}&nbsp;
         <ExternalLink href={authorUrl}>{author}</ExternalLink>
       </Figcaption>
-    </Figure>
+    </OverflowFigure>
   );
 };
 
