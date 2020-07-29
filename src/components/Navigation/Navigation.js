@@ -9,6 +9,8 @@ import {
   LanguageSelector,
 } from './Navigation.style';
 import { Grid, Row, Col } from '@smooth-ui/core-sc';
+import { faFingerprint } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Navigation = ({ sidebarToggler, isSidebarOpen }) => {
   const { t } = useTranslation();
@@ -44,11 +46,12 @@ const Navigation = ({ sidebarToggler, isSidebarOpen }) => {
                 <option value="pl">{t('GENERAL.LANGUAGES.PL')}</option>
                 <option value="en">{t('GENERAL.LANGUAGES.EN')}</option>
               </LanguageSelector>
+
               <NavigationSidebarToggler
                 onClick={() => sidebarToggler(!isSidebarOpen)}
                 className={isSidebarOpen && 'isSidebarOpen'}
               >
-                <span />
+                <FontAwesomeIcon icon={faFingerprint} size="2x"/>
               </NavigationSidebarToggler>
             </Row>
           </Col>

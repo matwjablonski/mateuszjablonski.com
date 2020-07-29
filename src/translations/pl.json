@@ -74,8 +74,9 @@
       "TITLE": "Słownik"
     },
     "POST": {
-      "COVER_THUMBNAL": {
-        "BY_WHOM": "przez"
+      "COVER_THUMBNAIL": {
+        "BY_WHOM": "przez",
+        "NEW": "Nowość"
       },
       "READ_MORE": "Czytaj dalej",
       "ADDITIONAL_MATERIALS": "Materiały dodatkowe",

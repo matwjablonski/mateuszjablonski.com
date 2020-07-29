@@ -70,8 +70,9 @@
       "TITLE": "404 Error"
     },
     "POST": {
-      "COVER_THUMBNAL": {
-        "BY_WHOM": "by"
+      "COVER_THUMBNAIL": {
+        "BY_WHOM": "by",
+        "NEW": "New"
       },
       "READ_MORE": "Read more",
       "ADDITIONAL_MATERIALS": "Materiały dodatkowe",
