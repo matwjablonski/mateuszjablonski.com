@@ -14,6 +14,8 @@ import { UserProvider, unloggedUser } from './userContext';
 import UserBar from './components/UserBar/UserBar';
 import { MeProvider } from './meContext';
 import { auth } from './firebase';
+import { defaultNotification, NotificationProvider } from './notificationContext';
+import { Notification } from './components/Notification/Notification';
 
 const Home = React.lazy(() => import('./pages/Home'));
 const Learn = React.lazy(() => import('./pages/Learn'));
@@ -35,6 +37,7 @@ function App() {
   const [me, setMe] = useState(null);
   const [isSidebarOpen, toggleSidebar] = useState(false);
   const [user, setUser] = useState(unloggedUser);
+  const [notification, setNotification] = useState(defaultNotification);
 
   const sidebarRef = useRef(null);
 
@@ -63,64 +66,67 @@ function App() {
 
   return (
     <UserProvider value={{ user, setUser }}>
-      <div className={isSidebarOpen ? 'sidebarOpen' : 'sidebarClose'}>
-        <BrowserRouter>
-          <MeProvider value={me}>
-            <Normalize />
-            <UserBar />
-            <Grid>
-              <Avatar size={400} />
-            </Grid>
-            <SocialBar />
-            <Navigation
-              sidebarToggler={toggleSidebar}
-              isSidebarOpen={isSidebarOpen}
-            />
-            <div ref={sidebarRef}>
-              {me && <Sidebar isOpen={isSidebarOpen} />}
-            </div>
-            <Grid>
-              <PageWrapper>
-                <Switch>
-                  <Route path="/" exact component={Home} />
-                  <Route path="/nauka-programowania" exact component={Learn} />
-                  <Route path="/admin" exact component={Dashboard} />
-                  <Route path="/admin/posts/new" exact component={NewPost} />
-                  <Route
-                    path="/admin/glossary/new"
-                    exact
-                    component={NewGlossary}
-                  />
-                  <Route path="/admin/users" exact component={UsersList} />
-                  <Route
-                    path="/admin/users/:type"
-                    exact
-                    component={UsersList}
-                  />
-                  <Route
-                    path="/admin/users/:id/:action"
-                    exact
-                    component={User}
-                  />
-                  <Route path="/blog" exact component={Blog} />
-                  <Route path="/blog/:slug" component={BlogPost} />
-                  <Route path="/panel" exact component={Dashboard} />
-                  <Route
-                    path="/panel/moje-spotkania"
-                    exact
-                    component={MyMeetings}
-                  />
-                  <Route path="/kontakt" exact component={Contact} />
-                  <Route path="/p/:slug" exact component={Page} />
-                  <Route path="/slownik" exact component={Glossary} />
-                  <Route component={Error404} />
-                </Switch>
-              </PageWrapper>
-            </Grid>
-            <Footer />
-          </MeProvider>
-        </BrowserRouter>
-      </div>
+      <NotificationProvider value={{ notification, setNotification }}>
+        <Notification />
+        <div className={isSidebarOpen ? 'sidebarOpen' : 'sidebarClose'}>
+          <BrowserRouter>
+            <MeProvider value={me}>
+              <Normalize/>
+              <UserBar/>
+              <Grid>
+                <Avatar size={400}/>
+              </Grid>
+              <SocialBar/>
+              <Navigation
+                sidebarToggler={toggleSidebar}
+                isSidebarOpen={isSidebarOpen}
+              />
+              <div ref={sidebarRef}>
+                {me && <Sidebar isOpen={isSidebarOpen}/>}
+              </div>
+              <Grid>
+                <PageWrapper>
+                  <Switch>
+                    <Route path="/" exact component={Home}/>
+                    <Route path="/nauka-programowania" exact component={Learn}/>
+                    <Route path="/admin" exact component={Dashboard}/>
+                    <Route path="/admin/posts/new" exact component={NewPost}/>
+                    <Route
+                      path="/admin/glossary/new"
+                      exact
+                      component={NewGlossary}
+                    />
+                    <Route path="/admin/users" exact component={UsersList}/>
+                    <Route
+                      path="/admin/users/:type"
+                      exact
+                      component={UsersList}
+                    />
+                    <Route
+                      path="/admin/users/:id/:action"
+                      exact
+                      component={User}
+                    />
+                    <Route path="/blog" exact component={Blog}/>
+                    <Route path="/blog/:slug" component={BlogPost}/>
+                    <Route path="/panel" exact component={Dashboard}/>
+                    <Route
+                      path="/panel/moje-spotkania"
+                      exact
+                      component={MyMeetings}
+                    />
+                    <Route path="/kontakt" exact component={Contact}/>
+                    <Route path="/p/:slug" exact component={Page}/>
+                    <Route path="/slownik" exact component={Glossary}/>
+                    <Route component={Error404}/>
+                  </Switch>
+                </PageWrapper>
+              </Grid>
+              <Footer/>
+            </MeProvider>
+          </BrowserRouter>
+        </div>
+      </NotificationProvider>
     </UserProvider>
   );
 }

@@ -109,11 +109,19 @@ export const requestCollectionBy = (collection, by = { limit: 5 }) => {
 };
 
 export const request = (url, data, authKey) => {
-  console.log(url, data, authKey);
-  const headers = {
-    'Content-Type': 'application/json',
-    'Authorization': `apikey ${authKey}`,
-  };
+  return new Promise((resolve, reject) => {
+    const headers = {
+      'Content-Type': 'application/json',
+      'Authorization': `apikey ${authKey}`,
+    };
 
-  return axios.post(cors + url, data, { headers: headers })
+    axios
+      .post(cors + url, data, { headers: headers })
+      .then(res => {
+        resolve(res);
+      })
+      .catch(err => {
+        reject(err);
+      });
+  })
 };

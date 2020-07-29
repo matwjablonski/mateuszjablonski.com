@@ -2,6 +2,10 @@ const theme = {
   white: '#fff',
   primary: '#FF374A',
 
+  error: '#FF374A',
+  success: '#15B06C',
+  warning: '#FF9345',
+
   lighterGrey: '#eee',
   lightGrey: '#cacaca',
   darkGrey: '#525252',
