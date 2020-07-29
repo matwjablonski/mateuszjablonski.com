@@ -21,5 +21,4 @@ export const PrimarySimpleButton = styled(SimpleButton)`
   color: ${th('white')};
   padding: ${th('smallGutter')} ${th('gutter')};
   border-radius: ${th('borderRadius')};
-  align-self: flex-end;
 `;
