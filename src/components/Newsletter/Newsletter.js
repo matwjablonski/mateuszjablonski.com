@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Formik } from 'formik';
 import { Button, Input } from '@smooth-ui/core-sc';
 import { useTranslation } from 'react-i18next';
@@ -6,9 +6,11 @@ import { NewsletterBox } from './Newsletter.style';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { request } from '../../helpers/request';
+import { NotificationContext } from '../../notificationContext';
 
 const Newsletter = () => {
   const { t } = useTranslation();
+  const notification = useContext(NotificationContext);
 
   const handleSubscribe = ({ email }) => {
     const {
@@ -21,13 +23,19 @@ const Newsletter = () => {
       url,
       { email_address: email, status: 'subscribed' },
       REACT_APP_MAILCHIMP_API_KEY,
-    )
-      .then(res => {
-        console.log(res);
+    ).then(
+      _ => {
+        notification.setNotification({
+          status: 'success',
+          message: `${email} został zapisany poprawnie`
+        });
+      }
+    ).catch(err => {
+      notification.setNotification({
+        status: 'error',
+        message: `Nie można zapisać adresu ${email}`
       })
-      .catch(err => {
-        console.error(err);
-      });
+    });
   };
 
   return (
