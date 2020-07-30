@@ -65,7 +65,9 @@
   },
   "PAGES": {
     "HOME": {
-      "NEXT_POST": "Następny wpis za"
+      "NEXT_POST": "Następny wpis",
+      "IN": "za",
+      "TODAY": "dzisiaj"
     },
     "404": {
       "TITLE": "Błąd 404"

@@ -15,7 +15,8 @@ const NextPostTimer = () => {
   return (
     <NextPostTimerBox>
       <NextPostTimerTitle>
-        {t('PAGES.HOME.NEXT_POST')} <span>{dayToPublish === 0 ? 'dzisiaj' : `${dayToPublish} dni`}</span>
+        {t('PAGES.HOME.NEXT_POST')}
+        <span>{dayToPublish === 0 ? ` ${t('PAGES.HOME.TODAY')}` : ` ${t('PAGES.HOME.IN')} ${dayToPublish} dni`}</span>
       </NextPostTimerTitle>
     </NextPostTimerBox>
   );
