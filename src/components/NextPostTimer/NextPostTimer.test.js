@@ -49,7 +49,7 @@ describe('NextPostTimer component', () => {
     Date.now = jest.fn(() => 1595529384000); // Thursday 23.07.2020
     component = shallow(<NextPostTimer/>);
 
-    expect(component.find(NextPostTimerTitle).text()).toContain('dzisiaj')
+    expect(component.find(NextPostTimerTitle).text()).toContain('PAGES.HOME.TODAY')
   });
 
   it('should show 6 days to next publishing when it is Friday', () => {

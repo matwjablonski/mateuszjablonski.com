@@ -1,6 +1,8 @@
 {
   "GENERAL": {
-    "HEADER": {},
+    "HEADER": {
+      "DESCRIPTION": "Blog - Programming - Learning - Development"
+    },
     "FOOTER": {
       "LAST_ON_BLOG": "Latest articles",
       "COPY": "© 2019 Mateusz Jabłoński",
@@ -64,7 +66,9 @@
   },
   "PAGES": {
     "HOME": {
-      "NEXT_POST": "Next post in"
+      "NEXT_POST": "Next post",
+      "IN": "in",
+      "TODAY": "today"
     },
     "404": {
       "TITLE": "404 Error"

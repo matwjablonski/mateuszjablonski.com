@@ -3,6 +3,7 @@ import { th } from '@smooth-ui/core-sc';
 
 export const NextPostTimerBox = styled.div`
   background: url("/images/timer.png");
+  background-position: center;
   background-size: cover;
   border-radius: ${th('borderRadius')};
   border: 1px solid ${th('lighterGrey')};
