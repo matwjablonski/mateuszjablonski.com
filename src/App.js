@@ -16,6 +16,7 @@ import { MeProvider } from './meContext';
 import { auth } from './firebase';
 import { defaultNotification, NotificationProvider } from './notificationContext';
 import { Notification } from './components/Notification/Notification';
+import BlogDescription from './components/BlogDescription/BlogDescription';
 
 const Home = React.lazy(() => import('./pages/Home'));
 const Learn = React.lazy(() => import('./pages/Learn'));
@@ -75,6 +76,7 @@ function App() {
               <UserBar/>
               <Grid>
                 <Avatar size={400}/>
+                <BlogDescription/>
               </Grid>
               <SocialBar/>
               <Navigation

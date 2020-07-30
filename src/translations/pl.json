@@ -1,7 +1,9 @@
 {
   "ABC": "slownik",
   "GENERAL": {
-    "HEADER": {},
+    "HEADER": {
+      "DESCRIPTION": "Blog - Programowanie - Nauka - Rozwój"
+    },
     "FOOTER": {
       "LAST_ON_BLOG": "Ostatnio na blogu",
       "COPY": "© 2019 Mateusz Jabłoński",

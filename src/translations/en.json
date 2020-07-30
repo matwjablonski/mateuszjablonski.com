@@ -1,6 +1,8 @@
 {
   "GENERAL": {
-    "HEADER": {},
+    "HEADER": {
+      "DESCRIPTION": "Blog - Programming - Learning - Development"
+    },
     "FOOTER": {
       "LAST_ON_BLOG": "Latest articles",
       "COPY": "© 2019 Mateusz Jabłoński",
